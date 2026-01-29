@@ -106,6 +106,15 @@
     .animate-marquee {
       animation: marquee 25s linear infinite;
     }
+
+    @keyframes marqueeCards {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-100% - 20px)); }
+    }
+    .animate-marquee-cards {
+      animation: marqueeCards 35s linear infinite;
+    }
+    .group:hover .animate-marquee-cards { animation-play-state: paused; }
   </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -322,192 +331,191 @@
         </p>
       </div>
 
-      <!-- Scrolling UI Cards -->
-      <div class="w-full h-[500px] lg:h-[600px] overflow-hidden relative group [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 h-full">
+      <!-- Horizontal Scrolling Cards -->
+      <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0,black_80px,black_calc(100%-80px),transparent_100%)] group flex">
+        <div class="flex min-w-full shrink-0 animate-marquee-cards gap-5 py-2 pl-5">
+          <!-- Card 1: Spend Analysis -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="w-10 h-10 rounded-full bg-violet-50 flex items-center justify-center text-violet-600 mb-1">
+              <iconify-icon icon="solar:chart-2-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Onde tá indo meu dinheiro?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Zen analisa todas as suas contas, categoriza cada gasto e mostra onde seu dinheiro tá escapando. <span class="text-aizen-charcoal font-medium">Sem planilha.</span></p>
+            </div>
+            <div class="flex gap-1 mt-2">
+              <div class="h-1.5 flex-1 rounded-full bg-violet-100"></div>
+              <div class="h-1.5 w-8 rounded-full bg-violet-500"></div>
+              <div class="h-1.5 w-4 rounded-full bg-violet-200"></div>
+            </div>
+          </div>
 
-            <!-- Column 1: Scroll Up -->
-            <div class="animate-scroll-up flex flex-col gap-5">
-              <!-- Card 1: Spend Analysis -->
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="w-10 h-10 rounded-full bg-violet-50 flex items-center justify-center text-violet-600 mb-1">
-                  <iconify-icon icon="solar:chart-2-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Onde tá indo meu dinheiro?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Zen analisa todas as suas contas, categoriza cada gasto e mostra onde seu dinheiro tá escapando. <span class="text-aizen-charcoal font-medium">Sem planilha.</span></p>
-                </div>
-                <div class="flex gap-1 mt-2">
-                  <div class="h-1.5 flex-1 rounded-full bg-violet-100"></div>
-                  <div class="h-1.5 w-8 rounded-full bg-violet-500"></div>
-                  <div class="h-1.5 w-4 rounded-full bg-violet-200"></div>
-                </div>
+          <!-- Card 2: Debt -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="flex justify-between items-start">
+              <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-1">
+                <iconify-icon icon="solar:lock-unlocked-linear" width="20"></iconify-icon>
               </div>
+              <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2 py-1 rounded-full">-R$ 4.000/ano</span>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Como eu saio das dívidas?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Encontra portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar juros abusivos.</p>
+            </div>
+          </div>
 
-              <!-- Card 3: Credit -->
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-1">
-                  <iconify-icon icon="solar:card-search-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Qual o melhor crédito?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem consultar um por um.</p>
-                </div>
-                <div class="flex items-center gap-2 mt-1">
-                  <div class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-semibold uppercase tracking-wide rounded-md">Recomendado</div>
-                  <div class="px-2 py-1 bg-aizen-cream text-aizen-charcoal/40 text-[10px] font-medium uppercase tracking-wide rounded-md">Outros</div>
-                </div>
+          <!-- Card 3: Credit -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-1">
+              <iconify-icon icon="solar:card-search-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Qual o melhor crédito?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem consultar um por um.</p>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-semibold uppercase tracking-wide rounded-md">Recomendado</div>
+              <div class="px-2 py-1 bg-aizen-cream text-aizen-charcoal/40 text-[10px] font-medium uppercase tracking-wide rounded-md">Outros</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Audit -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 mb-1">
+              <iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Tô sendo cobrado certo?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. <span class="bg-amber-50 text-amber-700 px-1 rounded">Bancos erram</span> mais do que você imagina.</p>
+            </div>
+          </div>
+
+          <!-- Card 5: Purchase -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="flex justify-between items-start">
+              <div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 mb-1">
+                <iconify-icon icon="solar:bag-check-linear" width="20"></iconify-icon>
               </div>
-
-              <!-- Card 5: Purchase -->
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="flex justify-between items-start">
-                  <div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 mb-1">
-                    <iconify-icon icon="solar:bag-check-linear" width="20"></iconify-icon>
-                  </div>
-                  <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center">
-                    <iconify-icon icon="solar:check-circle-linear" width="14"></iconify-icon>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Posso comprar isso?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada.</p>
-                </div>
-              </div>
-
-              <!-- Duplicates for loop -->
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="w-10 h-10 rounded-full bg-violet-50 flex items-center justify-center text-violet-600 mb-1">
-                  <iconify-icon icon="solar:chart-2-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Onde tá indo meu dinheiro?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Zen analisa todas as suas contas, categoriza cada gasto e mostra onde seu dinheiro tá escapando. <span class="text-aizen-charcoal font-medium">Sem planilha.</span></p>
-                </div>
-                <div class="flex gap-1 mt-2">
-                  <div class="h-1.5 flex-1 rounded-full bg-violet-100"></div>
-                  <div class="h-1.5 w-8 rounded-full bg-violet-500"></div>
-                  <div class="h-1.5 w-4 rounded-full bg-violet-200"></div>
-                </div>
-              </div>
-
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-1">
-                  <iconify-icon icon="solar:card-search-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Qual o melhor crédito?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem consultar um por um.</p>
-                </div>
-                <div class="flex items-center gap-2 mt-1">
-                  <div class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-semibold uppercase tracking-wide rounded-md">Recomendado</div>
-                  <div class="px-2 py-1 bg-aizen-cream text-aizen-charcoal/40 text-[10px] font-medium uppercase tracking-wide rounded-md">Outros</div>
-                </div>
-              </div>
-
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="flex justify-between items-start">
-                  <div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 mb-1">
-                    <iconify-icon icon="solar:bag-check-linear" width="20"></iconify-icon>
-                  </div>
-                  <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center">
-                    <iconify-icon icon="solar:check-circle-linear" width="14"></iconify-icon>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Posso comprar isso?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada.</p>
-                </div>
+              <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center">
+                <iconify-icon icon="solar:check-circle-linear" width="14"></iconify-icon>
               </div>
             </div>
-
-            <!-- Column 2: Scroll Down -->
-            <div class="animate-scroll-down flex flex-col gap-5">
-              <!-- Card 2: Debt -->
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="flex justify-between items-start">
-                  <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-1">
-                    <iconify-icon icon="solar:lock-unlocked-linear" width="20"></iconify-icon>
-                  </div>
-                  <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2 py-1 rounded-full">-R$ 4.000/ano</span>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Como eu saio das dívidas?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Encontra portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar juros abusivos.</p>
-                </div>
-              </div>
-
-              <!-- Card 4: Audit -->
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 mb-1">
-                  <iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Tô sendo cobrado certo?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. <span class="bg-amber-50 text-amber-700 px-1 rounded">Bancos erram</span> mais do que você imagina.</p>
-                </div>
-              </div>
-
-              <!-- Card 6: Mental Health (Blue) -->
-              <div class="bg-aizen-blue p-5 rounded-2xl shadow-[0px_8px_24px_rgba(38,120,255,0.25)] flex flex-col gap-3 text-white">
-                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white mb-1">
-                  <iconify-icon icon="solar:heart-pulse-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-white leading-snug">Tô pirando com as contas.</h3>
-                  <p class="text-sm text-white/90 mt-2 leading-relaxed">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental.</p>
-                </div>
-                <div class="mt-2 flex items-center gap-2">
-                  <div class="h-8 w-8 rounded-full border border-white/20 bg-white/10 flex items-center justify-center">
-                    <iconify-icon icon="solar:chat-round-dots-linear" width="14"></iconify-icon>
-                  </div>
-                  <span class="text-xs text-white font-medium">Falar com especialista</span>
-                </div>
-              </div>
-
-              <!-- Duplicates for loop -->
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="flex justify-between items-start">
-                  <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-1">
-                    <iconify-icon icon="solar:lock-unlocked-linear" width="20"></iconify-icon>
-                  </div>
-                  <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2 py-1 rounded-full">-R$ 4.000/ano</span>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Como eu saio das dívidas?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Encontra portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar juros abusivos.</p>
-                </div>
-              </div>
-
-              <div class="bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
-                <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 mb-1">
-                  <iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Tô sendo cobrado certo?</h3>
-                  <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. <span class="bg-amber-50 text-amber-700 px-1 rounded">Bancos erram</span> mais do que você imagina.</p>
-                </div>
-              </div>
-
-              <div class="bg-aizen-blue p-5 rounded-2xl shadow-[0px_8px_24px_rgba(38,120,255,0.25)] flex flex-col gap-3 text-white">
-                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white mb-1">
-                  <iconify-icon icon="solar:heart-pulse-linear" width="20"></iconify-icon>
-                </div>
-                <div>
-                  <h3 class="text-base font-semibold tracking-tight text-white leading-snug">Tô pirando com as contas.</h3>
-                  <p class="text-sm text-white/90 mt-2 leading-relaxed">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental.</p>
-                </div>
-                <div class="mt-2 flex items-center gap-2">
-                  <div class="h-8 w-8 rounded-full border border-white/20 bg-white/10 flex items-center justify-center">
-                    <iconify-icon icon="solar:chat-round-dots-linear" width="14"></iconify-icon>
-                  </div>
-                  <span class="text-xs text-white font-medium">Falar com especialista</span>
-                </div>
-              </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Posso comprar isso?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada.</p>
             </div>
+          </div>
 
+          <!-- Card 6: Mental Health (Blue) -->
+          <div class="w-[320px] shrink-0 bg-aizen-blue p-5 rounded-2xl shadow-[0px_8px_24px_rgba(38,120,255,0.25)] flex flex-col gap-3 text-white">
+            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white mb-1">
+              <iconify-icon icon="solar:heart-pulse-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-white leading-snug">Tô pirando com as contas.</h3>
+              <p class="text-sm text-white/90 mt-2 leading-relaxed">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental.</p>
+            </div>
+            <div class="mt-2 flex items-center gap-2">
+              <div class="h-8 w-8 rounded-full border border-white/20 bg-white/10 flex items-center justify-center">
+                <iconify-icon icon="solar:chat-round-dots-linear" width="14"></iconify-icon>
+              </div>
+              <span class="text-xs text-white font-medium">Falar com especialista</span>
+            </div>
           </div>
         </div>
+
+        <!-- Duplicate set for seamless loop -->
+        <div class="flex min-w-full shrink-0 animate-marquee-cards gap-5 py-2 pl-5" aria-hidden="true">
+          <!-- Card 1 -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="w-10 h-10 rounded-full bg-violet-50 flex items-center justify-center text-violet-600 mb-1">
+              <iconify-icon icon="solar:chart-2-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Onde tá indo meu dinheiro?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Zen analisa todas as suas contas, categoriza cada gasto e mostra onde seu dinheiro tá escapando. <span class="text-aizen-charcoal font-medium">Sem planilha.</span></p>
+            </div>
+            <div class="flex gap-1 mt-2">
+              <div class="h-1.5 flex-1 rounded-full bg-violet-100"></div>
+              <div class="h-1.5 w-8 rounded-full bg-violet-500"></div>
+              <div class="h-1.5 w-4 rounded-full bg-violet-200"></div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="flex justify-between items-start">
+              <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-1">
+                <iconify-icon icon="solar:lock-unlocked-linear" width="20"></iconify-icon>
+              </div>
+              <span class="bg-emerald-50 text-emerald-700 text-[10px] font-semibold px-2 py-1 rounded-full">-R$ 4.000/ano</span>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Como eu saio das dívidas?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Encontra portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar juros abusivos.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-1">
+              <iconify-icon icon="solar:card-search-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Qual o melhor crédito?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem consultar um por um.</p>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-semibold uppercase tracking-wide rounded-md">Recomendado</div>
+              <div class="px-2 py-1 bg-aizen-cream text-aizen-charcoal/40 text-[10px] font-medium uppercase tracking-wide rounded-md">Outros</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 mb-1">
+              <iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Tô sendo cobrado certo?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. <span class="bg-amber-50 text-amber-700 px-1 rounded">Bancos erram</span> mais do que você imagina.</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="w-[320px] shrink-0 bg-white p-5 rounded-2xl border border-aizen-charcoal/10 shadow-[0px_2px_8px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+            <div class="flex justify-between items-start">
+              <div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 mb-1">
+                <iconify-icon icon="solar:bag-check-linear" width="20"></iconify-icon>
+              </div>
+              <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center">
+                <iconify-icon icon="solar:check-circle-linear" width="14"></iconify-icon>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-aizen-charcoal leading-snug">Posso comprar isso?</h3>
+              <p class="text-sm text-aizen-charcoal/50 mt-2 leading-relaxed">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada.</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="w-[320px] shrink-0 bg-aizen-blue p-5 rounded-2xl shadow-[0px_8px_24px_rgba(38,120,255,0.25)] flex flex-col gap-3 text-white">
+            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white mb-1">
+              <iconify-icon icon="solar:heart-pulse-linear" width="20"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold tracking-tight text-white leading-snug">Tô pirando com as contas.</h3>
+              <p class="text-sm text-white/90 mt-2 leading-relaxed">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental.</p>
+            </div>
+            <div class="mt-2 flex items-center gap-2">
+              <div class="h-8 w-8 rounded-full border border-white/20 bg-white/10 flex items-center justify-center">
+                <iconify-icon icon="solar:chat-round-dots-linear" width="14"></iconify-icon>
+              </div>
+              <span class="text-xs text-white font-medium">Falar com especialista</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
