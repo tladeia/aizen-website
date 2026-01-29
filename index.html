@@ -310,25 +310,6 @@
           Do caos financeiro pro controle total. Zen faz o trabalho pesado pra você.
         </p>
 
-        <!-- Counter & Next Button -->
-        <div class="flex items-center gap-4">
-          <button id="sobre-next" class="group flex items-center gap-3 bg-white border border-aizen-charcoal/10 rounded-full py-3 px-6 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-300">
-            <span class="text-sm font-semibold text-aizen-charcoal" id="sobre-label">Análise de gastos</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-aizen-blue group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </button>
-          <span class="text-xs text-aizen-charcoal/30 font-bold" id="sobre-counter">1 / 6</span>
-        </div>
-
-        <!-- Dots -->
-        <div class="flex gap-2 mt-6" id="sobre-dots">
-          <button class="sobre-dot w-8 h-1 rounded-full bg-aizen-blue transition-all duration-300" data-index="0"></button>
-          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="1"></button>
-          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="2"></button>
-          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="3"></button>
-          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="4"></button>
-          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="5"></button>
-        </div>
-
         <!-- About Text -->
         <div class="mt-10 border-t border-aizen-charcoal/10 pt-8">
           <p class="text-aizen-charcoal/60 text-sm leading-relaxed max-w-sm mb-4">
@@ -765,15 +746,9 @@
       });
     });
 
-    // Sobre Card Carousel
+    // Sobre Card Carousel (auto-advance)
     const sobreCards = document.querySelectorAll('.sobre-card');
-    const sobreDots = document.querySelectorAll('.sobre-dot');
-    const sobreLabel = document.getElementById('sobre-label');
-    const sobreCounter = document.getElementById('sobre-counter');
-    const sobreNext = document.getElementById('sobre-next');
-    const sobreLabels = ['Análise de gastos', 'Sair das dívidas', 'Melhor crédito', 'Auditoria de cobranças', 'Decisão de compra', 'Bem-estar financeiro'];
     let sobreIndex = 0;
-    let sobreTimer;
 
     function showSobreCard(index) {
       sobreCards.forEach((card, i) => {
@@ -787,38 +762,10 @@
           card.style.pointerEvents = 'none';
         }
       });
-      sobreDots.forEach((dot, i) => {
-        dot.className = i === index
-          ? 'sobre-dot w-8 h-1 rounded-full bg-aizen-blue transition-all duration-300'
-          : 'sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300';
-      });
-      sobreLabel.textContent = sobreLabels[index];
-      sobreCounter.textContent = (index + 1) + ' / 6';
       sobreIndex = index;
     }
 
-    function nextSobreCard() {
-      showSobreCard((sobreIndex + 1) % 6);
-    }
-
-    function resetSobreTimer() {
-      clearInterval(sobreTimer);
-      sobreTimer = setInterval(nextSobreCard, 4000);
-    }
-
-    sobreNext.addEventListener('click', () => {
-      nextSobreCard();
-      resetSobreTimer();
-    });
-
-    sobreDots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        showSobreCard(parseInt(dot.dataset.index));
-        resetSobreTimer();
-      });
-    });
-
-    resetSobreTimer();
+    setInterval(() => { showSobreCard((sobreIndex + 1) % 6); }, 4000);
 
     // Hero Phone Chat Animation
     const chatData = [
