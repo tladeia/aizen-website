@@ -256,17 +256,7 @@
             <!-- Chat -->
             <div class="flex-1 p-3 overflow-hidden relative" id="chat-container" style="background-color: #ECE5DD; background-image: url('assets/wa-doodle.png'); background-size: cover;">
               <div class="flex flex-col gap-2">
-                <!-- Static First Exchange (always visible) -->
-                <div class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm" id="static-user">
-                  <p class="text-slate-800">Pra onde tá indo meu dinheiro?</p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:30</span>
-                </div>
-                <div class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm" id="static-zen">
-                  <p class="text-slate-800"><strong class="text-[#075E54]">Seus gastos em janeiro:</strong><br>🍔 Alimentação: R$ 936<br>🚗 Transporte: R$ 585<br>📱 Assinaturas: R$ 351<br><br><span class="text-aizen-blue font-medium">Achei 3 assinaturas que você não usa.</span></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:30</span>
-                </div>
-
-                <!-- Animated Second Exchange -->
+                <!-- User Message -->
                 <div id="user-msg" class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300">
                   <p class="text-slate-800" id="user-msg-text"></p>
                   <span class="text-[10px] text-slate-400 float-right mt-1" id="user-msg-time"></span>
@@ -827,9 +817,9 @@
     // Hero Phone Chat Animation
     const chatData = [
       {
-        user: "Qual o melhor crédito pra mim?",
-        zen: `<strong class="text-[#075E54]">Melhores taxas pra você:</strong><br>🏆 Melhor: 2.1% a.m.<br>Seu banco: 4.8% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 2.800</span>`,
-        time: "10:32"
+        user: "Pra onde tá indo meu dinheiro?",
+        zen: `<strong class="text-[#075E54]">Seus gastos em janeiro:</strong><br>🍔 Alimentação: R$ 936<br>🚗 Transporte: R$ 585<br>📱 Assinaturas: R$ 351<br><br><span class="text-aizen-blue font-medium">Achei 3 assinaturas que você não usa.</span>`,
+        time: "10:30"
       },
       {
         user: "Como eu saio das dívidas?",
@@ -837,14 +827,19 @@
         time: "10:32"
       },
       {
-        user: "Tô sendo cobrado certo?",
-        zen: `<strong class="text-[#075E54]">Encontrei uma cobrança:</strong><br>Seguro Prestamista: R$ 45/mês<br>Você paga há 8 meses.<br><br><span class="text-aizen-blue font-medium">🚨 Nunca foi contratado por você</span>`,
-        time: "10:32"
-      },
-      {
         user: "Posso comprar esse iPhone?",
         zen: `<strong class="text-[#075E54]">Análise do orçamento:</strong><br>Sobra mensal: R$ 1.200<br>Parcela 12x: R$ 458<br><br><span class="text-aizen-blue font-medium">✅ Cabe, mas vai comprometer 38%</span>`,
-        time: "10:32"
+        time: "10:35"
+      },
+      {
+        user: "Tô sendo cobrado certo?",
+        zen: `<strong class="text-[#075E54]">Encontrei uma cobrança:</strong><br>Seguro Prestamista: R$ 45/mês<br>Você paga há 8 meses.<br><br><span class="text-aizen-blue font-medium">🚨 Nunca foi contratado por você</span>`,
+        time: "10:40"
+      },
+      {
+        user: "Qual o melhor crédito pra mim?",
+        zen: `<strong class="text-[#075E54]">Melhores taxas pra você:</strong><br>🏆 Melhor: 2.1% a.m.<br>Seu banco: 4.8% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 2.800</span>`,
+        time: "10:45"
       }
     ];
 
