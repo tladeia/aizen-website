@@ -84,6 +84,14 @@
 
     .wa-msg-user { background: #DCF8C6; }
     .wa-msg-zen { background: #fff; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
   </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -241,6 +249,47 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Bank Partners Carousel -->
+  <section class="py-8 bg-aizen-cream overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-6 text-center">
+      <p class="text-[10px] font-bold uppercase tracking-widest text-aizen-charcoal/30">Funciona com os principais bancos do Brasil</p>
+    </div>
+
+    <div class="relative flex w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+      <!-- Carousel Group 1 -->
+      <div class="flex min-w-full shrink-0 items-center justify-around animate-marquee gap-12 md:gap-20 px-8">
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NUBANK</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">ITAÚ</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BRADESCO</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">SANTANDER</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BANCO DO BRASIL</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">INTER</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">C6 BANK</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">MERCADO PAGO</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BTG PACTUAL</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">CAIXA</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">PICPAY</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NEON</span>
+      </div>
+
+      <!-- Carousel Group 2 (Duplicate for seamless loop) -->
+      <div class="flex min-w-full shrink-0 items-center justify-around animate-marquee gap-12 md:gap-20 px-8" aria-hidden="true">
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NUBANK</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">ITAÚ</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BRADESCO</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">SANTANDER</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BANCO DO BRASIL</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">INTER</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">C6 BANK</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">MERCADO PAGO</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BTG PACTUAL</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">CAIXA</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">PICPAY</span>
+        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NEON</span>
       </div>
     </div>
   </section>
