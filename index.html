@@ -156,7 +156,7 @@
       </div>
 
       <a href="#hero" class="md:ml-2 group hover:bg-slate-900 uppercase transition-all duration-300 flex items-center gap-2 text-[11px] font-bold text-white tracking-widest bg-aizen-blue rounded-full py-3 px-6">
-        <span>Entrar na lista</span>
+        <span>Testar grátis</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
       </a>
     </div>
@@ -178,13 +178,13 @@
           </h1>
 
           <p class="hero-text text-lg md:text-xl text-slate-500 leading-relaxed font-light opacity-0 max-w-md mb-12">
-            Organiza seus gastos, negocia dívidas e encontra crédito melhor. Tudo automático, direto no WhatsApp.
+            Encontra crédito mais barato pra você, negocia dívidas e organiza seus gastos. Tudo automático, direto no WhatsApp.
           </p>
 
           <form class="hero-text opacity-0 flex flex-col sm:flex-row gap-3 mb-6" id="hero-form">
             <input type="text" placeholder="Seu número de WhatsApp" class="flex-1 px-6 py-4 bg-slate-50 border border-slate-200 rounded-full focus:outline-none focus:border-aizen-blue focus:ring-2 focus:ring-aizen-blue/20 transition-all text-sm font-medium" required>
             <button type="submit" class="group bg-aizen-blue hover:bg-blue-700 transition-colors text-white rounded-full py-4 px-8">
-              <span class="uppercase text-xs font-bold tracking-widest">Entrar na lista</span>
+              <span class="uppercase text-xs font-bold tracking-widest">Testar no WhatsApp</span>
             </button>
           </form>
 
@@ -200,7 +200,7 @@
                 <div class="w-5 h-5 rounded-full bg-emerald-100 border border-white"></div>
                 <div class="w-5 h-5 rounded-full bg-amber-100 border border-white"></div>
               </div>
-              <span>+2.400 na fila</span>
+              <span>+2.400 pessoas já na fila</span>
             </div>
           </div>
         </div>
@@ -256,7 +256,17 @@
             <!-- Chat -->
             <div class="flex-1 p-3 overflow-hidden relative" id="chat-container" style="background-color: #ECE5DD; background-image: url('assets/wa-doodle.png'); background-size: cover;">
               <div class="flex flex-col gap-2">
-                <!-- User Message -->
+                <!-- Static First Exchange (always visible) -->
+                <div class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm" id="static-user">
+                  <p class="text-slate-800">Pra onde tá indo meu dinheiro?</p>
+                  <span class="text-[10px] text-slate-400 float-right mt-1">10:30</span>
+                </div>
+                <div class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm" id="static-zen">
+                  <p class="text-slate-800"><strong class="text-[#075E54]">Seus gastos em janeiro:</strong><br>🍔 Alimentação: R$ 936<br>🚗 Transporte: R$ 585<br>📱 Assinaturas: R$ 351<br><br><span class="text-aizen-blue font-medium">Achei 3 assinaturas que você não usa.</span></p>
+                  <span class="text-[10px] text-slate-400 float-right mt-1">10:30</span>
+                </div>
+
+                <!-- Animated Second Exchange -->
                 <div id="user-msg" class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300">
                   <p class="text-slate-800" id="user-msg-text"></p>
                   <span class="text-[10px] text-slate-400 float-right mt-1" id="user-msg-time"></span>
@@ -817,9 +827,9 @@
     // Hero Phone Chat Animation
     const chatData = [
       {
-        user: "Pra onde tá indo meu dinheiro?",
-        zen: `<strong class="text-[#075E54]">Seus gastos em janeiro:</strong><br>🍔 Alimentação: R$ 936<br>🚗 Transporte: R$ 585<br>📱 Assinaturas: R$ 351<br><br><span class="text-aizen-blue font-medium">Achei 3 assinaturas que você não usa.</span>`,
-        time: "10:30"
+        user: "Qual o melhor crédito pra mim?",
+        zen: `<strong class="text-[#075E54]">Melhores taxas pra você:</strong><br>🏆 Melhor: 2.1% a.m.<br>Seu banco: 4.8% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 2.800</span>`,
+        time: "10:32"
       },
       {
         user: "Como eu saio das dívidas?",
@@ -827,19 +837,14 @@
         time: "10:32"
       },
       {
-        user: "Posso comprar esse iPhone?",
-        zen: `<strong class="text-[#075E54]">Análise do orçamento:</strong><br>Sobra mensal: R$ 1.200<br>Parcela 12x: R$ 458<br><br><span class="text-aizen-blue font-medium">✅ Cabe, mas vai comprometer 38%</span>`,
-        time: "10:35"
-      },
-      {
         user: "Tô sendo cobrado certo?",
         zen: `<strong class="text-[#075E54]">Encontrei uma cobrança:</strong><br>Seguro Prestamista: R$ 45/mês<br>Você paga há 8 meses.<br><br><span class="text-aizen-blue font-medium">🚨 Nunca foi contratado por você</span>`,
-        time: "10:40"
+        time: "10:32"
       },
       {
-        user: "Qual o melhor crédito pra mim?",
-        zen: `<strong class="text-[#075E54]">Melhores taxas pra você:</strong><br>🏆 Melhor: 2.1% a.m.<br>Seu banco: 4.8% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 2.800</span>`,
-        time: "10:45"
+        user: "Posso comprar esse iPhone?",
+        zen: `<strong class="text-[#075E54]">Análise do orçamento:</strong><br>Sobra mensal: R$ 1.200<br>Parcela 12x: R$ 458<br><br><span class="text-aizen-blue font-medium">✅ Cabe, mas vai comprometer 38%</span>`,
+        time: "10:32"
       }
     ];
 
