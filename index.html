@@ -122,7 +122,7 @@
   <section class="min-h-screen overflow-hidden w-full relative" id="hero">
     <div class="grid lg:grid-cols-2 min-h-screen w-full h-full">
       <!-- Left: Typography -->
-      <div class="flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-20 order-2 lg:order-1 bg-white z-10">
+      <div class="flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-20 order-2 lg:order-1 bg-aizen-cream z-10">
         <div class="max-w-xl">
           <h1 class="font-semibold text-[13vw] lg:text-[6vw] leading-[1] tracking-tighter text-slate-900 mb-10 text-balance">
             <div class="overflow-hidden pb-2">
@@ -152,109 +152,91 @@
       </div>
 
       <!-- Right: Phone Mockup -->
-      <div class="relative h-[50vh] lg:h-full w-full bg-slate-50 order-1 lg:order-2 overflow-hidden flex items-center justify-center border-l border-slate-100">
+      <div class="relative h-[50vh] lg:h-full w-full bg-white order-1 lg:order-2 overflow-hidden flex items-center justify-center border-l border-aizen-cream">
         <!-- Grid Pattern -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#F4F4F4_1px,transparent_1px),linear-gradient(to_bottom,#F4F4F4_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
 
         <!-- Phone -->
         <div class="hero-card opacity-0 translate-y-10 relative z-10 phone-frame w-[280px] md:w-[320px] h-[560px] md:h-[640px] rounded-[44px] md:rounded-[52px] p-2">
           <div class="w-full h-full bg-[#ECE5DD] rounded-[38px] md:rounded-[46px] overflow-hidden flex flex-col relative">
-            <!-- Dynamic Island -->
-            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-20"></div>
-
-            <!-- WhatsApp Header -->
-            <div class="bg-[#075E54] pt-12 pb-3 px-4 flex items-center gap-3">
-              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-              <div class="w-9 h-9 bg-aizen-blue rounded-full flex items-center justify-center text-white font-bold text-sm">Z</div>
-              <div class="flex-1">
-                <div class="text-white font-medium text-sm">Zen</div>
-                <div class="text-white/70 text-xs">online</div>
+            <!-- iPhone Status Bar -->
+            <div class="bg-[#F0F2F5] pt-3 pb-1 px-5 flex justify-between items-center text-black text-[10px] font-semibold z-10 relative">
+              <span class="text-[11px] font-bold">15:05</span>
+              <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-20"></div>
+              <div class="flex items-center gap-1">
+                <!-- Signal bars -->
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="#000"><rect x="0" y="7" width="2.5" height="3" rx="0.5"/><rect x="3.5" y="5" width="2.5" height="5" rx="0.5"/><rect x="7" y="2.5" width="2.5" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2.5" height="10" rx="0.5"/></svg>
+                <!-- WiFi -->
+                <svg width="12" height="10" viewBox="0 0 24 24" fill="#000"><path d="M1.42 9.09c5.55-5.48 14.6-5.48 20.16 0l-1.43 1.43c-4.77-4.71-12.53-4.71-17.3 0L1.42 9.09zM5.7 13.37c3.44-3.4 9.04-3.4 12.48 0l-1.43 1.43c-2.65-2.62-6.97-2.62-9.62 0L5.7 13.37zM9.98 17.65c1.34-1.32 3.52-1.32 4.86 0L12.42 20l-2.44-2.35z"/></svg>
+                <!-- Battery -->
+                <svg width="20" height="10" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="2" stroke="#000" stroke-width="1" fill="none"/><rect x="2" y="3" width="17" height="6" rx="1" fill="#000"/><rect x="22" y="4" width="2" height="4" rx="0.5" fill="#000"/></svg>
               </div>
             </div>
 
+            <!-- WhatsApp Header -->
+            <div class="bg-[#F0F2F5] pb-2.5 pt-1 px-3 flex items-center gap-2 border-b border-black/5">
+              <!-- Back arrow -->
+              <svg class="w-5 h-5 text-aizen-blue flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              <!-- Avatar -->
+              <div class="w-8 h-8 bg-aizen-blue rounded-full flex items-center justify-center p-1.5 flex-shrink-0">
+                <img src="assets/logos/logomark-white.svg" alt="Zen" class="w-full h-full object-contain">
+              </div>
+              <!-- Name -->
+              <div class="flex-1 min-w-0">
+                <div class="text-black font-medium text-sm">Zen</div>
+                <div class="text-black/40 text-[10px]">toque para info do contato</div>
+              </div>
+              <!-- Video call -->
+              <svg class="w-5 h-5 text-black/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              <!-- Phone call -->
+              <svg class="w-5 h-5 text-black/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+
             <!-- Chat -->
-            <div class="flex-1 p-3 overflow-hidden relative" id="chat-container">
-              <!-- Conversation 1 -->
-              <div class="conversation absolute inset-3 flex flex-col gap-2 opacity-100 transition-opacity duration-500" data-conv="1">
-                <div class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm">
-                  <p class="text-slate-800">Pra onde tá indo meu dinheiro?</p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:30</span>
+            <div class="flex-1 p-3 overflow-hidden relative" id="chat-container" style="background-color: #ECE5DD; background-image: url('assets/wa-doodle.png'); background-size: cover;">
+              <div class="flex flex-col gap-2">
+                <!-- User Message -->
+                <div id="user-msg" class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300">
+                  <p class="text-slate-800" id="user-msg-text"></p>
+                  <span class="text-[10px] text-slate-400 float-right mt-1" id="user-msg-time"></span>
                 </div>
-                <div class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm">
-                  <p class="text-slate-800"><strong class="text-[#075E54]">Seus gastos em janeiro:</strong><br>
-                  🍔 Alimentação: R$ 936<br>
-                  🚗 Transporte: R$ 585<br>
-                  📱 Assinaturas: R$ 351<br><br>
-                  <span class="text-aizen-blue font-medium">Achei 3 assinaturas que você não usa.</span></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:30</span>
+
+                <!-- Typing Indicator -->
+                <div id="typing-indicator" class="wa-msg-zen max-w-[60px] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm opacity-0 transition-opacity duration-300 hidden">
+                  <div class="flex gap-1 items-center">
+                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
+                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
+                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+                  </div>
                 </div>
-              </div>
-              <!-- Conversation 2 -->
-              <div class="conversation absolute inset-3 flex flex-col gap-2 opacity-0 transition-opacity duration-500" data-conv="2">
-                <div class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm">
-                  <p class="text-slate-800">Como eu saio das dívidas?</p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:32</span>
-                </div>
-                <div class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm">
-                  <p class="text-slate-800"><strong class="text-[#075E54]">Achei uma oportunidade:</strong><br>
-                  Taxa atual: 14% a.m.<br>
-                  Portabilidade: 3.9% a.m.<br><br>
-                  <span class="text-aizen-blue font-medium">Economia de R$ 4.100/ano</span></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:32</span>
-                </div>
-              </div>
-              <!-- Conversation 3 -->
-              <div class="conversation absolute inset-3 flex flex-col gap-2 opacity-0 transition-opacity duration-500" data-conv="3">
-                <div class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm">
-                  <p class="text-slate-800">Posso comprar esse iPhone?</p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:35</span>
-                </div>
-                <div class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm">
-                  <p class="text-slate-800"><strong class="text-[#075E54]">Análise do orçamento:</strong><br>
-                  Sobra mensal: R$ 1.200<br>
-                  Parcela 12x: R$ 458<br><br>
-                  <span class="text-aizen-blue font-medium">✅ Cabe, mas vai comprometer 38%</span></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:35</span>
-                </div>
-              </div>
-              <!-- Conversation 4 -->
-              <div class="conversation absolute inset-3 flex flex-col gap-2 opacity-0 transition-opacity duration-500" data-conv="4">
-                <div class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm">
-                  <p class="text-slate-800">Tô sendo cobrado certo?</p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:40</span>
-                </div>
-                <div class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm">
-                  <p class="text-slate-800"><strong class="text-[#075E54]">Encontrei uma cobrança:</strong><br>
-                  Seguro Prestamista: R$ 45/mês<br>
-                  Você paga há 8 meses.<br><br>
-                  <span class="text-aizen-blue font-medium">🚨 Nunca foi contratado por você</span></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:40</span>
-                </div>
-              </div>
-              <!-- Conversation 5 -->
-              <div class="conversation absolute inset-3 flex flex-col gap-2 opacity-0 transition-opacity duration-500" data-conv="5">
-                <div class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm">
-                  <p class="text-slate-800">Qual o melhor crédito pra mim?</p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:45</span>
-                </div>
-                <div class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm">
-                  <p class="text-slate-800"><strong class="text-[#075E54]">Melhores taxas pra você:</strong><br>
-                  🏆 Melhor: 2.1% a.m.<br>
-                  Seu banco: 4.8% a.m.<br><br>
-                  <span class="text-aizen-blue font-medium">Economia de R$ 2.800</span></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1">10:45</span>
+
+                <!-- Zen Response -->
+                <div id="zen-msg" class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300 hidden">
+                  <p class="text-slate-800" id="zen-msg-text"></p>
+                  <span class="text-[10px] text-slate-400 float-right mt-1" id="zen-msg-time"></span>
                 </div>
               </div>
             </div>
 
             <!-- Input Bar -->
-            <div class="bg-[#F0F2F5] p-2 flex items-center gap-2">
-              <div class="flex-1 bg-white rounded-full px-4 py-2 flex items-center gap-2">
-                <span class="text-slate-400 text-sm">Mensagem</span>
+            <div class="bg-[#F0F2F5] px-2 pt-1.5 pb-2 flex items-center gap-1.5">
+              <div class="flex-1 bg-white rounded-full px-3 py-2 flex items-center gap-2">
+                <!-- Emoji icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#8696A0"><circle cx="12" cy="12" r="10" fill="none" stroke="#8696A0" stroke-width="1.5"/><circle cx="8.5" cy="10.5" r="1" fill="#8696A0"/><circle cx="15.5" cy="10.5" r="1" fill="#8696A0"/><path d="M8.5 14.5c0 0 1.5 2 3.5 2s3.5-2 3.5-2" fill="none" stroke="#8696A0" stroke-width="1.2" stroke-linecap="round"/></svg>
+                <span class="text-[#8696A0] text-sm flex-1">Mensagem</span>
+                <!-- Clip icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8696A0" stroke-width="1.8" stroke-linecap="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+                <!-- Camera icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8696A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
               </div>
-              <div class="w-9 h-9 bg-[#00A884] rounded-full flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/></svg>
+              <div class="w-9 h-9 bg-[#00A884] rounded-full flex items-center justify-center flex-shrink-0">
+                <!-- Mic icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
               </div>
+            </div>
+            <!-- Home indicator -->
+            <div class="bg-[#F0F2F5] pb-3 flex justify-center">
+              <div class="w-24 h-1 bg-black/20 rounded-full"></div>
             </div>
           </div>
         </div>
@@ -263,107 +245,105 @@
     </div>
   </section>
 
-  <!-- Features Section (Aizen Dark) -->
-  <section class="py-32 bg-aizen-charcoal text-white relative overflow-hidden" id="sobre">
-    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  <!-- Features Section -->
+  <section class="py-10 bg-aizen-cream relative overflow-hidden" id="sobre">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-aizen-charcoal/10 to-transparent"></div>
 
     <div class="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-      <div class="text-center mb-20 reveal-trigger">
-        <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter mb-6">
+      <div class="text-center mb-12 reveal-trigger">
+        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6">Sobre</span>
+        <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-aizen-charcoal">
           Suas finanças no <span class="text-aizen-blue">piloto automático.</span>
         </h2>
-        <p class="text-lg md:text-xl text-aizen-cream/60 max-w-2xl mx-auto font-light">
+        <p class="text-lg md:text-xl text-aizen-charcoal/60 max-w-2xl mx-auto font-light">
           Do caos financeiro pro controle total. Zen faz o trabalho pesado pra você.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card 1 -->
-        <div class="reveal-trigger group relative bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors duration-500">
-          <div class="w-12 h-12 rounded-2xl bg-aizen-cream/10 border border-aizen-cream/20 flex items-center justify-center mb-6 text-3xl">
+        <div class="reveal-trigger group relative bg-white border border-aizen-charcoal/10 rounded-[2rem] p-8 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
+          <div class="w-12 h-12 rounded-2xl bg-aizen-charcoal/5 border border-aizen-charcoal/10 flex items-center justify-center mb-6 text-3xl">
             💸
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-aizen-cream">Onde tá indo meu dinheiro?</h3>
-          <p class="text-aizen-cream/60 leading-relaxed text-sm">Zen analisa todas as suas contas, categoriza cada gasto e mostra onde seu dinheiro tá escapando. Sem planilha.</p>
+          <h3 class="text-xl font-semibold mb-3 text-aizen-charcoal">Onde tá indo meu dinheiro?</h3>
+          <p class="text-aizen-charcoal/60 leading-relaxed text-sm">Zen analisa todas as suas contas, categoriza cada gasto e mostra onde seu dinheiro tá escapando. Sem planilha.</p>
         </div>
 
         <!-- Card 2 -->
-        <div class="reveal-trigger group relative bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors duration-500">
-          <div class="w-12 h-12 rounded-2xl bg-aizen-cream/10 border border-aizen-cream/20 flex items-center justify-center mb-6 text-3xl">
+        <div class="reveal-trigger group relative bg-white border border-aizen-charcoal/10 rounded-[2rem] p-8 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
+          <div class="w-12 h-12 rounded-2xl bg-aizen-charcoal/5 border border-aizen-charcoal/10 flex items-center justify-center mb-6 text-3xl">
             🔓
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-aizen-cream">Como eu saio das dívidas?</h3>
-          <p class="text-aizen-cream/60 leading-relaxed text-sm">Encontra portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar R$ 4.000 a mais por ano.</p>
+          <h3 class="text-xl font-semibold mb-3 text-aizen-charcoal">Como eu saio das dívidas?</h3>
+          <p class="text-aizen-charcoal/60 leading-relaxed text-sm">Encontra portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar R$ 4.000 a mais por ano.</p>
         </div>
 
         <!-- Card 3 -->
-        <div class="reveal-trigger group relative bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors duration-500">
-          <div class="w-12 h-12 rounded-2xl bg-aizen-cream/10 border border-aizen-cream/20 flex items-center justify-center mb-6 text-3xl">
+        <div class="reveal-trigger group relative bg-white border border-aizen-charcoal/10 rounded-[2rem] p-8 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
+          <div class="w-12 h-12 rounded-2xl bg-aizen-charcoal/5 border border-aizen-charcoal/10 flex items-center justify-center mb-6 text-3xl">
             💳
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-aizen-cream">Qual o melhor crédito?</h3>
-          <p class="text-aizen-cream/60 leading-relaxed text-sm">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem consultar um por um.</p>
+          <h3 class="text-xl font-semibold mb-3 text-aizen-charcoal">Qual o melhor crédito?</h3>
+          <p class="text-aizen-charcoal/60 leading-relaxed text-sm">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem consultar um por um.</p>
         </div>
 
         <!-- Card 4 -->
-        <div class="reveal-trigger group relative bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors duration-500">
-          <div class="w-12 h-12 rounded-2xl bg-aizen-cream/10 border border-aizen-cream/20 flex items-center justify-center mb-6 text-3xl">
+        <div class="reveal-trigger group relative bg-white border border-aizen-charcoal/10 rounded-[2rem] p-8 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
+          <div class="w-12 h-12 rounded-2xl bg-aizen-charcoal/5 border border-aizen-charcoal/10 flex items-center justify-center mb-6 text-3xl">
             🔍
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-aizen-cream">Tô sendo cobrado certo?</h3>
-          <p class="text-aizen-cream/60 leading-relaxed text-sm">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. Bancos erram mais do que você imagina.</p>
+          <h3 class="text-xl font-semibold mb-3 text-aizen-charcoal">Tô sendo cobrado certo?</h3>
+          <p class="text-aizen-charcoal/60 leading-relaxed text-sm">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. Bancos erram mais do que você imagina.</p>
         </div>
 
         <!-- Card 5 -->
-        <div class="reveal-trigger group relative bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors duration-500">
-          <div class="w-12 h-12 rounded-2xl bg-aizen-cream/10 border border-aizen-cream/20 flex items-center justify-center mb-6 text-3xl">
+        <div class="reveal-trigger group relative bg-white border border-aizen-charcoal/10 rounded-[2rem] p-8 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
+          <div class="w-12 h-12 rounded-2xl bg-aizen-charcoal/5 border border-aizen-charcoal/10 flex items-center justify-center mb-6 text-3xl">
             🛒
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-aizen-cream">Posso comprar isso?</h3>
-          <p class="text-aizen-cream/60 leading-relaxed text-sm">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada.</p>
+          <h3 class="text-xl font-semibold mb-3 text-aizen-charcoal">Posso comprar isso?</h3>
+          <p class="text-aizen-charcoal/60 leading-relaxed text-sm">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada.</p>
         </div>
 
         <!-- Card 6 -->
-        <div class="reveal-trigger group relative bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-colors duration-500">
-          <div class="w-12 h-12 rounded-2xl bg-aizen-cream/10 border border-aizen-cream/20 flex items-center justify-center mb-6 text-3xl">
+        <div class="reveal-trigger group relative bg-white border border-aizen-charcoal/10 rounded-[2rem] p-8 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
+          <div class="w-12 h-12 rounded-2xl bg-aizen-charcoal/5 border border-aizen-charcoal/10 flex items-center justify-center mb-6 text-3xl">
             🤝
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-aizen-cream">Tô pirando com as contas.</h3>
-          <p class="text-aizen-cream/60 leading-relaxed text-sm">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental.</p>
+          <h3 class="text-xl font-semibold mb-3 text-aizen-charcoal">Tô pirando com as contas.</h3>
+          <p class="text-aizen-charcoal/60 leading-relaxed text-sm">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Positioning Section -->
-  <section class="py-32 md:py-40 overflow-hidden w-full relative">
-    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1600&auto=format&fit=crop" alt="Financial freedom" class="z-0 w-full h-full object-cover absolute inset-0" loading="lazy">
-    <div class="z-10 backdrop-blur-[2px] bg-slate-950/70 absolute inset-0"></div>
+  <section class="py-10 overflow-hidden w-full relative bg-aizen-cream">
+    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6">Nosso propósito</span>
 
-    <div class="relative z-20 container mx-auto px-6 md:px-12 max-w-7xl">
-      <div class="max-w-3xl">
-        <span class="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/10 text-white text-[10px] uppercase tracking-widest font-bold mb-6 backdrop-blur-sm">Nosso propósito</span>
-
-        <h2 class="text-4xl md:text-6xl lg:text-7xl text-white tracking-tighter font-semibold mb-6">
-          Zen trabalha pra você.<br><span class="text-white/50">(Não pros bancos.)</span>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl text-aizen-charcoal tracking-tighter font-semibold mb-6">
+          Zen trabalha pra você.<br><span class="text-aizen-charcoal/50">(Não pros bancos.)</span>
         </h2>
 
-        <p class="text-lg md:text-xl leading-relaxed font-light text-white/80 max-w-2xl mb-12 text-balance">
+        <p class="text-lg md:text-xl leading-relaxed font-light text-aizen-charcoal/70 max-w-2xl mx-auto mb-12 text-balance">
           Os bancos lucram com a sua confusão. Quanto menos você entende, mais você paga em juros, tarifas e produtos que não precisa. Zen tá do seu lado. Sempre buscando formas de você pagar menos e guardar mais.
         </p>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-white/10 pt-8">
+        <div class="grid grid-cols-3 gap-6 border-t border-aizen-charcoal/10 pt-8">
           <div>
-            <div class="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-1">R$ 1.200</div>
-            <p class="text-xs md:text-sm text-white/60 font-medium uppercase tracking-wide">Economia média/ano</p>
+            <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">R$ 1.200</div>
+            <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide">Economia média/ano</p>
           </div>
           <div>
-            <div class="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-1">24h</div>
-            <p class="text-xs md:text-sm text-white/60 font-medium uppercase tracking-wide">Monitoramento</p>
+            <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">24h</div>
+            <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide">Monitoramento</p>
           </div>
           <div>
-            <div class="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-1">100%</div>
-            <p class="text-xs md:text-sm text-white/60 font-medium uppercase tracking-wide">Grátis</p>
+            <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">100%</div>
+            <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide">Grátis</p>
           </div>
         </div>
       </div>
@@ -371,33 +351,33 @@
   </section>
 
   <!-- How it Works -->
-  <section class="py-32 bg-white" id="como-funciona">
+  <section class="py-10 bg-aizen-cream" id="como-funciona">
     <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-      <div class="text-center mb-20 reveal-trigger">
-        <span class="inline-block py-1 px-3 rounded-full bg-slate-100 border border-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold mb-4">Como funciona</span>
-        <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter text-slate-900 mb-4">É só isso:</h2>
-        <p class="text-lg text-slate-500 font-light">2 minutos pra ativar. Economia pra vida toda.</p>
+      <div class="text-center mb-12 reveal-trigger">
+        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-4">Como funciona</span>
+        <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter text-aizen-charcoal mb-4">É só isso:</h2>
+        <p class="text-lg text-aizen-charcoal/60 font-light">2 minutos pra ativar. Economia pra vida toda.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Step 1 -->
-        <div class="reveal-trigger flex flex-col bg-slate-50 border border-slate-100 rounded-[2rem] p-10 text-center hover:border-green-200 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-500">
+        <div class="reveal-trigger flex flex-col bg-white border border-aizen-charcoal/10 rounded-[2rem] p-10 text-center hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
           <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-green-50 border border-green-100 flex items-center justify-center">
             <svg viewBox="0 0 24 24" fill="#25D366" class="w-8 h-8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </div>
           <span class="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">Passo 1</span>
-          <h3 class="text-xl font-semibold text-slate-900 mb-3">Manda um "oi"</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">Abre o WhatsApp e diz oi. Só isso. Sem app, sem cadastro, sem enrolação.</p>
+          <h3 class="text-xl font-semibold text-aizen-charcoal mb-3">Manda um "oi"</h3>
+          <p class="text-aizen-charcoal/60 text-sm leading-relaxed">Abre o WhatsApp e diz oi. Só isso. Sem app, sem cadastro, sem enrolação.</p>
         </div>
 
         <!-- Step 2 -->
-        <div class="reveal-trigger flex flex-col bg-slate-50 border border-slate-100 rounded-[2rem] p-10 text-center hover:border-aizen-blue/30 hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-500">
+        <div class="reveal-trigger flex flex-col bg-white border border-aizen-charcoal/10 rounded-[2rem] p-10 text-center hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
           <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center">
             <svg viewBox="0 0 24 24" fill="#2678FF" class="w-8 h-8"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
           </div>
           <span class="text-xs font-bold text-aizen-blue uppercase tracking-widest mb-3">Passo 2</span>
-          <h3 class="text-xl font-semibold text-slate-900 mb-3">Conecta seus bancos</h3>
-          <p class="text-slate-500 text-sm leading-relaxed mb-6">30 segundos. Criptografado. Regulado pelo Banco Central.</p>
+          <h3 class="text-xl font-semibold text-aizen-charcoal mb-3">Conecta seus bancos</h3>
+          <p class="text-aizen-charcoal/60 text-sm leading-relaxed mb-6">30 segundos. Criptografado. Regulado pelo Banco Central.</p>
           <div class="flex justify-center gap-2 flex-wrap">
             <div class="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center text-white text-[10px] font-bold">Nu</div>
             <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center text-white text-[10px] font-bold">Itaú</div>
@@ -408,13 +388,13 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="reveal-trigger flex flex-col bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-[2rem] p-10 text-center hover:shadow-xl hover:shadow-green-100/50 transition-all duration-500">
+        <div class="reveal-trigger flex flex-col bg-white border border-aizen-charcoal/10 rounded-[2rem] p-10 text-center hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-500">
           <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-green-100 border border-green-200 flex items-center justify-center">
             <svg viewBox="0 0 24 24" fill="#00C853" class="w-8 h-8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           </div>
           <span class="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">Pronto</span>
-          <h3 class="text-xl font-semibold text-slate-900 mb-3">Você economiza dormindo.</h3>
-          <p class="text-slate-500 text-sm leading-relaxed mb-6">Zen monitora 24h, compara taxas e te avisa quando acha economia.</p>
+          <h3 class="text-xl font-semibold text-aizen-charcoal mb-3">Você economiza dormindo.</h3>
+          <p class="text-aizen-charcoal/60 text-sm leading-relaxed mb-6">Zen monitora 24h, compara taxas e te avisa quando acha economia.</p>
           <div class="inline-flex items-center justify-center gap-2 bg-green-100 border border-green-200 rounded-full py-2 px-4 mx-auto">
             <span class="text-lg">💰</span>
             <span class="text-xs font-semibold text-green-700">R$ 1.200/ano em média</span>
@@ -432,232 +412,13 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="py-32 bg-aizen-charcoal text-white relative overflow-hidden">
-    <div class="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-      <!-- Header -->
-      <div class="mb-12 reveal-trigger">
-        <span class="text-sm font-medium text-aizen-blue">Depoimentos</span>
-        <h2 class="mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
-          Quem usa, economiza.
-        </h2>
-        <div class="mt-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 border-white/10 bg-white/5">
-          <span class="inline-flex items-center -space-x-2">
-            <div class="h-6 w-6 rounded-full ring-2 ring-aizen-charcoal bg-aizen-blue flex items-center justify-center text-white text-[10px] font-bold">C</div>
-            <div class="h-6 w-6 rounded-full ring-2 ring-aizen-charcoal bg-aizen-purple flex items-center justify-center text-white text-[10px] font-bold">M</div>
-            <div class="h-6 w-6 rounded-full ring-2 ring-aizen-charcoal bg-aizen-blue flex items-center justify-center text-white text-[10px] font-bold">A</div>
-            <div class="h-6 w-6 rounded-full ring-2 ring-aizen-charcoal bg-aizen-purple flex items-center justify-center text-white text-[10px] font-bold">R</div>
-          </span>
-          <span class="ml-2 inline-flex items-center gap-1 text-sm text-aizen-cream/70">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.8 5.8 21 7 14.1 2 9.3l7-1L12 2"/></svg>
-            <span class="ml-1">4.9/5</span>
-          </span>
-        </div>
-      </div>
-
-      <style>
-        @keyframes scrollUp {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-33.33%); }
-        }
-        @keyframes scrollDown {
-          0% { transform: translateY(-33.33%); }
-          100% { transform: translateY(0); }
-        }
-        [data-scroll-column="1"] { animation: scrollUp 25s linear infinite; }
-        [data-scroll-column="2"] { animation: scrollDown 25s linear infinite; }
-        [data-scroll-column="3"] { animation: scrollUp 25s linear infinite; }
-        [data-scroll-column]:hover { animation-play-state: paused; }
-      </style>
-
-      <!-- Scrolling Columns -->
-      <div class="grid grid-cols-1 md:grid-cols-3 overflow-hidden py-12 gap-6 h-[500px]" style="mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);">
-
-        <!-- Column 1 - Scroll Up -->
-        <div class="overflow-hidden">
-          <div data-scroll-column="1" class="space-y-6">
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Zen encontrou um empréstimo com metade dos juros que eu pagava. Em 10 minutos."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-blue flex items-center justify-center text-white font-bold">C</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Carlos Silva</div>
-                  <div class="text-xs text-aizen-cream/50">35 anos, Belo Horizonte</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Descobri que tava pagando R$ 45/mês num seguro que nunca contratei. Zen achou na hora."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-purple flex items-center justify-center text-white font-bold">R</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Roberto Mendes</div>
-                  <div class="text-xs text-aizen-cream/50">42 anos, Curitiba</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Economizei R$ 2.800 só trocando de cartão de crédito. Zen comparou tudo pra mim."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-blue flex items-center justify-center text-white font-bold">L</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Luciana Ferreira</div>
-                  <div class="text-xs text-aizen-cream/50">29 anos, Salvador</div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Duplicate for loop -->
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Zen encontrou um empréstimo com metade dos juros que eu pagava. Em 10 minutos."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-blue flex items-center justify-center text-white font-bold">C</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Carlos Silva</div>
-                  <div class="text-xs text-aizen-cream/50">35 anos, Belo Horizonte</div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- Column 2 - Scroll Down -->
-        <div class="overflow-hidden hidden md:block">
-          <div data-scroll-column="2" class="space-y-6">
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Achava que não tinha opção. Zen me mostrou três. Escolhi a melhor e já tô pagando menos."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-purple flex items-center justify-center text-white font-bold">M</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Marina Costa</div>
-                  <div class="text-xs text-aizen-cream/50">28 anos, São Paulo</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Nunca consegui organizar minhas finanças. Zen faz isso automaticamente. Mudou minha vida."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-blue flex items-center justify-center text-white font-bold">P</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Pedro Santos</div>
-                  <div class="text-xs text-aizen-cream/50">33 anos, Brasília</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Portabilidade do consignado me economizou R$ 4.100 por ano. Zen achou em segundos."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-purple flex items-center justify-center text-white font-bold">J</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Juliana Rocha</div>
-                  <div class="text-xs text-aizen-cream/50">45 anos, Recife</div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Duplicate for loop -->
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Achava que não tinha opção. Zen me mostrou três. Escolhi a melhor e já tô pagando menos."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-purple flex items-center justify-center text-white font-bold">M</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Marina Costa</div>
-                  <div class="text-xs text-aizen-cream/50">28 anos, São Paulo</div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- Column 3 - Scroll Up -->
-        <div class="overflow-hidden hidden md:block">
-          <div data-scroll-column="3" class="space-y-6">
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Finalmente sei pra onde meu dinheiro vai. E o que fazer pra sobrar mais no fim do mês."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-blue flex items-center justify-center text-white font-bold">A</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Amanda Oliveira</div>
-                  <div class="text-xs text-aizen-cream/50">31 anos, Rio de Janeiro</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Tava endividado e sem saída. Zen montou um plano e hoje tô quase zerado. Incrível."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-purple flex items-center justify-center text-white font-bold">F</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Felipe Almeida</div>
-                  <div class="text-xs text-aizen-cream/50">27 anos, Fortaleza</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Meu banco cobrava 14% ao mês. Zen achou 3.9%. Simples assim."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-blue flex items-center justify-center text-white font-bold">G</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Gabriela Lima</div>
-                  <div class="text-xs text-aizen-cream/50">38 anos, Porto Alegre</div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Duplicate for loop -->
-            <article class="rounded-2xl border p-6 border-white/10 bg-white/5">
-              <blockquote class="text-base text-aizen-cream">
-                "Finalmente sei pra onde meu dinheiro vai. E o que fazer pra sobrar mais no fim do mês."
-              </blockquote>
-              <div class="mt-5 flex items-center gap-3">
-                <div class="h-10 w-10 rounded-full bg-aizen-blue flex items-center justify-center text-white font-bold">A</div>
-                <div>
-                  <div class="text-sm font-medium text-aizen-cream">Amanda Oliveira</div>
-                  <div class="text-xs text-aizen-cream/50">31 anos, Rio de Janeiro</div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
-  <section class="py-32 bg-slate-50" id="faq">
+  <section class="py-10 bg-aizen-cream" id="faq">
     <div class="container mx-auto px-6 md:px-12 max-w-3xl">
-      <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-16 reveal-trigger">Perguntas rápidas.</h2>
+      <div class="text-center mb-12 reveal-trigger">
+        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6">FAQ</span>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-aizen-charcoal">Perguntas rápidas.</h2>
+      </div>
 
       <div class="space-y-4">
         <div class="reveal-trigger faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
@@ -714,39 +475,39 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-aizen-charcoal text-white pt-20 pb-8">
+  <footer class="bg-aizen-charcoal pt-14 pb-8">
     <div class="container mx-auto px-6 md:px-12 max-w-7xl">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <div>
           <a href="#" class="mb-6 block">
             <img src="assets/logos/logo-white.svg" alt="Aizen" class="h-7">
           </a>
-          <p class="text-slate-400 text-sm">Seu assistente financeiro no WhatsApp.</p>
+          <p class="text-white/50 text-sm">Seu assistente financeiro no WhatsApp.</p>
         </div>
 
         <div class="flex flex-col gap-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Zen</span>
-          <a href="#como-funciona" class="text-slate-400 hover:text-white text-sm transition-colors">Como funciona</a>
-          <a href="#faq" class="text-slate-400 hover:text-white text-sm transition-colors">FAQ</a>
+          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2">Zen</span>
+          <a href="#como-funciona" class="text-white/50 hover:text-white text-sm transition-colors">Como funciona</a>
+          <a href="#faq" class="text-white/50 hover:text-white text-sm transition-colors">FAQ</a>
         </div>
 
         <div class="flex flex-col gap-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Legal</span>
-          <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Termos de uso</a>
-          <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacidade</a>
+          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2">Legal</span>
+          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Termos de uso</a>
+          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Privacidade</a>
         </div>
 
         <div class="flex flex-col gap-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Contato</span>
-          <a href="mailto:oi@aizen.io" class="text-slate-400 hover:text-white text-sm transition-colors">oi@aizen.io</a>
-          <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">WhatsApp</a>
-          <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">LinkedIn</a>
+          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2">Contato</span>
+          <a href="mailto:oi@aizen.io" class="text-white/50 hover:text-white text-sm transition-colors">oi@aizen.io</a>
+          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">WhatsApp</a>
+          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">LinkedIn</a>
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-800">
-        <p class="text-[10px] font-bold uppercase tracking-widest text-slate-500">© 2026 Aizen. Todos os direitos reservados.</p>
-        <p class="text-[10px] uppercase tracking-widest text-slate-600 mt-4 md:mt-0">Zen by Aizen</p>
+      <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-white/40">© 2026 Aizen. Todos os direitos reservados.</p>
+        <p class="text-[10px] uppercase tracking-widest text-white/40 mt-4 md:mt-0">Zen by Aizen</p>
       </div>
     </div>
   </footer>
@@ -866,23 +627,91 @@
       });
     });
 
-    // Hero Phone Carousel
-    const conversations = document.querySelectorAll('.conversation');
-    let currentConv = 0;
-    const totalConv = conversations.length;
+    // Hero Phone Chat Animation
+    const chatData = [
+      {
+        user: "Pra onde tá indo meu dinheiro?",
+        zen: `<strong class="text-[#075E54]">Seus gastos em janeiro:</strong><br>🍔 Alimentação: R$ 936<br>🚗 Transporte: R$ 585<br>📱 Assinaturas: R$ 351<br><br><span class="text-aizen-blue font-medium">Achei 3 assinaturas que você não usa.</span>`,
+        time: "10:30"
+      },
+      {
+        user: "Como eu saio das dívidas?",
+        zen: `<strong class="text-[#075E54]">Achei uma oportunidade:</strong><br>Taxa atual: 14% a.m.<br>Portabilidade: 3.9% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 4.100/ano</span>`,
+        time: "10:32"
+      },
+      {
+        user: "Posso comprar esse iPhone?",
+        zen: `<strong class="text-[#075E54]">Análise do orçamento:</strong><br>Sobra mensal: R$ 1.200<br>Parcela 12x: R$ 458<br><br><span class="text-aizen-blue font-medium">✅ Cabe, mas vai comprometer 38%</span>`,
+        time: "10:35"
+      },
+      {
+        user: "Tô sendo cobrado certo?",
+        zen: `<strong class="text-[#075E54]">Encontrei uma cobrança:</strong><br>Seguro Prestamista: R$ 45/mês<br>Você paga há 8 meses.<br><br><span class="text-aizen-blue font-medium">🚨 Nunca foi contratado por você</span>`,
+        time: "10:40"
+      },
+      {
+        user: "Qual o melhor crédito pra mim?",
+        zen: `<strong class="text-[#075E54]">Melhores taxas pra você:</strong><br>🏆 Melhor: 2.1% a.m.<br>Seu banco: 4.8% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 2.800</span>`,
+        time: "10:45"
+      }
+    ];
 
-    function showConversation(index) {
-      conversations.forEach((conv, i) => {
-        conv.style.opacity = i === index ? '1' : '0';
-      });
+    const userMsg = document.getElementById('user-msg');
+    const userMsgText = document.getElementById('user-msg-text');
+    const userMsgTime = document.getElementById('user-msg-time');
+    const typingIndicator = document.getElementById('typing-indicator');
+    const zenMsg = document.getElementById('zen-msg');
+    const zenMsgText = document.getElementById('zen-msg-text');
+    const zenMsgTime = document.getElementById('zen-msg-time');
+
+    let currentChat = 0;
+
+    function animateChat() {
+      const chat = chatData[currentChat];
+
+      // Reset state
+      userMsg.style.opacity = '0';
+      userMsg.style.transform = 'translateY(8px)';
+      typingIndicator.classList.add('hidden');
+      typingIndicator.style.opacity = '0';
+      zenMsg.style.opacity = '0';
+      zenMsg.style.transform = 'translateY(8px)';
+      zenMsg.classList.add('hidden');
+
+      // Step 1: Show user message
+      setTimeout(() => {
+        userMsgText.textContent = chat.user;
+        userMsgTime.textContent = chat.time;
+        userMsg.style.opacity = '1';
+        userMsg.style.transform = 'translateY(0)';
+      }, 300);
+
+      // Step 2: Show typing indicator
+      setTimeout(() => {
+        typingIndicator.classList.remove('hidden');
+        typingIndicator.style.opacity = '1';
+      }, 1000);
+
+      // Step 3: Hide typing, show zen response
+      setTimeout(() => {
+        typingIndicator.classList.add('hidden');
+        typingIndicator.style.opacity = '0';
+        zenMsg.classList.remove('hidden');
+        zenMsgText.innerHTML = chat.zen;
+        zenMsgTime.textContent = chat.time;
+        setTimeout(() => {
+          zenMsg.style.opacity = '1';
+          zenMsg.style.transform = 'translateY(0)';
+        }, 100);
+      }, 2200);
+
+      // Step 4: Wait and move to next
+      currentChat = (currentChat + 1) % chatData.length;
     }
 
-    function nextConversation() {
-      currentConv = (currentConv + 1) % totalConv;
-      showConversation(currentConv);
-    }
-
-    setInterval(nextConversation, 4000);
+    // Start animation
+    animateChat();
+    setInterval(animateChat, 5500);
   </script>
 
 </body>
