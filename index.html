@@ -194,7 +194,7 @@
               <!-- Name -->
               <div class="flex-1 min-w-0">
                 <div class="text-black font-medium text-sm flex items-center gap-1">Zen <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#00A884"/><path d="M9 12l2 2 4-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                <div class="text-black/40 text-[10px]">toque para info do contato</div>
+                <div class="text-black/40 text-[10px]">online</div>
               </div>
               <!-- Video call -->
               <svg class="w-5 h-5 text-black/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
@@ -329,17 +329,14 @@
           <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="5"></button>
         </div>
 
-        <!-- Dynamic description -->
+        <!-- About Text -->
         <div class="mt-10 border-t border-aizen-charcoal/10 pt-8">
-          <p id="sobre-desc" class="text-aizen-charcoal/50 text-sm leading-relaxed max-w-sm transition-opacity duration-300">Zen analisa todas as suas contas, categoriza cada gasto automaticamente e te mostra exatamente onde seu dinheiro tá escapando.</p>
-          <div class="mt-6 flex items-center gap-4">
-            <div class="flex -space-x-2">
-              <div class="w-8 h-8 rounded-full bg-aizen-blue/10 border-2 border-aizen-cream flex items-center justify-center"><iconify-icon icon="solar:user-bold" class="text-xs text-aizen-blue"></iconify-icon></div>
-              <div class="w-8 h-8 rounded-full bg-emerald-100 border-2 border-aizen-cream flex items-center justify-center"><iconify-icon icon="solar:user-bold" class="text-xs text-emerald-500"></iconify-icon></div>
-              <div class="w-8 h-8 rounded-full bg-amber-100 border-2 border-aizen-cream flex items-center justify-center"><iconify-icon icon="solar:user-bold" class="text-xs text-amber-500"></iconify-icon></div>
-            </div>
-            <span class="text-xs text-aizen-charcoal/40">+2.400 pessoas na fila de espera</span>
-          </div>
+          <p class="text-aizen-charcoal/60 text-sm leading-relaxed max-w-sm mb-4">
+            Zen é uma IA financeira que se conecta aos seus bancos via Open Finance e trabalha 24 horas por dia pra você pagar menos e guardar mais.
+          </p>
+          <p class="text-aizen-charcoal/60 text-sm leading-relaxed max-w-sm">
+            Sem app pra baixar. Sem planilha pra preencher. Tudo acontece direto no WhatsApp, na conversa mais fácil que você já teve sobre dinheiro.
+          </p>
         </div>
       </div>
 
@@ -775,15 +772,6 @@
     const sobreCounter = document.getElementById('sobre-counter');
     const sobreNext = document.getElementById('sobre-next');
     const sobreLabels = ['Análise de gastos', 'Sair das dívidas', 'Melhor crédito', 'Auditoria de cobranças', 'Decisão de compra', 'Bem-estar financeiro'];
-    const sobreDescs = [
-      'Zen analisa todas as suas contas, categoriza cada gasto automaticamente e te mostra exatamente onde seu dinheiro tá escapando.',
-      'Encontra portabilidade e renegociação com juros muito menores. Usuários economizam até R$ 4.000 por ano só com isso.',
-      'Compara taxas de dezenas de instituições em segundos e acha as melhores ofertas pro seu perfil. Sem consultar um por um.',
-      'Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. Bancos erram mais do que você imagina.',
-      'Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada, sem arrependimento.',
-      'Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental. Zen te ajuda a recuperar o controle.'
-    ];
-    const sobreDesc = document.getElementById('sobre-desc');
     let sobreIndex = 0;
     let sobreTimer;
 
@@ -806,11 +794,6 @@
       });
       sobreLabel.textContent = sobreLabels[index];
       sobreCounter.textContent = (index + 1) + ' / 6';
-      sobreDesc.style.opacity = '0';
-      setTimeout(() => {
-        sobreDesc.textContent = sobreDescs[index];
-        sobreDesc.style.opacity = '1';
-      }, 200);
       sobreIndex = index;
     }
 
