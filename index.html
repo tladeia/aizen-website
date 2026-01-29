@@ -96,22 +96,25 @@
 
     @keyframes blob1 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -40px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
+      25% { transform: translate(60px, -80px) scale(1.2); }
+      50% { transform: translate(-40px, 40px) scale(0.85); }
+      75% { transform: translate(50px, 60px) scale(1.1); }
     }
     @keyframes blob2 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-40px, 30px) scale(1.15); }
-      66% { transform: translate(25px, -15px) scale(0.95); }
+      25% { transform: translate(-70px, 60px) scale(1.25); }
+      50% { transform: translate(50px, -30px) scale(0.9); }
+      75% { transform: translate(-50px, -50px) scale(1.15); }
     }
     @keyframes blob3 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(20px, 30px) scale(1.05); }
-      66% { transform: translate(-30px, -25px) scale(1.1); }
+      25% { transform: translate(40px, 70px) scale(1.15); }
+      50% { transform: translate(-60px, -50px) scale(1.2); }
+      75% { transform: translate(30px, -40px) scale(0.9); }
     }
-    .animate-blob-1 { animation: blob1 8s ease-in-out infinite; }
-    .animate-blob-2 { animation: blob2 10s ease-in-out infinite; }
-    .animate-blob-3 { animation: blob3 12s ease-in-out infinite; }
+    .animate-blob-1 { animation: blob1 7s ease-in-out infinite; }
+    .animate-blob-2 { animation: blob2 9s ease-in-out infinite; }
+    .animate-blob-3 { animation: blob3 11s ease-in-out infinite; }
 
   </style>
 </head>
@@ -195,9 +198,9 @@
       <div class="relative h-[50vh] lg:h-full w-full bg-aizen-cream order-1 lg:order-2 overflow-hidden flex items-center justify-center border-l border-aizen-cream">
         <!-- Animated Gradient Blobs -->
         <div class="absolute inset-0">
-          <div class="absolute w-[500px] h-[500px] rounded-full opacity-30 blur-[100px] animate-blob-1" style="background: radial-gradient(circle, #2678FF 0%, transparent 70%); top: -10%; right: -10%;"></div>
-          <div class="absolute w-[400px] h-[400px] rounded-full opacity-20 blur-[100px] animate-blob-2" style="background: radial-gradient(circle, #1A5FD4 0%, transparent 70%); bottom: -5%; left: -5%;"></div>
-          <div class="absolute w-[300px] h-[300px] rounded-full opacity-25 blur-[80px] animate-blob-3" style="background: radial-gradient(circle, #4A9AFF 0%, #2678FF 50%, transparent 70%); top: 40%; left: 30%;"></div>
+          <div class="absolute w-[500px] h-[500px] rounded-full opacity-40 blur-[80px] animate-blob-1" style="background: radial-gradient(circle, #2678FF 0%, transparent 70%); top: -10%; right: -10%;"></div>
+          <div class="absolute w-[400px] h-[400px] rounded-full opacity-30 blur-[80px] animate-blob-2" style="background: radial-gradient(circle, #1A5FD4 0%, transparent 70%); bottom: -5%; left: -5%;"></div>
+          <div class="absolute w-[350px] h-[350px] rounded-full opacity-35 blur-[60px] animate-blob-3" style="background: radial-gradient(circle, #4A9AFF 0%, #2678FF 50%, transparent 70%); top: 40%; left: 30%;"></div>
         </div>
         <!-- Subtle grid overlay -->
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
