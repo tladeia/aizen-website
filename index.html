@@ -298,163 +298,148 @@
 
   <!-- Sobre Section -->
   <section class="py-20 lg:px-12 bg-aizen-cream" id="sobre">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
-      <!-- Left Column: Typography & Solutions List -->
+      <!-- Left Column: Text Only -->
       <div class="reveal-trigger">
         <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6">Sobre</span>
         <h2 class="text-5xl lg:text-6xl mb-6 text-aizen-charcoal leading-[1.1] font-semibold tracking-tight">
           Suas finanças no <span class="text-aizen-blue">piloto automático.</span>
         </h2>
-        <p class="text-aizen-charcoal/50 text-lg leading-relaxed font-light mb-12 max-w-md">
+        <p class="text-aizen-charcoal/50 text-lg leading-relaxed font-light mb-10 max-w-md">
           Do caos financeiro pro controle total. Zen faz o trabalho pesado pra você.
         </p>
 
-        <!-- Solutions List -->
-        <div class="w-full">
-          <div class="flex justify-between text-[10px] font-bold text-aizen-charcoal/30 uppercase tracking-widest mb-6 border-b pb-2 border-aizen-charcoal/10">
-            <span>Solução</span>
-            <span>Tipo</span>
-          </div>
+        <!-- Counter & Next Button -->
+        <div class="flex items-center gap-4">
+          <button id="sobre-next" class="group flex items-center gap-3 bg-white border border-aizen-charcoal/10 rounded-full py-3 px-6 hover:border-aizen-charcoal/20 hover:shadow-lg transition-all duration-300">
+            <span class="text-sm font-semibold text-aizen-charcoal" id="sobre-label">Análise de gastos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-aizen-blue group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <span class="text-xs text-aizen-charcoal/30 font-bold" id="sobre-counter">1 / 6</span>
+        </div>
 
-          <!-- Item 1 -->
-          <div class="group flex items-center justify-between py-5 border-b border-aizen-charcoal/10 transition-colors cursor-default -mx-2 px-2 rounded-lg hover:bg-white/60">
-            <div class="flex flex-col gap-1.5">
-              <div class="flex items-center gap-3 text-aizen-charcoal font-semibold text-lg">
-                <iconify-icon icon="solar:chart-2-bold-duotone" class="text-xl text-aizen-blue"></iconify-icon>
-                <span>Onde tá indo meu dinheiro?</span>
-              </div>
-              <span class="text-xs text-aizen-charcoal/40">Análise automática de gastos e categorias</span>
-            </div>
-            <span class="text-sm text-aizen-charcoal/40 hidden sm:block">Análise</span>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="group flex items-center justify-between py-5 border-b border-aizen-charcoal/10 transition-colors cursor-default -mx-2 px-2 rounded-lg hover:bg-white/60">
-            <div class="flex flex-col gap-1.5">
-              <div class="flex items-center gap-3 text-aizen-charcoal font-semibold text-lg">
-                <iconify-icon icon="solar:lock-unlocked-bold-duotone" class="text-xl text-emerald-500"></iconify-icon>
-                <span>Como eu saio das dívidas?</span>
-              </div>
-              <span class="text-xs text-aizen-charcoal/40">Portabilidade e renegociação com juros menores</span>
-            </div>
-            <span class="text-sm text-aizen-charcoal/40 hidden sm:block">Economia</span>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="group flex items-center justify-between py-5 border-b border-aizen-charcoal/10 transition-colors cursor-default -mx-2 px-2 rounded-lg hover:bg-white/60">
-            <div class="flex flex-col gap-1.5">
-              <div class="flex items-center gap-3 text-aizen-charcoal font-semibold text-lg">
-                <iconify-icon icon="solar:card-search-bold-duotone" class="text-xl text-blue-500"></iconify-icon>
-                <span>Qual o melhor crédito?</span>
-              </div>
-              <span class="text-xs text-aizen-charcoal/40">Compara taxas de dezenas de instituições</span>
-            </div>
-            <span class="text-sm text-aizen-charcoal/40 hidden sm:block">Crédito</span>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="group flex items-center justify-between py-5 border-b border-aizen-charcoal/10 transition-colors cursor-default -mx-2 px-2 rounded-lg hover:bg-white/60">
-            <div class="flex flex-col gap-1.5">
-              <div class="flex items-center gap-3 text-aizen-charcoal font-semibold text-lg">
-                <iconify-icon icon="solar:magnifer-bold-duotone" class="text-xl text-amber-500"></iconify-icon>
-                <span>Tô sendo cobrado certo?</span>
-              </div>
-              <span class="text-xs text-aizen-charcoal/40">Detecta taxas abusivas e cobranças indevidas</span>
-            </div>
-            <span class="text-sm text-aizen-charcoal/40 hidden sm:block">Auditoria</span>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="group flex items-center justify-between py-5 border-b border-aizen-charcoal/10 transition-colors cursor-default -mx-2 px-2 rounded-lg hover:bg-white/60">
-            <div class="flex flex-col gap-1.5">
-              <div class="flex items-center gap-3 text-aizen-charcoal font-semibold text-lg">
-                <iconify-icon icon="solar:bag-check-bold-duotone" class="text-xl text-teal-500"></iconify-icon>
-                <span>Posso comprar isso?</span>
-              </div>
-              <span class="text-xs text-aizen-charcoal/40">Analisa se a compra cabe no seu orçamento</span>
-            </div>
-            <span class="text-sm text-aizen-charcoal/40 hidden sm:block">Decisão</span>
-          </div>
-
-          <!-- Item 6 -->
-          <div class="group flex items-center justify-between py-5 border-b border-aizen-charcoal/10 transition-colors cursor-default -mx-2 px-2 rounded-lg hover:bg-white/60">
-            <div class="flex flex-col gap-1.5">
-              <div class="flex items-center gap-3 text-aizen-charcoal font-semibold text-lg">
-                <iconify-icon icon="solar:heart-pulse-bold-duotone" class="text-xl text-rose-500"></iconify-icon>
-                <span>Tô pirando com as contas.</span>
-              </div>
-              <span class="text-xs text-aizen-charcoal/40">Apoio emocional e plano concreto pra respirar</span>
-            </div>
-            <span class="text-sm text-aizen-charcoal/40 hidden sm:block">Bem-estar</span>
-          </div>
+        <!-- Dots -->
+        <div class="flex gap-2 mt-6" id="sobre-dots">
+          <button class="sobre-dot w-8 h-1 rounded-full bg-aizen-blue transition-all duration-300" data-index="0"></button>
+          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="1"></button>
+          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="2"></button>
+          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="3"></button>
+          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="4"></button>
+          <button class="sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300" data-index="5"></button>
         </div>
       </div>
 
-      <!-- Right Column: Card -->
-      <div class="reveal-trigger bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5">
-        <!-- Image Area -->
-        <div class="h-72 w-full overflow-hidden relative bg-gradient-to-br from-aizen-blue to-aizen-purple flex items-center justify-center">
-          <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
-          <div class="relative z-10 text-center">
-            <div class="w-20 h-20 mx-auto mb-4 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/10">
-              <img src="assets/logos/logomark-white.svg" alt="Zen" class="w-10 h-10">
+      <!-- Right Column: Rotating Cards -->
+      <div class="reveal-trigger relative" style="min-height: 520px;">
+        <!-- Card 1: Spend Analysis -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-100 translate-y-0" data-card="0">
+          <div class="h-56 w-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:chart-2-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-widest text-white/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 bg-white/10">Assistente Financeiro IA</span>
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-aizen-blue mb-3 block">Análise</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Onde tá indo meu dinheiro?</h4>
+            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Zen analisa todas as suas contas, categoriza cada gasto automaticamente e te mostra exatamente onde seu dinheiro tá escapando. Sem planilha, sem trabalho.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Automático</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">Multi-banco</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Stats Content -->
-        <div class="p-8 lg:p-10">
-          <div class="mb-10">
-            <h4 class="text-2xl text-aizen-charcoal mb-3 font-semibold tracking-tight">Resultados reais.</h4>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed">
-              Zen analisa seus dados bancários via Open Finance e encontra oportunidades que você nem sabia que existiam.
-            </p>
+        <!-- Card 2: Debt -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="1">
+          <div class="h-56 w-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:lock-unlocked-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
           </div>
-
-          <div class="space-y-8">
-            <!-- Stat 1 -->
-            <div class="flex items-center justify-between group">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-full bg-aizen-charcoal/5 flex items-center justify-center text-aizen-charcoal group-hover:bg-aizen-blue group-hover:text-white transition-colors">
-                  <iconify-icon icon="solar:wallet-money-bold-duotone" class="text-xl"></iconify-icon>
-                </div>
-                <div class="flex flex-col">
-                  <span class="text-sm font-semibold text-aizen-charcoal">Economia média</span>
-                  <span class="text-xs text-aizen-charcoal/40">Por ano, por usuário</span>
-                </div>
-              </div>
-              <span class="text-4xl text-aizen-charcoal font-semibold tracking-tight">R$ 1.200</span>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 mb-3 block">Economia</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Como eu saio das dívidas?</h4>
+            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Encontra oportunidades de portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar até R$ 4.000 a mais por ano.</p>
+            <div class="flex items-center gap-3">
+              <div class="bg-emerald-50 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full">-R$ 4.000/ano</div>
             </div>
+          </div>
+        </div>
 
-            <!-- Stat 2 -->
-            <div class="flex items-center justify-between group">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-full bg-aizen-charcoal/5 flex items-center justify-center text-aizen-charcoal group-hover:bg-aizen-blue group-hover:text-white transition-colors">
-                  <iconify-icon icon="solar:shield-check-bold-duotone" class="text-xl"></iconify-icon>
-                </div>
-                <div class="flex flex-col">
-                  <span class="text-sm font-semibold text-aizen-charcoal">Monitoramento</span>
-                  <span class="text-xs text-aizen-charcoal/40">Proteção contínua</span>
-                </div>
-              </div>
-              <span class="text-4xl text-aizen-charcoal font-semibold tracking-tight">24h</span>
+        <!-- Card 3: Credit -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="2">
+          <div class="h-56 w-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:card-search-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
             </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-3 block">Crédito</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Qual o melhor crédito?</h4>
+            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem burocracia, sem consultar um por um.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Recomendado</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">+20 instituições</span>
+            </div>
+          </div>
+        </div>
 
-            <!-- Stat 3 -->
-            <div class="flex items-center justify-between group">
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-full bg-aizen-charcoal/5 flex items-center justify-center text-aizen-charcoal group-hover:bg-aizen-blue group-hover:text-white transition-colors">
-                  <iconify-icon icon="solar:hand-money-bold-duotone" class="text-xl"></iconify-icon>
-                </div>
-                <div class="flex flex-col">
-                  <span class="text-sm font-semibold text-aizen-charcoal">Custo</span>
-                  <span class="text-xs text-aizen-charcoal/40">Pra sempre</span>
-                </div>
-              </div>
-              <span class="text-4xl text-aizen-blue font-semibold tracking-tight">Grátis</span>
+        <!-- Card 4: Audit -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="3">
+          <div class="h-56 w-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:magnifer-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-3 block">Auditoria</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Tô sendo cobrado certo?</h4>
+            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. Bancos erram mais do que você imagina.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Alertas em tempo real</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Purchase -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="4">
+          <div class="h-56 w-full bg-gradient-to-br from-teal-400 to-green-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:bag-check-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-teal-600 mb-3 block">Decisão</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Posso comprar isso?</h4>
+            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada, sem arrependimento.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-teal-50 text-teal-700 px-3 py-1 rounded-full">Orçamento real</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">Contas futuras</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Mental Health -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="5">
+          <div class="h-56 w-full bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:heart-pulse-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-rose-500 mb-3 block">Bem-estar</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Tô pirando com as contas.</h4>
+            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental. Zen te ajuda a recuperar o controle.</p>
+            <div class="flex gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-rose-50 text-rose-600 px-3 py-1 rounded-full">Apoio emocional</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">Plano concreto</span>
             </div>
           </div>
         </div>
@@ -769,6 +754,61 @@
         }
       });
     });
+
+    // Sobre Card Carousel
+    const sobreCards = document.querySelectorAll('.sobre-card');
+    const sobreDots = document.querySelectorAll('.sobre-dot');
+    const sobreLabel = document.getElementById('sobre-label');
+    const sobreCounter = document.getElementById('sobre-counter');
+    const sobreNext = document.getElementById('sobre-next');
+    const sobreLabels = ['Análise de gastos', 'Sair das dívidas', 'Melhor crédito', 'Auditoria de cobranças', 'Decisão de compra', 'Bem-estar financeiro'];
+    let sobreIndex = 0;
+    let sobreTimer;
+
+    function showSobreCard(index) {
+      sobreCards.forEach((card, i) => {
+        if (i === index) {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+          card.style.pointerEvents = 'auto';
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(32px)';
+          card.style.pointerEvents = 'none';
+        }
+      });
+      sobreDots.forEach((dot, i) => {
+        dot.className = i === index
+          ? 'sobre-dot w-8 h-1 rounded-full bg-aizen-blue transition-all duration-300'
+          : 'sobre-dot w-4 h-1 rounded-full bg-aizen-charcoal/15 transition-all duration-300';
+      });
+      sobreLabel.textContent = sobreLabels[index];
+      sobreCounter.textContent = (index + 1) + ' / 6';
+      sobreIndex = index;
+    }
+
+    function nextSobreCard() {
+      showSobreCard((sobreIndex + 1) % 6);
+    }
+
+    function resetSobreTimer() {
+      clearInterval(sobreTimer);
+      sobreTimer = setInterval(nextSobreCard, 4000);
+    }
+
+    sobreNext.addEventListener('click', () => {
+      nextSobreCard();
+      resetSobreTimer();
+    });
+
+    sobreDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        showSobreCard(parseInt(dot.dataset.index));
+        resetSobreTimer();
+      });
+    });
+
+    resetSobreTimer();
 
     // Hero Phone Chat Animation
     const chatData = [
