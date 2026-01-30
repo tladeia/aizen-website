@@ -1345,7 +1345,15 @@
       // Calculate total animation time and schedule next conversation
       const totalTime = delay + 4000;
       currentChat = (currentChat + 1) % chatData.length;
-      setTimeout(animateChat, totalTime);
+      chatTimeoutId = setTimeout(animateChat, totalTime);
+    }
+
+    var chatTimeoutId = null;
+
+    function restartChat() {
+      if (chatTimeoutId) clearTimeout(chatTimeoutId);
+      currentChat = 0;
+      animateChat();
     }
 
     // Start animation
@@ -1467,30 +1475,6 @@
       h2: 'Activate in 2 minutes.',
       sub: 'No app. No sign-up. No bureaucracy.',
     };
-
-    // Step illustrations (hardcoded PT text inside mockups)
-    const enStepIllustrations = {
-      // Step 1: WhatsApp chat
-      s1_user: 'Hey! \uD83D\uDC4B',
-      s1_zen: "Hey! I'm Zen \uD83E\uDDD8 Let's take care of your finances?",
-      // Step 2: Bank connection
-      s2_addBank: 'add bank',
-      s2_trust: 'Read-only. Regulated by the Central Bank.',
-      // Step 3: Notifications
-      s3_n1_title: 'Savings found!',
-      s3_n1_body: 'Payroll loan portability could save R$ 234/month',
-      s3_n2_title: 'Suspicious charge',
-      s3_n2_body: "Insurance of R$ 47/month you didn't sign up for",
-      s3_n3_title: 'Lower rate available',
-      s3_n3_body: 'Card charges 14% p.m. Found an option at 3.9%',
-      s3_summary: '+ R$ 1,200/year in your pocket',
-    };
-
-    // Phone mockup disclaimer
-    const enDisclaimer = 'Illustrative simulation';
-
-    // WhatsApp input placeholder
-    const enMsgPlaceholder = 'Message';
 
     // Form consent text
     const enConsent = 'By submitting, you agree to receive messages from Zen via WhatsApp. You can opt out anytime by sending STOP.';
@@ -1633,6 +1617,63 @@
       if (currentLang === 'en') switchLang('en');
     }
 
+    // PT originals for illustration text (keyed by identifier)
+    const ptIllustrations = {};
+
+    // Map of PT text -> EN text for all illustration hardcoded strings
+    const illustrationMap = {
+      // Step 1: WhatsApp chat mockup
+      'Oi! \uD83D\uDC4B': 'Hey! \uD83D\uDC4B',
+      'Oi! Eu sou o Zen \uD83E\uDDD8 Bora cuidar das suas finanças?': "Hey! I'm Zen \uD83E\uDDD8 Let's take care of your finances?",
+      // Step 2: Bank connection
+      'adicionar banco': 'add bank',
+      'Somente leitura. Regulado pelo Banco Central.': 'Read-only. Regulated by the Central Bank.',
+      // Step 3: Notifications
+      'Economia encontrada!': 'Savings found!',
+      'Portabilidade do consignado pode economizar R$ 234/m\u00eas': 'Payroll loan portability could save R$ 234/month',
+      'Cobran\u00e7a suspeita': 'Suspicious charge',
+      'Seguro de R$ 47/m\u00eas que voc\u00ea n\u00e3o contratou': "Insurance of R$ 47/month you didn't sign up for",
+      'Taxa menor dispon\u00edvel': 'Lower rate available',
+      'Cart\u00e3o cobra 14% a.m. Achei op\u00e7\u00e3o a 3.9%': 'Card charges 14% p.m. Found an option at 3.9%',
+      '+ R$ 1.200/ano na sua conta': '+ R$ 1,200/year in your pocket',
+      // Phone mockup disclaimer
+      'Simula\u00e7\u00e3o ilustrativa': 'Illustrative simulation',
+      // WhatsApp input placeholder
+      'Mensagem': 'Message',
+    };
+
+    // Reverse map (EN -> PT) built from originals
+    const illustrationMapReverse = {};
+    Object.entries(illustrationMap).forEach(([pt, en]) => { illustrationMapReverse[en] = pt; });
+
+    function translateIllustrations(lang) {
+      const map = lang === 'en' ? illustrationMap : illustrationMapReverse;
+
+      // Walk text nodes in: how-it-works illustrations + hero phone mockup
+      const containers = [
+        ...document.querySelectorAll('#como-funciona .rounded-3xl'),
+        document.querySelector('#hero .phone-frame'),
+        // Also the disclaimer paragraph right after the phone
+      ].filter(Boolean);
+
+      containers.forEach(box => {
+        const walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while (node = walker.nextNode()) {
+          const text = node.textContent.trim();
+          if (text && map[text]) {
+            node.textContent = node.textContent.replace(text, map[text]);
+          }
+        }
+      });
+
+      // Translate the phone disclaimer paragraph (sits outside the phone frame)
+      document.querySelectorAll('#hero p, #hero span').forEach(el => {
+        const t = el.textContent.trim();
+        if (map[t]) el.textContent = map[t];
+      });
+    }
+
     function switchLang(lang) {
       currentLang = lang;
       localStorage.setItem('zenLang', lang);
@@ -1760,49 +1801,8 @@
           if (howSub) { if (!ptOriginals.has('how.sub')) ptOriginals.set('how.sub', howSub.textContent); howSub.textContent = enHow.sub; }
         }
 
-        // Step 1 illustration chat
-        const stepCards = document.querySelectorAll('#como-funciona .grid > div');
-        if (stepCards[0]) {
-          const msgs = stepCards[0].querySelectorAll('.text-\\[11px\\].text-slate-800');
-          if (msgs[0]) { if (!ptOriginals.has('s1.user')) ptOriginals.set('s1.user', msgs[0].textContent); msgs[0].textContent = enStepIllustrations.s1_user; }
-          if (msgs[1]) { if (!ptOriginals.has('s1.zen')) ptOriginals.set('s1.zen', msgs[1].textContent); msgs[1].textContent = enStepIllustrations.s1_zen; }
-        }
-        // Step 2 illustration
-        if (stepCards[1]) {
-          const addBank = stepCards[1].querySelector('.text-sm.text-slate-400.font-medium');
-          if (addBank) { if (!ptOriginals.has('s2.addBank')) ptOriginals.set('s2.addBank', addBank.textContent); addBank.textContent = enStepIllustrations.s2_addBank; }
-          const trust = stepCards[1].querySelector('.text-emerald-600');
-          if (trust) { if (!ptOriginals.has('s2.trust')) ptOriginals.set('s2.trust', trust.textContent); trust.textContent = enStepIllustrations.s2_trust; }
-        }
-        // Step 3 illustration
-        if (stepCards[2]) {
-          const notifTitles = stepCards[2].querySelectorAll('.text-\\[11px\\].text-slate-800.font-semibold');
-          const notifBodies = stepCards[2].querySelectorAll('.text-\\[10px\\].text-slate-400');
-          if (notifTitles[0]) { if (!ptOriginals.has('s3.n1.title')) ptOriginals.set('s3.n1.title', notifTitles[0].textContent); notifTitles[0].textContent = enStepIllustrations.s3_n1_title; }
-          if (notifBodies[0]) { if (!ptOriginals.has('s3.n1.body')) ptOriginals.set('s3.n1.body', notifBodies[0].textContent); notifBodies[0].textContent = enStepIllustrations.s3_n1_body; }
-          if (notifTitles[1]) { if (!ptOriginals.has('s3.n2.title')) ptOriginals.set('s3.n2.title', notifTitles[1].textContent); notifTitles[1].textContent = enStepIllustrations.s3_n2_title; }
-          if (notifBodies[1]) { if (!ptOriginals.has('s3.n2.body')) ptOriginals.set('s3.n2.body', notifBodies[1].textContent); notifBodies[1].textContent = enStepIllustrations.s3_n2_body; }
-          if (notifTitles[2]) { if (!ptOriginals.has('s3.n3.title')) ptOriginals.set('s3.n3.title', notifTitles[2].textContent); notifTitles[2].textContent = enStepIllustrations.s3_n3_title; }
-          if (notifBodies[2]) { if (!ptOriginals.has('s3.n3.body')) ptOriginals.set('s3.n3.body', notifBodies[2].textContent); notifBodies[2].textContent = enStepIllustrations.s3_n3_body; }
-          const summary = stepCards[2].querySelector('.text-emerald-700');
-          if (summary) { if (!ptOriginals.has('s3.summary')) ptOriginals.set('s3.summary', summary.textContent); summary.textContent = enStepIllustrations.s3_summary; }
-        }
-
-        // Phone mockup disclaimer
-        document.querySelectorAll('p').forEach(p => {
-          if (p.textContent.trim() === 'Simulação ilustrativa') {
-            if (!ptOriginals.has('disclaimer')) ptOriginals.set('disclaimer', p.textContent);
-            p.textContent = enDisclaimer;
-          }
-        });
-
-        // WhatsApp input placeholder
-        document.querySelectorAll('span').forEach(span => {
-          if (span.textContent.trim() === 'Mensagem') {
-            if (!ptOriginals.has('msgPlaceholder')) ptOriginals.set('msgPlaceholder', span.textContent);
-            span.textContent = enMsgPlaceholder;
-          }
-        });
+        // Step illustrations - translate all hardcoded PT text inside mockups
+        translateIllustrations('en');
 
         // Form consent text
         document.querySelectorAll('p').forEach(p => {
@@ -1837,9 +1837,10 @@
           }
         }
 
-        // Chat data
+        // Chat data + restart animation
         chatData.length = 0;
         chatDataEN.forEach(c => chatData.push(JSON.parse(JSON.stringify(c))));
+        restartChat();
 
         // Meta
         document.title = 'Zen by Aizen - Your financial life, now zen.';
@@ -1975,41 +1976,8 @@
           if (howSub && ptOriginals.has('how.sub')) howSub.textContent = ptOriginals.get('how.sub');
         }
 
-        // Step 1 illustration chat
-        const stepCards = document.querySelectorAll('#como-funciona .grid > div');
-        if (stepCards[0]) {
-          const msgs = stepCards[0].querySelectorAll('.text-\\[11px\\].text-slate-800');
-          if (msgs[0] && ptOriginals.has('s1.user')) msgs[0].textContent = ptOriginals.get('s1.user');
-          if (msgs[1] && ptOriginals.has('s1.zen')) msgs[1].textContent = ptOriginals.get('s1.zen');
-        }
-        if (stepCards[1]) {
-          const addBank = stepCards[1].querySelector('.text-sm.text-slate-400.font-medium');
-          if (addBank && ptOriginals.has('s2.addBank')) addBank.textContent = ptOriginals.get('s2.addBank');
-          const trust = stepCards[1].querySelector('.text-emerald-600');
-          if (trust && ptOriginals.has('s2.trust')) trust.textContent = ptOriginals.get('s2.trust');
-        }
-        if (stepCards[2]) {
-          const notifTitles = stepCards[2].querySelectorAll('.text-\\[11px\\].text-slate-800.font-semibold');
-          const notifBodies = stepCards[2].querySelectorAll('.text-\\[10px\\].text-slate-400');
-          if (notifTitles[0] && ptOriginals.has('s3.n1.title')) notifTitles[0].textContent = ptOriginals.get('s3.n1.title');
-          if (notifBodies[0] && ptOriginals.has('s3.n1.body')) notifBodies[0].textContent = ptOriginals.get('s3.n1.body');
-          if (notifTitles[1] && ptOriginals.has('s3.n2.title')) notifTitles[1].textContent = ptOriginals.get('s3.n2.title');
-          if (notifBodies[1] && ptOriginals.has('s3.n2.body')) notifBodies[1].textContent = ptOriginals.get('s3.n2.body');
-          if (notifTitles[2] && ptOriginals.has('s3.n3.title')) notifTitles[2].textContent = ptOriginals.get('s3.n3.title');
-          if (notifBodies[2] && ptOriginals.has('s3.n3.body')) notifBodies[2].textContent = ptOriginals.get('s3.n3.body');
-          const summary = stepCards[2].querySelector('.text-emerald-700');
-          if (summary && ptOriginals.has('s3.summary')) summary.textContent = ptOriginals.get('s3.summary');
-        }
-
-        // Phone mockup disclaimer
-        document.querySelectorAll('p').forEach(p => {
-          if (p.textContent.trim() === enDisclaimer && ptOriginals.has('disclaimer')) p.textContent = ptOriginals.get('disclaimer');
-        });
-
-        // WhatsApp input placeholder
-        document.querySelectorAll('span').forEach(span => {
-          if (span.textContent.trim() === enMsgPlaceholder && ptOriginals.has('msgPlaceholder')) span.textContent = ptOriginals.get('msgPlaceholder');
-        });
+        // Step illustrations - restore PT text
+        translateIllustrations('pt');
 
         // Form consent text
         document.querySelectorAll('p').forEach(p => {
@@ -2035,10 +2003,11 @@
           });
         }
 
-        // Chat data
+        // Chat data + restart animation
         if (chatDataPT) {
           chatData.length = 0;
           chatDataPT.forEach(c => chatData.push(JSON.parse(JSON.stringify(c))));
+          restartChat();
         }
 
         // Meta
