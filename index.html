@@ -1,10 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" class="antialiased">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Zen by Aizen - Suas finanças, agora zen.</title>
-  <meta name="description" content="A IA que cuida das suas finanças 24 horas por dia pra você ficar zen. Direto no WhatsApp.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zen by Aizen - Sua vida financeira, agora zen.</title>
+  <meta name="description" content="A inteligência artificial que cuida das suas finanças no piloto automático. Encontra crédito mais barato, negocia dívidas e reduz seus gastos. Tudo isso direto no seu WhatsApp.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Zen by Aizen - Sua vida financeira, agora zen.">
+  <meta property="og:description" content="Encontre crédito mais barato, negocie dívidas e organize seus gastos automaticamente. Tudo direto no seu WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="assets/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logomark-dark.svg">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -31,7 +41,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.294.0"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
   <!-- GSAP & Lenis -->
@@ -50,6 +60,7 @@
     body, html, h1, h2, h3, h4, h5, h6, p, a, span, button, input, div {
       font-family: var(--font-primary) !important;
     }
+
 
     ::selection { background-color: #2678FF; color: white; }
 
@@ -128,9 +139,20 @@
     .animate-blob-2 { animation: blob2 19s ease-in-out infinite; }
     .animate-blob-3 { animation: blob3 13s ease-in-out infinite; }
 
+    #sobre-tabs::-webkit-scrollbar { display: none; }
+
+
+    .lang-btn { cursor: pointer; font-size: 18px; border: 2px solid transparent; border-radius: 9999px; padding: 2px 4px; }
+    .lang-btn.active-lang { opacity: 1; border-color: #2678FF; }
+    .lang-btn:not(.active-lang) { opacity: 0.4; border-color: transparent; }
+    .lang-btn:not(.active-lang):hover { opacity: 0.7; }
   </style>
 </head>
 <body class="bg-white text-slate-900">
+
+  <!-- Background Decoration -->
+  <div class="fixed inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#00000015_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+  <div class="fixed top-0 right-0 -z-10 h-[500px] w-[500px] bg-blue-100/50 blur-[100px] rounded-full translate-x-1/3 -translate-y-1/4"></div>
 
   <!-- Loader -->
   <div class="loader" id="loader">
@@ -155,8 +177,17 @@
         <a href="#faq" class="uppercase text-slate-500 hover:text-slate-900 hover:bg-white transition-all duration-300 text-[11px] font-semibold tracking-widest rounded-full py-2.5 px-6">FAQ</a>
       </div>
 
-      <a href="#hero" class="md:ml-2 group hover:bg-slate-900 uppercase transition-all duration-300 flex items-center gap-2 text-[11px] font-bold text-white tracking-widest bg-aizen-blue rounded-full py-3 px-6">
-        <span>Testar grátis</span>
+      <div class="flex items-center gap-1 ml-2" id="lang-switcher">
+        <button onclick="switchLang('pt')" class="lang-btn active-lang" data-lang="pt" title="Português">
+          <svg viewBox="0 0 20 14" class="w-5 h-3.5 rounded-sm"><rect width="20" height="14" fill="#009b3a"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="2.8" fill="#002776"/><path d="M7.5,7.5 Q10,4.5 12.8,7" fill="none" stroke="#fff" stroke-width="0.4"/></svg>
+        </button>
+        <button onclick="switchLang('en')" class="lang-btn" data-lang="en" title="English">
+          <svg viewBox="0 0 20 14" class="w-5 h-3.5 rounded-sm"><rect width="20" height="14" fill="#b22234"/><rect y="1.08" width="20" height="1.08" fill="#fff"/><rect y="3.23" width="20" height="1.08" fill="#fff"/><rect y="5.38" width="20" height="1.08" fill="#fff"/><rect y="7.54" width="20" height="1.08" fill="#fff"/><rect y="9.69" width="20" height="1.08" fill="#fff"/><rect y="11.85" width="20" height="1.08" fill="#fff"/><rect width="8" height="7.54" fill="#3c3b6e"/></svg>
+        </button>
+      </div>
+
+      <a href="#hero" class="md:ml-2 group hover:bg-slate-900 uppercase transition-all duration-300 flex items-center gap-2 text-[10px] sm:text-[11px] font-bold text-white tracking-widest bg-aizen-blue rounded-full py-2.5 px-4 sm:py-3 sm:px-6">
+        <span>Começar</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
       </a>
     </div>
@@ -166,48 +197,54 @@
   <section class="min-h-screen overflow-hidden w-full relative" id="hero">
     <div class="grid lg:grid-cols-2 min-h-screen w-full h-full">
       <!-- Left: Typography -->
-      <div class="flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-20 order-2 lg:order-1 bg-aizen-cream z-10">
+      <div class="flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-20 order-1 lg:order-1 z-10">
         <div class="max-w-xl">
-          <h1 class="font-semibold text-[9vw] md:text-[7vw] lg:text-[5vw] leading-[0.8] tracking-tighter text-slate-900 mb-10 text-balance whitespace-nowrap">
+          <h1 class="font-semibold text-[12vw] sm:text-[11vw] md:text-[8vw] lg:text-[6vw] leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-10">
             <div class="overflow-hidden pb-2">
-              <span class="block hero-line">Suas finanças,</span>
+              <span class="block hero-line" data-i18n="hero.h1a">Sua vida financeira,</span>
             </div>
-            <div class="overflow-hidden pb-4">
-              <span class="block hero-line text-aizen-blue font-extrabold">agora zen.</span>
+            <div class="overflow-hidden pb-6">
+              <span class="block hero-line text-aizen-blue font-semibold" data-i18n="hero.h1b">agora zen.</span>
             </div>
           </h1>
 
-          <p class="hero-text text-lg md:text-xl text-slate-500 leading-relaxed font-light opacity-0 max-w-md mb-12">
-            Encontra crédito mais barato pra você, negocia dívidas e organiza seus gastos. Tudo automático, direto no WhatsApp.
-          </p>
+          <div class="hero-text text-lg md:text-xl text-slate-500 leading-relaxed font-light opacity-0 max-w-md mb-12 space-y-6">
+            <p data-i18n="hero.sub1">A inteligência artificial que cuida das suas finanças no piloto automático. Encontra crédito mais barato, negocia dívidas e reduz seus gastos.</p>
+            <p class="font-semibold text-slate-700" data-i18n="hero.sub2">Tudo isso direto no seu WhatsApp.</p>
+          </div>
 
           <form class="hero-text opacity-0 flex flex-col sm:flex-row gap-3 mb-6" id="hero-form">
-            <input type="text" placeholder="Seu número de WhatsApp" class="flex-1 px-6 py-4 bg-slate-50 border border-slate-200 rounded-full focus:outline-none focus:border-aizen-blue focus:ring-2 focus:ring-aizen-blue/20 transition-all text-sm font-medium" required>
-            <button type="submit" class="group bg-aizen-blue hover:bg-blue-700 transition-colors text-white rounded-full py-4 px-8">
-              <span class="uppercase text-xs font-bold tracking-widest">Testar no WhatsApp</span>
+            <div class="flex items-center gap-3 flex-1 px-5 py-4 bg-white border border-slate-200 rounded-full focus-within:border-aizen-blue focus-within:ring-2 focus-within:ring-aizen-blue/20 transition-all">
+              <span class="text-sm font-semibold text-slate-400 shrink-0">BR</span>
+              <input type="tel" placeholder="(11) 99999-0000" class="flex-1 bg-transparent focus:outline-none text-sm font-medium text-slate-700 placeholder:text-slate-300" required>
+            </div>
+            <button type="submit" class="group bg-aizen-blue hover:bg-blue-700 transition-colors text-white rounded-full py-4 px-8 flex items-center justify-center gap-2">
+              <span class="text-sm font-semibold whitespace-nowrap" data-i18n="hero.btn">Começar no WhatsApp</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </form>
 
-          <div class="hero-text opacity-0 flex items-center gap-4 text-sm text-slate-400">
+          <div class="hero-text opacity-0 flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-slate-500">
             <div class="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-green-500"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-              <span>Grátis. Seguro. Sem spam.</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="shrink-0"><circle cx="12" cy="12" r="10" fill="#10B981"/><path d="M9 12l2 2 4-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="font-medium text-slate-700" data-i18n="hero.badge1">Grátis e seguro</span>
             </div>
-            <span class="text-slate-300">|</span>
-            <div class="flex items-center gap-1.5">
-              <div class="flex -space-x-1.5">
-                <div class="w-5 h-5 rounded-full bg-aizen-blue/15 border border-white"></div>
-                <div class="w-5 h-5 rounded-full bg-emerald-100 border border-white"></div>
-                <div class="w-5 h-5 rounded-full bg-amber-100 border border-white"></div>
+            <span class="text-slate-200 hidden sm:inline">|</span>
+            <div class="flex items-center gap-2.5">
+              <div class="flex -space-x-2">
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-blue-100 shrink-0"></div>
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-emerald-100 shrink-0"></div>
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-amber-100 shrink-0"></div>
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[9px] sm:text-[10px] font-bold text-slate-500">+<span id="waitlist-count">0</span></div>
               </div>
-              <span>+2.400 pessoas já na fila</span>
+              <span class="text-slate-500" data-i18n="hero.badge2">pessoas na fila</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right: Phone Mockup -->
-      <div class="relative h-[50vh] lg:h-full w-full bg-aizen-cream order-1 lg:order-2 overflow-hidden flex items-center justify-center border-l border-aizen-cream">
+      <!-- Right: Phone Mockup (hidden on mobile, visible from lg up) -->
+      <div class="hidden lg:flex relative lg:h-full w-full order-2 lg:order-2 overflow-hidden items-center justify-center">
         <!-- Animated Gradient Blobs -->
         <div class="absolute inset-0">
           <div class="absolute w-[500px] h-[500px] rounded-full opacity-50 blur-[80px] animate-blob-1" style="background: radial-gradient(circle, #E0E0E0 0%, transparent 70%); top: -10%; right: -10%;"></div>
@@ -218,8 +255,8 @@
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
 
         <!-- Phone -->
-        <div class="hero-card opacity-0 translate-y-10 relative z-10 phone-frame w-[280px] md:w-[320px] h-[560px] md:h-[640px] rounded-[44px] md:rounded-[52px] p-2">
-          <div class="w-full h-full bg-[#ECE5DD] rounded-[38px] md:rounded-[46px] overflow-hidden flex flex-col relative">
+        <div class="hero-card opacity-0 translate-y-10 relative z-10 phone-frame w-[190px] sm:w-[250px] md:w-[340px] lg:w-[380px] h-[380px] sm:h-[500px] md:h-[680px] lg:h-[760px] rounded-[28px] sm:rounded-[38px] md:rounded-[52px] lg:rounded-[56px] p-1 sm:p-1.5 md:p-2">
+          <div class="w-full h-full bg-[#ECE5DD] rounded-[30px] sm:rounded-[38px] md:rounded-[46px] lg:rounded-[50px] overflow-hidden flex flex-col relative">
             <!-- iPhone Status Bar -->
             <div class="bg-[#F0F2F5] pt-3 pb-1 px-5 flex justify-between items-center text-black text-[10px] font-semibold z-10 relative">
               <span class="text-[11px] font-bold">15:05</span>
@@ -255,28 +292,7 @@
 
             <!-- Chat -->
             <div class="flex-1 p-3 overflow-hidden relative" id="chat-container" style="background-color: #ECE5DD; background-image: url('assets/wa-doodle.png'); background-size: cover;">
-              <div class="flex flex-col gap-2">
-                <!-- User Message -->
-                <div id="user-msg" class="wa-msg-user self-end max-w-[85%] ml-auto p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300">
-                  <p class="text-slate-800" id="user-msg-text"></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1" id="user-msg-time"></span>
-                </div>
-
-                <!-- Typing Indicator -->
-                <div id="typing-indicator" class="wa-msg-zen max-w-[60px] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm opacity-0 transition-opacity duration-300 hidden">
-                  <div class="flex gap-1 items-center">
-                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
-                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
-                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
-                  </div>
-                </div>
-
-                <!-- Zen Response -->
-                <div id="zen-msg" class="wa-msg-zen max-w-[85%] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300 hidden">
-                  <p class="text-slate-800" id="zen-msg-text"></p>
-                  <span class="text-[10px] text-slate-400 float-right mt-1" id="zen-msg-time"></span>
-                </div>
-              </div>
+              <div class="flex flex-col" id="chat-messages"></div>
             </div>
 
             <!-- Input Bar -->
@@ -307,111 +323,137 @@
   </section>
 
   <!-- Bank Partners Carousel -->
-  <section class="py-8 bg-white overflow-hidden border-t border-b" style="border-color: #e0e0e0;">
+  <section class="py-8 overflow-hidden border-t border-b" style="border-color: #e0e0e0;">
     <div class="max-w-7xl mx-auto px-6 mb-6 text-center">
-      <p class="text-[10px] font-bold uppercase tracking-widest text-aizen-charcoal/30">Funciona com os principais bancos do Brasil</p>
+      <p class="text-[10px] font-bold uppercase tracking-widest text-aizen-charcoal/30" data-i18n="banks.title">Conectado via Open Finance aos principais bancos do Brasil</p>
     </div>
 
     <div class="relative flex w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
       <!-- Carousel Group 1 -->
       <div class="flex min-w-full shrink-0 items-center justify-around animate-marquee gap-12 md:gap-20 px-8">
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NUBANK</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">ITAÚ</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BRADESCO</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">SANTANDER</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BANCO DO BRASIL</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">INTER</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">C6 BANK</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">MERCADO PAGO</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BTG PACTUAL</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">CAIXA</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">PICPAY</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NEON</span>
+        <img src="assets/bank-logos/nubank.svg" alt="Nubank" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/itau.svg" alt="Itaú" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/bradesco.svg" alt="Bradesco" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/santander.svg" alt="Santander" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/banco-do-brasil.svg" alt="Banco do Brasil" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/inter.svg" alt="Inter" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/c6-bank.svg" alt="C6 Bank" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/mercado-pago.svg" alt="Mercado Pago" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/btg-pactual.svg" alt="BTG Pactual" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/caixa.svg" alt="Caixa" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/picpay.svg" alt="PicPay" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/neon.svg" alt="Neon" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
       </div>
 
       <!-- Carousel Group 2 (Duplicate for seamless loop) -->
       <div class="flex min-w-full shrink-0 items-center justify-around animate-marquee gap-12 md:gap-20 px-8" aria-hidden="true">
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NUBANK</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">ITAÚ</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BRADESCO</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">SANTANDER</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BANCO DO BRASIL</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">INTER</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">C6 BANK</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">MERCADO PAGO</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">BTG PACTUAL</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">CAIXA</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">PICPAY</span>
-        <span class="font-bold text-sm tracking-wide text-aizen-charcoal/20 whitespace-nowrap">NEON</span>
+        <img src="assets/bank-logos/nubank.svg" alt="Nubank" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/itau.svg" alt="Itaú" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/bradesco.svg" alt="Bradesco" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/santander.svg" alt="Santander" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/banco-do-brasil.svg" alt="Banco do Brasil" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/inter.svg" alt="Inter" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/c6-bank.svg" alt="C6 Bank" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/mercado-pago.svg" alt="Mercado Pago" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/btg-pactual.svg" alt="BTG Pactual" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/caixa.svg" alt="Caixa" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/picpay.svg" alt="PicPay" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
+        <img src="assets/bank-logos/neon.svg" alt="Neon" class="h-8 md:h-10 w-20 md:w-28 object-contain opacity-70">
       </div>
     </div>
   </section>
 
   <!-- Sobre Section -->
-  <section class="py-20 lg:px-12 bg-aizen-cream" id="sobre">
+  <section class="py-24 lg:px-12" id="sobre">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
 
       <!-- Left Column: Text Only -->
       <div class="reveal-trigger">
-        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6">Sobre</span>
-        <h2 class="text-5xl lg:text-6xl mb-6 text-aizen-charcoal leading-[1.1] font-semibold tracking-tight">
+        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6" data-i18n="sobre.badge">Sobre</span>
+        <h2 class="text-5xl lg:text-6xl mb-6 text-aizen-charcoal leading-[1.1] font-semibold tracking-tight" data-i18n="sobre.h2">
           Suas finanças no <span class="text-aizen-blue">piloto automático.</span>
         </h2>
-        <p class="text-aizen-charcoal/50 text-lg leading-relaxed font-light mb-6 max-w-md">
-          Do caos financeiro pro controle total. Zen faz o trabalho pesado pra você.
+        <p class="text-aizen-charcoal/50 text-2xl leading-relaxed font-light mb-6 max-w-md" data-i18n="sobre.sub">
+          Do caos financeiro pro controle total.
         </p>
 
         <!-- About Text -->
-        <div class="border-t border-aizen-charcoal/10 pt-6">
-          <p class="text-aizen-charcoal/60 text-[15px] leading-relaxed mb-4">
-            Zen é uma IA financeira que se conecta aos seus bancos via Open Finance e trabalha 24 horas por dia pra você pagar menos e guardar mais.
+        <div class="border-t border-aizen-charcoal/10 pt-6 space-y-4">
+          <p class="text-aizen-charcoal/60 text-base leading-relaxed">
+            Cuidar do dinheiro é necessário. Ter tempo pra isso é outra história. Por isso criamos <strong>o Zen, a primeira inteligência artificial agêntica para finanças pessoais do Brasil.</strong>
           </p>
-          <p class="text-aizen-charcoal/60 text-[15px] leading-relaxed">
-            Sem app pra baixar. Sem planilha pra preencher. Tudo acontece direto no WhatsApp, na conversa mais fácil que você já teve sobre dinheiro.
+          <p class="text-aizen-charcoal/60 text-base leading-relaxed">
+            Nossos agentes se conectam aos seus bancos via Open Finance e trabalham 24h pra você. Analisam cada gasto, encontram onde você está perdendo dinheiro e agem pra resolver.
+          </p>
+          <p class="text-aizen-charcoal/60 text-base leading-relaxed">
+            Sem app. Sem planilha. Tudo acontece direto no WhatsApp, na conversa mais fácil que você já teve sobre dinheiro.
           </p>
         </div>
       </div>
 
-      <!-- Right Column: Rotating Cards -->
-      <div class="reveal-trigger relative" style="min-height: 520px;">
-        <!-- Card 1: Spend Analysis -->
-        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-100 translate-y-0" data-card="0">
-          <div class="h-56 w-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
-            <div class="relative z-10 text-center">
-              <iconify-icon icon="solar:chart-2-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
-            </div>
-          </div>
-          <div class="p-8">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-aizen-blue mb-3 block">Análise</span>
-            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Onde tá indo meu dinheiro?</h4>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Zen analisa todas as suas contas, categoriza cada gasto automaticamente e te mostra exatamente onde seu dinheiro tá escapando. Sem planilha, sem trabalho.</p>
-            <div class="flex gap-2">
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Automático</span>
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">Multi-banco</span>
-            </div>
-          </div>
+      <!-- Right Column: Agent Tabs + Rotating Cards -->
+      <div class="reveal-trigger">
+        <!-- Agent Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-4" id="sobre-tabs">
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-rose-100 text-rose-600" data-tab="0">Dívidas</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="1">Orçamento</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="2">Crédito</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="3">Cartão</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="4">Auditor</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="5">Investimentos</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="6">Decisão</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="7">Financiamento</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="8">Alertas</button>
+          <button class="sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300 bg-slate-100 text-slate-400" data-tab="9">Metas</button>
         </div>
 
-        <!-- Card 2: Debt -->
-        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="1">
-          <div class="h-56 w-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+        <!-- Cards Container -->
+        <div class="relative" style="min-height: 520px;">
+        <!-- Card 1: Debt Negotiation -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-100 translate-y-0" data-card="0">
+          <div class="h-56 w-full bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
             <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
             <div class="relative z-10 text-center">
               <iconify-icon icon="solar:lock-unlocked-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
             </div>
           </div>
           <div class="p-8">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 mb-3 block">Economia</span>
-            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Como eu saio das dívidas?</h4>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Encontra oportunidades de portabilidade e renegociação com juros muito menores. Já salvamos usuários de pagar até R$ 4.000 a mais por ano.</p>
-            <div class="flex items-center gap-3">
-              <div class="bg-emerald-50 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full">-R$ 4.000/ano</div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-rose-500 mb-3 block" data-i18n="card.0.label">Agente de Dívidas</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.0.title">Como eu saio das dívidas?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.0.body">Tá pagando juros abusivos? Nosso agente encontra onde você está sangrando dinheiro e negocia condições melhores. Portabilidade, renegociação, quitação antecipada. A saída existe. A gente encontra.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-rose-50 text-rose-600 px-3 py-1 rounded-full">Portabilidade</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-rose-50 text-rose-600 px-3 py-1 rounded-full">Renegociação</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-rose-50 text-rose-600 px-3 py-1 rounded-full">Juros menores</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-rose-50 text-rose-600 px-3 py-1 rounded-full">Quitação</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-rose-50 text-rose-600 px-3 py-1 rounded-full">Multi-banco</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 3: Credit -->
+        <!-- Card 2: Budget -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="1">
+          <div class="h-56 w-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:cup-star-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-600 mb-3 block" data-i18n="card.1.label">Agente de Orçamento</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.1.title">Por que nunca sobra nada no fim do mês?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.1.body">Cria desafios sob medida pro seu bolso. Cortar o iFood pela metade, maneirar nas comprinhas, trocar o Uber pela bike. Pequenas mudanças que viram centenas de reais no fim do mês.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">Sob medida</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">Metas semanais</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">iFood</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">Transporte</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">Compras</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Credit Comparison -->
         <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="2">
           <div class="h-56 w-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center relative overflow-hidden">
             <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
@@ -420,18 +462,43 @@
             </div>
           </div>
           <div class="p-8">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-3 block">Crédito</span>
-            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Qual o melhor crédito?</h4>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Compara taxas de dezenas de instituições e acha as melhores ofertas pro seu perfil. Sem burocracia, sem consultar um por um.</p>
-            <div class="flex gap-2">
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Recomendado</span>
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">+20 instituições</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-3 block" data-i18n="card.2.label">Agente de Crédito</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.2.title">Preciso de grana. E agora?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.2.body">Nosso agente varre dezenas de instituições em tempo real e encontra a menor taxa pro seu perfil. Você compara, escolhe e contrata. Sem sair do WhatsApp.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Tempo real</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">+20 instituições</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Menor taxa</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Sem burocracia</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-blue-50 text-blue-600 px-3 py-1 rounded-full">Comparativo</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 4: Audit -->
+        <!-- Card 4: Best Credit Card -->
         <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="3">
+          <div class="h-56 w-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:card-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600 mb-3 block" data-i18n="card.3.label">Agente de Cartão</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.3.title">Meu cartão é bom mesmo?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.3.body">Analisa como você gasta e encontra o cartão que mais te devolve. Cashback, milhas, anuidade zero. Chega de pagar por benefício que você nem usa.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">Cashback</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">Milhas</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">Anuidade zero</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">Comparativo</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full">Personalizado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Hidden Fees -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="4">
           <div class="h-56 w-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center relative overflow-hidden">
             <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
             <div class="relative z-10 text-center">
@@ -439,17 +506,43 @@
             </div>
           </div>
           <div class="p-8">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-3 block">Auditoria</span>
-            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Tô sendo cobrado certo?</h4>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Detecta taxas abusivas, cobranças duplicadas e serviços que você nunca contratou. Bancos erram mais do que você imagina.</p>
-            <div class="flex gap-2">
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Alertas em tempo real</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-3 block" data-i18n="card.4.label">Agente Auditor</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.4.title">Será que estou perdendo dinheiro por bobeira?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.4.body">Tarifa de manutenção, seguro que você nunca contratou, cobrança duplicada. Bancos cobram coisas que passam despercebidas. Nosso agente vasculha tudo e te avisa.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Alertas automáticos</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Multi-banco</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Tarifas</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Cobranças</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Tempo real</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 5: Purchase -->
-        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="4">
+        <!-- Card 6: Investments -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="5">
+          <div class="h-56 w-full bg-gradient-to-br from-cyan-400 to-sky-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:chart-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-cyan-600 mb-3 block" data-i18n="card.5.label">Agente de Investimentos</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.5.title">O que faço com o que sobra?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.5.body">Sobrou um dinheiro e não sabe onde colocar? Nosso agente analisa seu perfil e encontra o melhor investimento. CDB, Tesouro Direto, fundos. Compara rentabilidade e risco pra seu dinheiro render mais, sem você precisar virar trader.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-cyan-50 text-cyan-600 px-3 py-1 rounded-full">CDB</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-cyan-50 text-cyan-600 px-3 py-1 rounded-full">Tesouro Direto</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-cyan-50 text-cyan-600 px-3 py-1 rounded-full">Rentabilidade</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-cyan-50 text-cyan-600 px-3 py-1 rounded-full">Risco calculado</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-cyan-50 text-cyan-600 px-3 py-1 rounded-full">Personalizado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Decision -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="6">
           <div class="h-56 w-full bg-gradient-to-br from-teal-400 to-green-500 flex items-center justify-center relative overflow-hidden">
             <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
             <div class="relative z-10 text-center">
@@ -457,203 +550,407 @@
             </div>
           </div>
           <div class="p-8">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-teal-600 mb-3 block">Decisão</span>
-            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Posso comprar isso?</h4>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Analisa seu orçamento real, suas contas futuras e te diz se aquela compra cabe no bolso. Decisão informada, sem arrependimento.</p>
-            <div class="flex gap-2">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-teal-600 mb-3 block" data-i18n="card.6.label">Agente de Decisão</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.6.title">Consigo comprar um iPhone?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.6.body">Quer comprar algo e não sabe se cabe no bolso? Nosso agente analisa sua renda, seus compromissos e te diz se rola. Comprar ou alugar? À vista ou parcelado? Decisão informada, zero arrependimento.</p>
+            <div class="flex flex-wrap gap-2">
               <span class="text-[10px] font-bold uppercase tracking-wide bg-teal-50 text-teal-700 px-3 py-1 rounded-full">Orçamento real</span>
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">Contas futuras</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-teal-50 text-teal-700 px-3 py-1 rounded-full">Simulação</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-teal-50 text-teal-700 px-3 py-1 rounded-full">Compra vs aluguel</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-teal-50 text-teal-700 px-3 py-1 rounded-full">À vista</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-teal-50 text-teal-700 px-3 py-1 rounded-full">Parcelado</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 6: Mental Health -->
-        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="5">
-          <div class="h-56 w-full bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
+        
+        <!-- Card 8: Financing -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="7">
+          <div class="h-56 w-full bg-gradient-to-br from-violet-400 to-purple-500 flex items-center justify-center relative overflow-hidden">
             <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
             <div class="relative z-10 text-center">
-              <iconify-icon icon="solar:heart-pulse-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+              <iconify-icon icon="solar:key-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
             </div>
           </div>
           <div class="p-8">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-rose-500 mb-3 block">Bem-estar</span>
-            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Tô pirando com as contas.</h4>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed mb-6">Apoio emocional e um plano concreto pra você respirar. Finanças bagunçadas afetam a saúde mental. Zen te ajuda a recuperar o controle.</p>
-            <div class="flex gap-2">
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-rose-50 text-rose-600 px-3 py-1 rounded-full">Apoio emocional</span>
-              <span class="text-[10px] font-bold uppercase tracking-wide bg-aizen-cream text-aizen-charcoal/40 px-3 py-1 rounded-full">Plano concreto</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-violet-600 mb-3 block" data-i18n="card.7.label">Agente de Financiamento</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.7.title">Quero um carro novo. E agora?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.7.body">Carro, moto ou até a casa própria. Nosso agente simula parcelas, compara taxas de dezenas de bancos e encontra o financiamento que cabe no seu bolso. Sem surpresa no meio do caminho.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-violet-50 text-violet-600 px-3 py-1 rounded-full">Veículo</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-violet-50 text-violet-600 px-3 py-1 rounded-full">Imóvel</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-violet-50 text-violet-600 px-3 py-1 rounded-full">Menor taxa</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-violet-50 text-violet-600 px-3 py-1 rounded-full">Simulação</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-violet-50 text-violet-600 px-3 py-1 rounded-full">Comparativo</span>
             </div>
           </div>
         </div>
+
+        <!-- Card 9: Alerts -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="8">
+          <div class="h-56 w-full bg-gradient-to-br from-red-400 to-rose-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:bell-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-red-500 mb-3 block" data-i18n="card.8.label">Agente de Alertas</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3">Quase caí no cheque especial!</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.8.body">Conta vencendo, saldo ficando baixo, cheque especial batendo na porta. Nosso agente monitora tudo e te avisa antes do estrago acontecer. Prevenção que vira economia.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-red-50 text-red-600 px-3 py-1 rounded-full">Cheque especial</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-red-50 text-red-600 px-3 py-1 rounded-full">Vencimentos</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-red-50 text-red-600 px-3 py-1 rounded-full">Saldo baixo</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-red-50 text-red-600 px-3 py-1 rounded-full">Tempo real</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-red-50 text-red-600 px-3 py-1 rounded-full">Prevenção</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10: Goals -->
+        <div class="sobre-card absolute inset-0 bg-white rounded-[2rem] overflow-hidden border border-aizen-charcoal/10 shadow-xl shadow-black/5 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none" data-card="9">
+          <div class="h-56 w-full bg-gradient-to-br from-fuchsia-400 to-pink-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div class="relative z-10 text-center">
+              <iconify-icon icon="solar:flag-bold-duotone" class="text-6xl text-white/90"></iconify-icon>
+            </div>
+          </div>
+          <div class="p-8">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-fuchsia-600 mb-3 block" data-i18n="card.9.label">Agente de Metas</span>
+            <h4 class="text-2xl text-aizen-charcoal font-semibold tracking-tight mb-3" data-i18n="card.9.title">Quero juntar grana. Me ajuda?</h4>
+            <p class="text-aizen-charcoal/50 text-[15px] leading-relaxed mb-6" data-i18n="card.9.body">Reserva de emergência, viagem dos sonhos, entrada do apê. Nosso agente cria um plano sob medida, acompanha seu progresso e te cutuca quando você desvia. Meta definida é meta cumprida.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-fuchsia-50 text-fuchsia-600 px-3 py-1 rounded-full">Reserva</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-fuchsia-50 text-fuchsia-600 px-3 py-1 rounded-full">Viagem</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-fuchsia-50 text-fuchsia-600 px-3 py-1 rounded-full">Conquistas</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-fuchsia-50 text-fuchsia-600 px-3 py-1 rounded-full">Progresso</span>
+              <span class="text-[10px] font-bold uppercase tracking-wide bg-fuchsia-50 text-fuchsia-600 px-3 py-1 rounded-full">Personalizado</span>
+            </div>
+          </div>
+        </div>
+        </div><!-- /Cards Container -->
       </div>
     </div>
   </section>
 
   <!-- Positioning Section -->
-  <section class="py-10 overflow-hidden w-full relative bg-aizen-cream">
-    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-      <div class="max-w-3xl mx-auto text-center reveal-trigger">
-        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6">Nosso propósito</span>
+  <section class="py-24 lg:px-12 overflow-hidden w-full relative" id="posicionamento">
+    <div class="max-w-7xl mx-auto px-6">
+      <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-4 reveal-trigger" data-i18n="pos.badge">Nosso propósito</span>
 
-        <h2 class="text-4xl md:text-6xl lg:text-7xl text-aizen-charcoal tracking-tighter font-semibold mb-6">
-          Zen trabalha pra você.<br><span class="text-aizen-charcoal/50">(Não pros bancos.)</span>
-        </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-2 lg:gap-4 items-center">
 
-        <p class="text-lg md:text-xl leading-relaxed font-light text-aizen-charcoal/70 max-w-2xl mx-auto mb-12 text-balance">
-          Os bancos lucram com a sua confusão. Quanto menos você entende, mais você paga em juros, tarifas e produtos que não precisa. Zen tá do seu lado. Sempre buscando formas de você pagar menos e guardar mais.
-        </p>
+        <!-- Left: Panda -->
+        <div class="reveal-trigger flex justify-start">
+          <img src="assets/stickers/zenpanda_meditating.png" alt="Zen Panda" class="w-full max-w-sm -scale-x-100" loading="lazy">
+        </div>
 
-        <div class="reveal-trigger grid grid-cols-3 gap-6 border-t border-aizen-charcoal/10 pt-8">
-          <div>
-            <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">R$ 1.200</div>
-            <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide">Economia média/ano</p>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">24h</div>
-            <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide">Monitoramento</p>
-          </div>
-          <div>
-            <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">100%</div>
-            <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide">Grátis</p>
+        <!-- Right: Text -->
+        <div class="reveal-trigger">
+          <h2 class="text-4xl md:text-6xl lg:text-7xl text-aizen-charcoal tracking-tighter font-semibold mb-6" data-i18n="pos.h2">
+            Zen trabalha pra você.<br><span class="text-aizen-charcoal/50">(Não pros bancos.)</span>
+          </h2>
+
+          <p class="text-lg md:text-xl leading-relaxed font-light text-aizen-charcoal/70 max-w-2xl mb-12 text-balance" data-i18n="pos.body">
+            Os bancos lucram com a sua confusão. Quanto menos você entende, mais você paga em juros, tarifas e produtos que não precisa. Zen tá do seu lado. Sempre buscando formas de você pagar menos e guardar mais.
+          </p>
+
+          <div class="reveal-trigger grid grid-cols-3 gap-4 sm:gap-6 border-t border-aizen-charcoal/10 pt-8">
+            <div>
+              <div class="text-2xl sm:text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">R$ 1.200</div>
+              <p class="text-[10px] sm:text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide" data-i18n="pos.stat1">Economia média/ano</p>
+            </div>
+            <div>
+              <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">24h</div>
+              <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide" data-i18n="pos.stat2">Monitoramento</p>
+            </div>
+            <div>
+              <div class="text-3xl md:text-4xl font-semibold text-aizen-charcoal tracking-tight mb-1">100%</div>
+              <p class="text-xs md:text-sm text-aizen-charcoal/60 font-medium uppercase tracking-wide" data-i18n="pos.stat3">Grátis</p>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- How it Works -->
-  <section class="py-10 bg-aizen-cream" id="como-funciona">
-    <div class="container mx-auto px-6 md:px-12 max-w-7xl">
-      <div class="text-center mb-12 reveal-trigger">
-        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-4">Como funciona</span>
-        <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter text-aizen-charcoal mb-4">É só isso:</h2>
-        <p class="text-lg text-aizen-charcoal/60 font-light">2 minutos pra ativar. Economia pra vida toda.</p>
+  <section class="py-24 lg:px-12" id="como-funciona">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-12 reveal-trigger">
+        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-4" data-i18n="how.badge">Começar agora</span>
+        <h2 class="text-4xl md:text-6xl font-semibold tracking-tighter text-aizen-charcoal mb-4">Ative em 2 minutos.</h2>
+        <p class="text-xl text-aizen-charcoal/60 font-light" data-i18n="how.sub">Sem app. Sem cadastro. Sem burocracia.</p>
       </div>
 
-      <!-- Steps timeline -->
-      <div class="reveal-trigger relative">
-        <!-- Connecting line -->
-        <div class="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-aizen-charcoal/10"></div>
+      <!-- Steps cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          <!-- Step 1 -->
-          <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-white border border-aizen-charcoal/10 shadow-lg shadow-black/5 flex items-center justify-center relative z-10">
-              <svg viewBox="0 0 24 24" fill="#25D366" class="w-9 h-9"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <!-- Step 1: WhatsApp -->
+        <div class="reveal-trigger text-center">
+          <span class="inline-block py-1.5 px-4 rounded-full border border-aizen-charcoal/20 text-aizen-charcoal text-[11px] uppercase tracking-widest font-bold mb-5" data-i18n="how.s1.badge">Passo 1</span>
+          <!-- Illustration: WhatsApp chat mockup -->
+          <div class="bg-white/60 border border-aizen-charcoal/[0.06] rounded-3xl p-4 sm:p-6 mb-6 h-[320px] sm:h-[340px] flex items-center justify-center overflow-hidden">
+            <div class="w-full max-w-[240px] rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+              <!-- Chat header -->
+              <div class="bg-[#075E54] px-4 py-3 flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center p-1.5">
+                  <img src="assets/logos/logomark-blue.svg" alt="Aizen" class="w-full h-full object-contain">
+                </div>
+                <div>
+                  <div class="text-white text-sm font-semibold">Aizen</div>
+                  <div class="text-white/60 text-[10px]">online</div>
+                </div>
+              </div>
+              <!-- Chat body -->
+              <div class="bg-[#ECE5DD] px-3 py-4 space-y-2">
+                <div class="flex justify-end">
+                  <div class="bg-[#DCF8C6] rounded-xl rounded-tr-sm px-3 py-2 max-w-[80%]">
+                    <p class="text-[11px] text-slate-800">Oi! 👋</p>
+                    <p class="text-[8px] text-slate-400 text-right mt-0.5">10:30</p>
+                  </div>
+                </div>
+                <div class="flex justify-start">
+                  <div class="bg-white rounded-xl rounded-tl-sm px-3 py-2 max-w-[85%]">
+                    <p class="text-[11px] text-slate-800">Oi! Eu sou o Zen 🧘 Bora cuidar das suas finanças?</p>
+                    <p class="text-[8px] text-slate-400 text-right mt-0.5">10:30</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3 class="text-lg font-bold text-aizen-charcoal mb-2">1. Mande um Oi</h3>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed max-w-[220px] mx-auto">Adicione o Zen no WhatsApp e envie a primeira mensagem.</p>
           </div>
-
-          <!-- Step 2 -->
-          <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-white border border-aizen-charcoal/10 shadow-lg shadow-black/5 flex items-center justify-center relative z-10">
-              <svg viewBox="0 0 24 24" fill="#2678FF" class="w-9 h-9"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-            </div>
-            <h3 class="text-lg font-bold text-aizen-charcoal mb-2">2. Conecte os Bancos</h3>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed max-w-[220px] mx-auto">Autorize a leitura dos dados via Open Finance. Seguro e rápido.</p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-white border border-aizen-charcoal/10 shadow-lg shadow-black/5 flex items-center justify-center relative z-10">
-              <svg viewBox="0 0 24 24" fill="#00C853" class="w-9 h-9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            </div>
-            <h3 class="text-lg font-bold text-aizen-charcoal mb-2">3. Fique Zen</h3>
-            <p class="text-aizen-charcoal/50 text-sm leading-relaxed max-w-[220px] mx-auto">Receba insights semanais e economize sem esforço.</p>
-          </div>
+          <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-aizen-charcoal mb-2 whitespace-nowrap" data-i18n="how.s1.title">Mande um Oi</h3>
+          <p class="text-aizen-charcoal/50 text-lg leading-relaxed min-h-[7rem]" data-i18n="how.s1.body">Adicione o Zen no WhatsApp e mande uma mensagem. Sem baixar app, sem criar conta, sem preencher formulário. Como faz com qualquer amigo.</p>
         </div>
+
+        <!-- Step 2: Connect Banks -->
+        <div class="reveal-trigger text-center">
+          <span class="inline-block py-1.5 px-4 rounded-full border border-aizen-charcoal/20 text-aizen-charcoal text-[11px] uppercase tracking-widest font-bold mb-5" data-i18n="how.s2.badge">Passo 2</span>
+          <!-- Illustration: Secure bank connection -->
+          <div class="bg-white/60 border border-aizen-charcoal/[0.06] rounded-3xl p-4 sm:p-6 mb-6 h-[320px] sm:h-[340px] flex items-center justify-center overflow-hidden">
+            <div class="w-full max-w-[240px] space-y-4">
+              <!-- Central shield -->
+              <div class="flex justify-center mb-2">
+                <div class="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="#10B981" class="w-8 h-8"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                </div>
+              </div>
+              <!-- Connected banks -->
+              <div class="space-y-2">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 px-4 py-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-7 h-7 rounded-lg bg-purple-100 flex items-center justify-center"><span class="text-purple-600 text-[10px] font-bold">Nu</span></div>
+                    <span class="text-sm text-slate-700 font-medium">Nubank</span>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="#10B981" class="w-5 h-5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 px-4 py-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-7 h-7 rounded-lg bg-orange-100 flex items-center justify-center"><span class="text-orange-600 text-[10px] font-bold">Itaú</span></div>
+                    <span class="text-sm text-slate-700 font-medium">Itaú</span>
+                  </div>
+                  <svg viewBox="0 0 24 24" fill="#10B981" class="w-5 h-5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-100 px-4 py-3 flex items-center justify-between opacity-50">
+                  <div class="flex items-center gap-3">
+                    <div class="w-7 h-7 rounded-lg bg-blue-100 flex items-center justify-center"><span class="text-blue-600 text-[10px] font-bold">+</span></div>
+                    <span class="text-sm text-slate-400 font-medium">adicionar banco</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Trust badge -->
+              <div class="flex items-center justify-center gap-1.5">
+                <svg viewBox="0 0 24 24" fill="#10B981" class="w-3.5 h-3.5"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+                <span class="text-[10px] text-emerald-600 font-semibold">Somente leitura. Regulado pelo Banco Central.</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-aizen-charcoal mb-2 whitespace-nowrap" data-i18n="how.s2.title">Conecte seus bancos</h3>
+          <p class="text-aizen-charcoal/50 text-lg leading-relaxed min-h-[7rem]" data-i18n="how.s2.body">Autorize a leitura via Open Finance, regulado pelo Banco Central. Zen nunca movimenta seu dinheiro. Somente leitura. Seguro como o app do seu banco.</p>
+        </div>
+
+        <!-- Step 3: Zen State -->
+        <div class="reveal-trigger text-center">
+          <span class="inline-block py-1.5 px-4 rounded-full border border-aizen-charcoal/20 text-aizen-charcoal text-[11px] uppercase tracking-widest font-bold mb-5" data-i18n="how.s3.badge">Passo 3</span>
+          <!-- Illustration: Savings notifications -->
+          <div class="bg-white/60 border border-aizen-charcoal/[0.06] rounded-3xl p-4 sm:p-6 mb-6 h-[320px] sm:h-[340px] flex items-center justify-center overflow-hidden">
+            <div class="w-full max-w-[240px] space-y-3">
+              <!-- Notification 1: Savings found -->
+              <div class="bg-white rounded-xl shadow-sm border border-slate-100 px-4 py-3 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg viewBox="0 0 24 24" fill="#10B981" class="w-4 h-4"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                </div>
+                <div>
+                  <p class="text-[11px] text-slate-800 font-semibold">Economia encontrada!</p>
+                  <p class="text-[10px] text-slate-400">Portabilidade do consignado pode economizar R$ 234/mês</p>
+                </div>
+              </div>
+              <!-- Notification 2: Hidden fee -->
+              <div class="bg-white rounded-xl shadow-sm border border-slate-100 px-4 py-3 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg viewBox="0 0 24 24" fill="#F59E0B" class="w-4 h-4"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                </div>
+                <div>
+                  <p class="text-[11px] text-slate-800 font-semibold">Cobrança suspeita</p>
+                  <p class="text-[10px] text-slate-400">Seguro de R$ 47/mês que você não contratou</p>
+                </div>
+              </div>
+              <!-- Notification 3: Better rate -->
+              <div class="bg-white rounded-xl shadow-sm border border-slate-100 px-4 py-3 flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg viewBox="0 0 24 24" fill="#2678FF" class="w-4 h-4"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                </div>
+                <div>
+                  <p class="text-[11px] text-slate-800 font-semibold">Taxa menor disponível</p>
+                  <p class="text-[10px] text-slate-400">Cartão cobra 14% a.m. Achei opção a 3.9%</p>
+                </div>
+              </div>
+              <!-- Summary badge -->
+              <div class="bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-2.5 text-center">
+                <p class="text-emerald-700 text-xs font-bold">+ R$ 1.200/ano na sua conta</p>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-3xl md:text-4xl font-semibold tracking-tight text-aizen-charcoal mb-2 whitespace-nowrap" data-i18n="how.s3.title">Fique Zen</h3>
+          <p class="text-aizen-charcoal/50 text-lg leading-relaxed min-h-[7rem]" data-i18n="how.s3.body">Pronto. A partir de agora, seus agentes trabalham 24h encontrando onde você perde dinheiro e como pagar menos. Tudo chega direto no seu WhatsApp.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="py-10 bg-aizen-cream" id="faq">
-    <div class="container mx-auto px-6 md:px-12 max-w-3xl">
-      <div class="text-center mb-12 reveal-trigger">
-        <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6">FAQ</span>
-        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-aizen-charcoal">Perguntas rápidas.</h2>
+  <section class="py-24 lg:px-12" id="faq">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+        <!-- Left column: Title + subtitle -->
+        <div class="reveal-trigger lg:sticky lg:top-32 lg:self-start">
+          <span class="inline-block py-1 px-3 rounded-full bg-aizen-blue text-white text-[10px] uppercase tracking-widest font-bold mb-6" data-i18n="faq.badge">FAQ</span>
+          <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-aizen-charcoal leading-tight" data-i18n="faq.h2">Perguntas<br>frequentes</h2>
+          <p class="text-slate-500 mt-4 text-lg leading-relaxed" data-i18n="faq.sub">Tudo que você precisa saber sobre o Zen.<br>Não encontrou sua resposta? <a href="https://wa.me/5511999999999" class="text-aizen-charcoal underline underline-offset-2 hover:text-aizen-blue transition-colors">Fale com a gente.</a></p>
+        </div>
+
+        <!-- Right column: Accordion cards -->
+        <div class="lg:col-span-2 space-y-3">
+          <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-slate-900" data-i18n="faq.q1">Como o Zen sabe o que é melhor pra mim?</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-8 pt-2 pb-6 text-slate-500 text-[15px] leading-relaxed" data-i18n="faq.a1">Zen conecta nas suas contas e enxerga tudo em tempo real: quanto entra, quanto sai, pra onde vai, quanto você paga de juros. Com essa visão completa, a inteligência artificial analisa sua situação e encontra oportunidades que fazem sentido pra você, não pra todo mundo. Quanto mais tempo usa, mais o Zen entende seu perfil e melhor ficam as recomendações.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-slate-900" data-i18n="faq.q2">Como sei que meus dados tão seguros?</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-8 pt-2 pb-6 text-slate-500 text-[15px] leading-relaxed" data-i18n="faq.a2">A conexão é feita pelo Open Finance, regulado pelo Banco Central. Zen só lê suas informações, nunca movimenta nada. Não vemos sua senha. Nenhuma pessoa acessa seus dados, só a inteligência artificial. E você pode desconectar sua conta a qualquer momento, com um clique.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-slate-900" data-i18n="faq.q3">Minhas finanças tão uma bagunça. Zen vai me ajudar mesmo assim?</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-8 pt-2 pb-6 text-slate-500 text-[15px] leading-relaxed" data-i18n="faq.a3">Principalmente assim. A maioria das pessoas que usa o Zen começou exatamente nesse ponto. Dívida no cartão, parcela atrasada, aquela sensação de que não adianta olhar. O Zen não julga. Ele mostra o que tá acontecendo com calma, encontra onde você tá pagando juros demais e te mostra saída concreta. Sem sermão, sem planilha.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-slate-900" data-i18n="faq.q4">Já tentei controlar minhas finanças antes e sempre desisti. Qual a diferença?</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-8 pt-2 pb-6 text-slate-500 text-[15px] leading-relaxed" data-i18n="faq.a4">Você não precisa fazer nada. Zero. Sem anotar gasto, sem categorizar, sem abrir planilha. O Zen puxa tudo automático das suas contas e te manda no WhatsApp. Se quiser ignorar por uns dias, tudo bem. Ele continua trabalhando e te avisa quando encontrar algo importante, tipo uma cobrança indevida ou um jeito de pagar menos.</p>
+            </div>
+          </div>
+
+          <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm">
+            <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-slate-900" data-i18n="faq.q5">Tem alguma pegadinha? Vai virar pago depois?</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300 shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+              <p class="px-8 pt-2 pb-6 text-slate-500 text-[15px] leading-relaxed" data-i18n="faq.a5">Nenhuma. Zen é grátis e vai continuar sendo. A gente ganha quando encontra uma oportunidade melhor pra você e você decide aceitar. A instituição financeira paga uma comissão pra gente. Se você nunca aceitar nada, a gente ganha zero e você continua usando de graça. Simples assim.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </section>
 
-      <div class="space-y-4">
-        <div class="reveal-trigger faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-          <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
-            <span class="font-semibold text-slate-900">É seguro?</span>
-            <span class="faq-icon text-aizen-blue text-2xl font-light transition-transform duration-300">+</span>
-          </button>
-          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-            <p class="px-8 pt-2 pb-6 text-slate-500 leading-relaxed">Sim. Zen usa Open Finance, regulado pelo Banco Central. Acesso somente leitura, com seu consentimento. Nunca vemos suas senhas. Nunca movimentamos seu dinheiro.</p>
-          </div>
+  <!-- Bottom CTA -->
+  <section class="py-24 lg:px-12 bg-aizen-cream" id="bottom-cta">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-semibold tracking-tighter text-aizen-charcoal mb-4" data-i18n="cta.h2">Pronto pra deixar sua vida financeira zen?</h2>
+      <p class="text-lg text-aizen-charcoal/60 font-light mb-10" data-i18n="cta.body">Pague menos juros, gaste melhor, sobre mais. Grátis, direto no WhatsApp.</p>
+
+      <form class="flex flex-col sm:flex-row gap-3 mb-6 max-w-md mx-auto" id="bottom-cta-form">
+        <div class="flex items-center gap-3 flex-1 px-5 py-4 bg-white border border-slate-200 rounded-full focus-within:border-aizen-blue focus-within:ring-2 focus-within:ring-aizen-blue/20 transition-all">
+          <span class="text-sm font-semibold text-slate-400 shrink-0">BR</span>
+          <input type="tel" placeholder="(11) 99999-0000" class="flex-1 bg-transparent focus:outline-none text-sm font-medium text-slate-700 placeholder:text-slate-300" required>
         </div>
+        <button type="submit" class="group bg-aizen-blue hover:bg-blue-700 transition-colors text-white rounded-full py-4 px-8 flex items-center justify-center gap-2">
+          <span class="text-sm font-semibold whitespace-nowrap" data-i18n="cta.btn">Começar no WhatsApp</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
 
-        <div class="reveal-trigger faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-          <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
-            <span class="font-semibold text-slate-900">Quanto custa?</span>
-            <span class="faq-icon text-aizen-blue text-2xl font-light transition-transform duration-300">+</span>
-          </button>
-          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-            <p class="px-8 pt-2 pb-6 text-slate-500 leading-relaxed">Nada. Zen é grátis pra você. A gente ganha quando você contrata um produto melhor por indicação nossa. Se você não troca nada, a gente não ganha nada.</p>
-          </div>
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-sm text-slate-500">
+        <div class="flex items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="shrink-0"><circle cx="12" cy="12" r="10" fill="#10B981"/><path d="M9 12l2 2 4-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="font-medium text-slate-700" data-i18n="cta.badge1">Grátis e seguro</span>
         </div>
-
-        <div class="reveal-trigger faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-          <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
-            <span class="font-semibold text-slate-900">Zen mexe no meu dinheiro?</span>
-            <span class="faq-icon text-aizen-blue text-2xl font-light transition-transform duration-300">+</span>
-          </button>
-          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-            <p class="px-8 pt-2 pb-6 text-slate-500 leading-relaxed">Nunca. Zen sugere. Você decide. Sempre.</p>
+        <span class="text-slate-200 hidden sm:inline">|</span>
+        <div class="flex items-center gap-2.5">
+          <div class="flex -space-x-2">
+            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-blue-100 shrink-0"></div>
+            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-emerald-100 shrink-0"></div>
+            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-amber-100 shrink-0"></div>
+            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[9px] sm:text-[10px] font-bold text-slate-500">+<span class="waitlist-count-mirror">0</span></div>
           </div>
-        </div>
-
-        <div class="reveal-trigger faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-          <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
-            <span class="font-semibold text-slate-900">Preciso baixar app?</span>
-            <span class="faq-icon text-aizen-blue text-2xl font-light transition-transform duration-300">+</span>
-          </button>
-          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-            <p class="px-8 pt-2 pb-6 text-slate-500 leading-relaxed">Não. Zen funciona direto no WhatsApp.</p>
-          </div>
-        </div>
-
-        <div class="reveal-trigger faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-          <button class="faq-question w-full px-8 py-6 flex justify-between items-center text-left hover:bg-slate-50 transition-colors">
-            <span class="font-semibold text-slate-900">Quais bancos funcionam?</span>
-            <span class="faq-icon text-aizen-blue text-2xl font-light transition-transform duration-300">+</span>
-          </button>
-          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-            <p class="px-8 pt-2 pb-6 text-slate-500 leading-relaxed">Nubank, Itaú, Bradesco, Santander, BB, Inter, C6 e outros via Open Finance.</p>
-          </div>
+          <span class="text-slate-500" data-i18n="cta.badge2">pessoas na fila</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-aizen-charcoal pt-14 pb-8">
+  <footer class="bg-aizen-charcoal pt-14 pb-8" id="footer">
     <div class="container mx-auto px-6 md:px-12 max-w-7xl">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <div>
           <a href="#" class="mb-6 block">
-            <img src="assets/logos/logo-white.svg" alt="Aizen" class="h-7">
+            <img src="assets/logos/logo-white.svg" alt="Aizen" class="h-7" width="108" height="28">
           </a>
-          <p class="text-white/50 text-sm">Seu assistente financeiro no WhatsApp.</p>
+          <p class="text-white/50 text-sm" data-i18n="footer.tagline">Seu assistente financeiro no WhatsApp.</p>
         </div>
 
         <div class="flex flex-col gap-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2">Zen</span>
-          <a href="#como-funciona" class="text-white/50 hover:text-white text-sm transition-colors">Como funciona</a>
-          <a href="#faq" class="text-white/50 hover:text-white text-sm transition-colors">FAQ</a>
+          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2" data-i18n="footer.sec1">Zen</span>
+          <a href="#como-funciona" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link1">Como funciona</a>
+          <a href="#faq" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link2">FAQ</a>
         </div>
 
         <div class="flex flex-col gap-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2">Legal</span>
-          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Termos de uso</a>
-          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">Privacidade</a>
+          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2" data-i18n="footer.sec2">Legal</span>
+          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link3">Termos de uso</a>
+          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link4">Privacidade</a>
         </div>
 
         <div class="flex flex-col gap-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2">Contato</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-white mb-2" data-i18n="footer.sec3">Contato</span>
           <a href="mailto:oi@aizen.io" class="text-white/50 hover:text-white text-sm transition-colors">oi@aizen.io</a>
         </div>
       </div>
@@ -674,6 +971,10 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
           </a>
         </div>
+      </div>
+      <!-- Legal Disclaimer -->
+      <div class="mt-8 pt-6 border-t border-white/10">
+        <p class="text-[10px] text-white/30 leading-relaxed max-w-4xl">www.aizen.io pertence à AIZEN TECNOLOGIA LTDA. CNPJ 63.740.359/0001-15, localizada na Rua Henri Dunant, nº 792, Santo Amaro, São Paulo, SP, CEP 04709-110. A Aizen atua como Correspondente Bancário, seguindo as diretrizes da Resolução nº 3.954 do Banco Central do Brasil. A Aizen não realiza operações de crédito, sendo responsável apenas pela intermediação entre o usuário e as instituições financeiras parceiras.</p>
       </div>
     </div>
   </footer>
@@ -752,33 +1053,45 @@
     document.querySelectorAll('.faq-item').forEach(item => {
       const question = item.querySelector('.faq-question');
       const answer = item.querySelector('.faq-answer');
-      const icon = item.querySelector('.faq-icon');
+      const chevron = item.querySelector('.faq-chevron');
 
       question.addEventListener('click', () => {
         const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
 
         // Close all
         document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
-        document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+        document.querySelectorAll('.faq-chevron').forEach(c => c.style.transform = 'rotate(0deg)');
 
         // Open clicked if was closed
         if (!isOpen) {
           answer.style.maxHeight = answer.scrollHeight + 'px';
-          icon.style.transform = 'rotate(45deg)';
+          chevron.style.transform = 'rotate(180deg)';
         }
       });
     });
 
-    // Forms
-    document.querySelectorAll('#hero-form, #waitlist-form').forEach(form => {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        form.innerHTML = `
+    // Forms (i18n-aware)
+    function getFormSuccessHTML() {
+      if (localStorage.getItem('zenLang') === 'en') {
+        return `
           <div class="text-center py-4">
-            <p class="text-lg font-semibold text-aizen-blue mb-2">✓ Pronto! Você tá na fila.</p>
-            <p class="text-sm text-slate-500">A gente avisa quando chegar sua vez.</p>
+            <p class="text-lg font-semibold text-aizen-blue mb-2">✓ Done!</p>
+            <p class="text-sm text-slate-500">You'll receive a message on WhatsApp soon.</p>
           </div>
         `;
+      }
+      return `
+        <div class="text-center py-4">
+          <p class="text-lg font-semibold text-aizen-blue mb-2">✓ Pronto!</p>
+          <p class="text-sm text-slate-500">Você vai receber uma mensagem no WhatsApp em breve.</p>
+        </div>
+      `;
+    }
+
+    document.querySelectorAll('#hero-form, #waitlist-form, #bottom-cta-form').forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        form.innerHTML = getFormSuccessHTML();
       });
     });
 
@@ -793,113 +1106,747 @@
       });
     });
 
-    // Sobre Card Carousel (auto-advance)
+    // Sobre Card Carousel (auto-advance with tabs + pause on hover/click)
     const sobreCards = document.querySelectorAll('.sobre-card');
+    const sobreTabs = document.querySelectorAll('#sobre-tabs .sobre-tab');
     let sobreIndex = 0;
+    let sobreInterval = null;
+    let sobrePaused = false;
 
-    function showSobreCard(index) {
-      sobreCards.forEach((card, i) => {
-        if (i === index) {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-          card.style.pointerEvents = 'auto';
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(32px)';
-          card.style.pointerEvents = 'none';
-        }
+    const sobreTabColors = [
+      { active: 'bg-rose-100 text-rose-600', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-emerald-100 text-emerald-600', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-blue-100 text-blue-600', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-indigo-100 text-indigo-600', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-amber-100 text-amber-700', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-cyan-100 text-cyan-600', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-teal-100 text-teal-700', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-violet-100 text-violet-600', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-red-100 text-red-500', inactive: 'bg-slate-100 text-slate-400' },
+      { active: 'bg-fuchsia-100 text-fuchsia-600', inactive: 'bg-slate-100 text-slate-400' },
+    ];
+
+    if (sobreCards.length > 0) {
+      function showSobreCard(index) {
+        sobreCards.forEach((card, i) => {
+          if (i === index) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            card.style.pointerEvents = 'auto';
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(32px)';
+            card.style.pointerEvents = 'none';
+          }
+        });
+        sobreTabs.forEach((tab, i) => {
+          const colors = sobreTabColors[i];
+          const base = 'sobre-tab shrink-0 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all duration-300';
+          tab.className = i === index
+            ? base + ' ' + colors.active
+            : base + ' ' + colors.inactive;
+        });
+        sobreIndex = index;
+      }
+
+      function startSobreInterval() {
+        if (sobreInterval) clearInterval(sobreInterval);
+        sobreInterval = setInterval(() => {
+          if (!sobrePaused) showSobreCard((sobreIndex + 1) % sobreCards.length);
+        }, 4000);
+      }
+
+      // Tab click handlers
+      sobreTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          showSobreCard(parseInt(tab.dataset.tab));
+          startSobreInterval();
+        });
       });
-      sobreIndex = index;
+
+      // Pause on hover over the card area
+      const cardContainer = document.querySelector('.sobre-card').parentElement;
+      cardContainer.addEventListener('mouseenter', () => { sobrePaused = true; });
+      cardContainer.addEventListener('mouseleave', () => { sobrePaused = false; });
+
+      showSobreCard(0);
+      startSobreInterval();
     }
 
-    setInterval(() => { showSobreCard((sobreIndex + 1) % 6); }, 4000);
+    // Waitlist counter animation (counts up and keeps incrementing slowly)
+    (function() {
+      const target = 2000;
+      const el = document.getElementById('waitlist-count');
+      const mirrors = document.querySelectorAll('.waitlist-count-mirror');
+      let current = 0;
 
-    // Hero Phone Chat Animation
-    const chatData = [
+      function formatNum(n) {
+        return n >= 1000 ? (n / 1000).toFixed(1).replace('.0', '') + 'k' : n.toString();
+      }
+
+      function updateAll(n) {
+        const txt = formatNum(n);
+        if (el) el.textContent = txt;
+        mirrors.forEach(m => m.textContent = txt);
+      }
+
+      // Fast count up to target
+      const duration = 2000;
+      const startTime = performance.now();
+      function countUp(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * target);
+        updateAll(current);
+        if (progress < 1) requestAnimationFrame(countUp);
+        else {
+          current = target;
+          // Keep incrementing slowly (1 every 3-8 seconds)
+          setInterval(() => {
+            current += 1;
+            updateAll(current);
+          }, Math.floor(Math.random() * 5000) + 3000);
+        }
+      }
+      requestAnimationFrame(countUp);
+    })();
+
+    // Hero Phone Chat Animation (var for cross-script access by i18n)
+    var chatData = [
       {
-        user: "Pra onde tá indo meu dinheiro?",
-        zen: `<strong class="text-[#075E54]">Seus gastos em janeiro:</strong><br>🍔 Alimentação: R$ 936<br>🚗 Transporte: R$ 585<br>📱 Assinaturas: R$ 351<br><br><span class="text-aizen-blue font-medium">Achei 3 assinaturas que você não usa.</span>`,
-        time: "10:30"
+        messages: [
+          { sender: "user", text: "Pra onde está indo meu dinheiro este mês?", time: "10:30" },
+          { sender: "zen", html: `Oi Tiago! Este mês você está esbanjando, e já gastou mais do que 80% do que gastou no último mês.<br><br><strong>Três maiores categorias:</strong><br>🍔 Alimentação: <strong>R$ 400</strong><br>🚗 Transporte: <strong>R$ 300</strong><br>🎭 Entretenimento: <strong>R$ 600</strong><br>📦 Outros: <strong>R$ 300</strong><br><strong>Total: R$ 1.600</strong>`, time: "10:30" },
+          { sender: "user", text: "Quero sugestões para salvar este mês.", time: "10:31" },
+          { sender: "zen", sticker: "assets/stickers/zenpanda_sugoi_face.png", time: "10:31" },
+        ]
       },
       {
-        user: "Como eu saio das dívidas?",
-        zen: `<strong class="text-[#075E54]">Achei uma oportunidade:</strong><br>Taxa atual: 14% a.m.<br>Portabilidade: 3.9% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 4.100/ano</span>`,
-        time: "10:32"
+        messages: [
+          { sender: "user", text: "Queria comprar um iPhone novo. Consigo? 😬", time: "10:35" },
+          { sender: "zen", sticker: "assets/stickers/zenpanda_stressed_face.png", time: "10:35" },
+          { sender: "zen", html: `Caio, não é uma boa ideia. Você só tem <strong>R$ 3.000</strong> na sua reserva financeira. Um financiamento de celular seria inadequado agora.<br><br>Mas achei um <strong>Samsung Galaxy A55</strong> por <strong>R$ 1.899</strong> em 12x sem juros. Cabe no seu orçamento.<br><br><strong>Quer ver os detalhes?</strong>`, time: "10:36" },
+        ]
       },
       {
-        user: "Posso comprar esse iPhone?",
-        zen: `<strong class="text-[#075E54]">Análise do orçamento:</strong><br>Sobra mensal: R$ 1.200<br>Parcela 12x: R$ 458<br><br><span class="text-aizen-blue font-medium">✅ Cabe, mas vai comprometer 38%</span>`,
-        time: "10:35"
+        messages: [
+          { sender: "user", text: "Zen, estou precisando de grana. O que vc tem pra mim? 🥴", time: "10:40" },
+          { sender: "zen", sticker: "assets/stickers/zenpanda_thoughtful_face.png", time: "10:40" },
+          { sender: "zen", html: `Dureza hein Luiz! Mas fique tranquilo que seu perfil é muito bom. Vamos resolver este problema.<br><br><strong>Quanto você precisa?</strong>`, time: "10:40" },
+          { sender: "user", text: "R$ 5.000", time: "10:41" },
+          { sender: "zen", html: `Certo, encontramos um crédito consignado da <strong>ConsiNex</strong>. É o mais em conta pro seu perfil.<br><br>Você tem aprovado <strong>R$ 8.000</strong> a <strong>2,3% ao mês</strong>.<br><br><strong>Quer saber mais?</strong>`, time: "10:42" },
+        ]
       },
       {
-        user: "Tô sendo cobrado certo?",
-        zen: `<strong class="text-[#075E54]">Encontrei uma cobrança:</strong><br>Seguro Prestamista: R$ 45/mês<br>Você paga há 8 meses.<br><br><span class="text-aizen-blue font-medium">🚨 Nunca foi contratado por você</span>`,
-        time: "10:40"
-      },
-      {
-        user: "Qual o melhor crédito pra mim?",
-        zen: `<strong class="text-[#075E54]">Melhores taxas pra você:</strong><br>🏆 Melhor: 2.1% a.m.<br>Seu banco: 4.8% a.m.<br><br><span class="text-aizen-blue font-medium">Economia de R$ 2.800</span>`,
-        time: "10:45"
+        messages: [
+          { sender: "zen", sticker: "assets/stickers/zenpanda_stonks_face.png", time: "10:45" },
+          { sender: "zen", html: `Stonks! Seu salário caiu. Invista no futuro!<br><br>Que tal guardar 30% num CDB que rende <strong>110% do CDI</strong>? Em 12 meses isso vira <strong>R$ 1.800</strong> sem fazer nada.`, time: "10:45" },
+          { sender: "user", text: "Boa ideia Zen. Vc me ajuda por favor?", time: "10:46" },
+          { sender: "zen", text: "É claro.", time: "10:46" },
+        ]
       }
     ];
 
-    const userMsg = document.getElementById('user-msg');
-    const userMsgText = document.getElementById('user-msg-text');
-    const userMsgTime = document.getElementById('user-msg-time');
-    const typingIndicator = document.getElementById('typing-indicator');
-    const zenMsg = document.getElementById('zen-msg');
-    const zenMsgText = document.getElementById('zen-msg-text');
-    const zenMsgTime = document.getElementById('zen-msg-time');
-
+    const chatContainer = document.getElementById('chat-messages');
     let currentChat = 0;
 
+    function createBubble(msg) {
+      if (msg.sender === 'user') {
+        const div = document.createElement('div');
+        div.className = 'wa-msg-user self-end max-w-[85%] ml-auto mt-2 p-2.5 rounded-lg rounded-tr-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300';
+        div.innerHTML = `<p class="text-slate-800">${msg.text}</p><span class="text-[10px] text-slate-400 float-right mt-1">${msg.time}</span>`;
+        return div;
+      }
+      if (msg.sticker) {
+        const div = document.createElement('div');
+        div.className = 'sticker-bubble max-w-[55%] mt-0.5 self-start opacity-0 translate-y-2 transition-all duration-300';
+        div.innerHTML = `<img src="${msg.sticker}" alt="Sticker" class="w-full rounded-lg" style="image-rendering: auto;"><span class="text-[10px] text-slate-400 float-right mt-1">${msg.time}</span>`;
+        return div;
+      }
+      const div = document.createElement('div');
+      div.className = 'wa-msg-zen max-w-[85%] mt-2 p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm opacity-0 translate-y-2 transition-all duration-300';
+      const content = msg.html || msg.text;
+      div.innerHTML = `<p class="text-slate-800">${content}</p><span class="text-[10px] text-slate-400 float-right mt-1">${msg.time}</span>`;
+      return div;
+    }
+
+    function createTypingIndicator() {
+      const div = document.createElement('div');
+      div.className = 'wa-msg-zen max-w-[60px] p-2.5 rounded-lg rounded-tl-none text-sm shadow-sm transition-opacity duration-300';
+      div.innerHTML = `<div class="flex gap-1 items-center"><span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay:0ms"></span><span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay:150ms"></span><span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay:300ms"></span></div>`;
+      return div;
+    }
+
     function animateChat() {
-      const chat = chatData[currentChat];
+      const conv = chatData[currentChat];
+      chatContainer.innerHTML = '';
+      let delay = 300;
 
-      // Reset state
-      userMsg.style.opacity = '0';
-      userMsg.style.transform = 'translateY(8px)';
-      typingIndicator.classList.add('hidden');
-      typingIndicator.style.opacity = '0';
-      zenMsg.style.opacity = '0';
-      zenMsg.style.transform = 'translateY(8px)';
-      zenMsg.classList.add('hidden');
+      conv.messages.forEach((msg, i) => {
+        const isZen = msg.sender === 'zen';
+        const isSticker = !!msg.sticker;
 
-      // Step 1: Show user message
-      setTimeout(() => {
-        userMsgText.textContent = chat.user;
-        userMsgTime.textContent = chat.time;
-        userMsg.style.opacity = '1';
-        userMsg.style.transform = 'translateY(0)';
-      }, 300);
+        // Stickers pop in instantly, no typing indicator
+        if (isZen && isSticker) {
+          const stickerDelay = delay;
+          delay += 1200;
+          setTimeout(() => {
+            const bubble = createBubble(msg);
+            chatContainer.appendChild(bubble);
+            chatContainer.parentElement.scrollTop = chatContainer.parentElement.scrollHeight;
+            requestAnimationFrame(() => {
+              bubble.style.opacity = '1';
+              bubble.style.transform = 'translateY(0)';
+            });
+          }, stickerDelay);
+        // Zen text messages show typing first
+        } else if (isZen) {
+          const typingDelay = delay;
+          delay += 2800;
+          setTimeout(() => {
+            const typing = createTypingIndicator();
+            chatContainer.appendChild(typing);
+            chatContainer.parentElement.scrollTop = chatContainer.parentElement.scrollHeight;
+            setTimeout(() => {
+              typing.remove();
+              const bubble = createBubble(msg);
+              chatContainer.appendChild(bubble);
+              chatContainer.parentElement.scrollTop = chatContainer.parentElement.scrollHeight;
+              requestAnimationFrame(() => {
+                bubble.style.opacity = '1';
+                bubble.style.transform = 'translateY(0)';
+              });
+            }, 1800);
+          }, typingDelay);
+          delay += 400;
+        } else {
+          const msgDelay = delay;
+          delay += 1400;
+          setTimeout(() => {
+            const bubble = createBubble(msg);
+            chatContainer.appendChild(bubble);
+            chatContainer.parentElement.scrollTop = chatContainer.parentElement.scrollHeight;
+            requestAnimationFrame(() => {
+              bubble.style.opacity = '1';
+              bubble.style.transform = 'translateY(0)';
+            });
+          }, msgDelay);
+        }
+      });
 
-      // Step 2: Show typing indicator
-      setTimeout(() => {
-        typingIndicator.classList.remove('hidden');
-        typingIndicator.style.opacity = '1';
-      }, 1000);
-
-      // Step 3: Hide typing, show zen response
-      setTimeout(() => {
-        typingIndicator.classList.add('hidden');
-        typingIndicator.style.opacity = '0';
-        zenMsg.classList.remove('hidden');
-        zenMsgText.innerHTML = chat.zen;
-        zenMsgTime.textContent = chat.time;
-        setTimeout(() => {
-          zenMsg.style.opacity = '1';
-          zenMsg.style.transform = 'translateY(0)';
-        }, 100);
-      }, 2200);
-
-      // Step 4: Wait and move to next
+      // Calculate total animation time and schedule next conversation
+      const totalTime = delay + 4000;
       currentChat = (currentChat + 1) % chatData.length;
+      setTimeout(animateChat, totalTime);
     }
 
     // Start animation
     animateChat();
-    setInterval(animateChat, 5500);
   </script>
 
+  <script>
+    // === INTERNATIONALIZATION ===
+    // Selector-based translations - no data-i18n attributes needed
+
+    const enText = {
+      // Nav
+      'nav a[href="#sobre"]': 'About',
+      'nav a[href="#como-funciona"]': 'How it works',
+      'nav a[href="#faq"]': 'FAQ',
+    };
+
+    const enHtml = {};
+
+    const enSelectors = [
+      // Hero
+      ['#hero .hero-line:first-of-type', 'text', 'Your financial life,'],
+      ['#hero .text-aizen-blue', 'text', 'now zen.'],
+      ['#hero .hero-text > p:first-child', 'text', 'The AI that manages your finances on autopilot. Finds cheaper credit, negotiates debts, and reduces your expenses.'],
+      ['#hero .hero-text > p:last-child', 'text', 'All of this right on your WhatsApp.'],
+
+      // Sobre section headings
+      ['#sobre > div > div:first-child .inline-block', 'text', 'About'],
+      ['#sobre h2', 'html', 'Your finances on <span class="text-aizen-blue">autopilot.</span>'],
+      ['#sobre .text-2xl', 'text', 'From financial chaos to total control.'],
+
+      // Positioning
+      ['section:has(img[alt="Zen Panda"]) .inline-block', 'text', 'Our purpose'],
+      ['section:has(img[alt="Zen Panda"]) h2', 'html', 'Zen works for you.<br><span class="text-aizen-charcoal/50">(Not for the banks.)</span>'],
+      ['section:has(img[alt="Zen Panda"]) h2 + p', 'text', "Banks profit from your confusion. The less you understand, the more you pay in interest, fees, and products you don't need. Zen is on your side. Always finding ways for you to pay less and save more."],
+
+      // How it works
+      ['#como-funciona .inline-block', 'text', 'How it works'],
+      ['#como-funciona h2', 'html', "That's it:"],
+      ['#como-funciona h2 + p', 'text', '2 minutes to activate. Savings for life.'],
+
+      // FAQ
+      ['#faq .inline-block', 'text', 'FAQ'],
+      ['#faq h2', 'html', 'Frequently<br>asked questions'],
+
+      // Sobre body paragraphs
+      ['#sobre .border-t p:nth-child(1)', 'html', 'Managing money is necessary. Having time for it is another story. That\'s why we created <strong>Zen, Brazil\'s first agentic AI for personal finance.</strong>'],
+      ['#sobre .border-t p:nth-child(2)', 'text', 'Our agents connect to your banks via Open Finance and work 24/7 for you. They analyze every expense, find where you\'re losing money, and act to fix it.'],
+      ['#sobre .border-t p:nth-child(3)', 'text', 'No app. No spreadsheet. Everything happens right on WhatsApp, in the easiest conversation you\'ve ever had about money.'],
+
+      // Bank carousel
+      ['[data-i18n="banks.title"]', 'text', 'Connected via Open Finance to Brazil\'s major banks'],
+    ];
+
+    // Nav CTA
+    const navCtaSelector = 'nav a[href="#hero"] span';
+
+    // Card data for translation
+    const enCards = {
+      0: { label: 'Debt Agent', title: 'How do I get out of debt?', body: "Paying absurd interest rates? Our agent finds where you're bleeding money and negotiates better terms. Portability, renegotiation, early payoff. The way out exists. We'll find it." },
+      1: { label: 'Budget Agent', title: 'How do I save more?', body: 'Creates custom challenges for your wallet. Cut food delivery in half, ease up on shopping, swap Uber for a bike. Small changes that turn into hundreds saved every month.' },
+      2: { label: 'Credit Agent', title: 'I need cash. Now what?', body: "Our agent scans dozens of institutions in real time and finds the lowest rate for your profile. You compare, choose, and apply. Without leaving WhatsApp." },
+      3: { label: 'Card Agent', title: 'Is my card actually good?', body: "Analyzes how you spend and finds the card that gives you the most back. Cashback, miles, zero annual fee. Stop paying for benefits you don't even use." },
+      4: { label: 'Auditor Agent', title: "Am I paying for things I don't know about?", body: "Maintenance fees, insurance you never signed up for, duplicate charges. Banks charge things that slip under the radar. Our agent scans everything and alerts you." },
+      5: { label: 'Investment Agent', title: "What do I do with what's left over?", body: "Got some extra cash and don't know where to put it? Our agent analyzes your profile and finds the best investment. CDB, Treasury Bonds, funds. Compares returns and risk so your money grows, without you becoming a trader." },
+      6: { label: 'Decision Agent', title: 'Can I afford an iPhone?', body: "Want to buy something and don't know if it fits your budget? Our agent analyzes your income, commitments, and tells you if it works. Buy or rent? Cash or installments? Informed decision, zero regret." },
+      7: { label: 'Financing Agent', title: 'I want a new car. Now what?', body: "Car, motorcycle, or even your own home. Our agent simulates payments, compares rates from dozens of banks, and finds the financing that fits your budget. No surprises along the way." },
+      8: { label: 'Alert Agent', title: 'Almost hit the overdraft!', body: "Bill due, balance running low, overdraft knocking at the door. Our agent monitors everything and warns you before the damage happens. Prevention that becomes savings." },
+      9: { label: 'Goals Agent', title: 'I want to save up. Help me?', body: "Emergency fund, dream vacation, apartment down payment. Our agent creates a custom plan, tracks your progress, and nudges you when you stray. A goal set is a goal met." },
+    };
+
+    const enTags = {
+      0: ['Portability', 'Renegotiation', 'Lower interest', 'Payoff', 'Multi-bank'],
+      1: ['Custom', 'Weekly goals', 'Food delivery', 'Transport', 'Shopping'],
+      2: ['Real time', '20+ institutions', 'Lowest rate', 'No bureaucracy', 'Comparison'],
+      3: ['Cashback', 'Miles', 'Zero annual fee', 'Comparison', 'Personalized'],
+      4: ['Auto alerts', 'Multi-bank', 'Fees', 'Charges', 'Real time'],
+      5: ['CDB', 'Treasury Bonds', 'Returns', 'Calculated risk', 'Personalized'],
+      6: ['Real budget', 'Simulation', 'Buy vs rent', 'Cash', 'Installments'],
+      7: ['Vehicle', 'Property', 'Lowest rate', 'Simulation', 'Comparison'],
+      8: ['Overdraft', 'Due dates', 'Low balance', 'Real time', 'Prevention'],
+      9: ['Emergency fund', 'Travel', 'Milestones', 'Progress', 'Personalized'],
+    };
+
+    const enTabs = ['Debts', 'Budget', 'Credit', 'Card', 'Auditor', 'Investments', 'Decisions', 'Financing', 'Alerts', 'Goals'];
+
+    const enFaq = [
+      { q: "How does Zen know what's best for me?", a: "Zen connects to your accounts and sees everything in real time: how much comes in, how much goes out, where it goes, how much you pay in interest. With this complete view, the AI analyzes your situation and finds opportunities that make sense for you, not for everyone. The longer you use it, the better Zen understands your profile and the better the recommendations get." },
+      { q: "How do I know my data is safe?", a: "The connection is made through Open Finance, regulated by the Central Bank. Zen only reads your information, never moves anything. We don't see your password. No person accesses your data, only the AI. And you can disconnect your account at any time, with one click." },
+      { q: "My finances are a mess. Will Zen still help me?", a: "Especially then. Most people who use Zen started at exactly that point. Credit card debt, late payments, that feeling that there's no point in looking. Zen doesn't judge. It shows what's happening calmly, finds where you're paying too much interest, and shows you a concrete way out. No lectures, no spreadsheets." },
+      { q: "I've tried managing my finances before and always gave up. What's different?", a: "You don't have to do anything. Zero. No logging expenses, no categorizing, no opening spreadsheets. Zen pulls everything automatically from your accounts and sends it to you on WhatsApp. If you want to ignore it for a few days, that's fine. It keeps working and alerts you when it finds something important, like an unauthorized charge or a way to pay less." },
+      { q: "Is there a catch? Will it become paid later?", a: "None. Zen is free and will stay free. We earn when we find a better opportunity for you and you decide to accept it. The financial institution pays us a commission. If you never accept anything, we earn zero and you keep using it for free. Simple as that." },
+    ];
+
+    // How it works steps
+    const enSteps = [
+      { badge: 'Step 1', title: 'Say Hi', body: 'Add Zen on WhatsApp and send the first message.' },
+      { badge: 'Step 2', title: 'Connect your banks', body: 'Authorize data reading via Open Finance. Secure and fast.' },
+      { badge: 'Step 3', title: 'Save every month', body: 'Receive savings alerts and pay less automatically.' },
+    ];
+
+    // Bottom CTA
+    const enCta = { h2: 'Ready to go zen?', body: 'Pay less interest, spend smarter, save more. Free, right on WhatsApp.' };
+
+    // Footer
+    const enFooter = {
+      tagline: 'Your financial assistant on WhatsApp.',
+      sections: ['Zen', 'Legal', 'Contact'],
+      links: { 'Como funciona': 'How it works', 'FAQ': 'FAQ', 'Termos de uso': 'Terms of use', 'Privacidade': 'Privacy' },
+      copy: '\u00A9 2026 Aizen. All rights reserved.',
+    };
+
+    // Form success
+    const enForm = { title: '\u2713 Done!', body: "You'll receive a message on WhatsApp soon." };
+
+    // Chat data EN
+    const chatDataEN = [
+      { messages: [
+        { sender: 'user', text: 'Where is my money going this month?', time: '10:30' },
+        { sender: 'zen', html: 'Hi Tiago! This month you\'re splurging. You\'ve already spent more than 80% of last month\'s total.<br><br><strong>Top three categories:</strong><br>\uD83C\uDF54 Food: <strong>R\$ 400</strong><br>\uD83D\uDE97 Transport: <strong>R\$ 300</strong><br>\uD83C\uDFAD Entertainment: <strong>R\$ 600</strong><br>\uD83D\uDCE6 Other: <strong>R\$ 300</strong><br><strong>Total: R\$ 1,600</strong>', time: '10:30' },
+        { sender: 'user', text: 'Give me tips to save this month.', time: '10:31' },
+        { sender: 'zen', sticker: 'assets/stickers/zenpanda_sugoi_face.png', time: '10:31' },
+      ]},
+      { messages: [
+        { sender: 'user', text: 'I want to buy a new iPhone. Can I? \uD83D\uDE2C', time: '10:35' },
+        { sender: 'zen', sticker: 'assets/stickers/zenpanda_stressed_face.png', time: '10:35' },
+        { sender: 'zen', html: 'Caio, not a great idea. You only have <strong>R\$ 3,000</strong> in your savings. A phone financing would be inadequate right now.<br><br>But I found a <strong>Samsung Galaxy A55</strong> for <strong>R\$ 1,899</strong> in 12 interest-free installments. Fits your budget.<br><br><strong>Want to see the details?</strong>', time: '10:36' },
+      ]},
+      { messages: [
+        { sender: 'user', text: 'Zen, I need some cash. What do you have for me? \uD83E\uDD74', time: '10:40' },
+        { sender: 'zen', sticker: 'assets/stickers/zenpanda_thoughtful_face.png', time: '10:40' },
+        { sender: 'zen', html: 'Tough times huh Luiz! But don\'t worry, your profile is really good. We\'ll solve this.<br><br><strong>How much do you need?</strong>', time: '10:40' },
+        { sender: 'user', text: 'R\$ 5,000', time: '10:41' },
+        { sender: 'zen', html: 'Right, we found a payroll loan from <strong>ConsiNex</strong>. It\'s the best deal for your profile.<br><br>You\'re approved for <strong>R\$ 8,000</strong> at <strong>2.3% per month</strong>.<br><br><strong>Want to know more?</strong>', time: '10:42' },
+      ]},
+      { messages: [
+        { sender: 'zen', sticker: 'assets/stickers/zenpanda_stonks_face.png', time: '10:45' },
+        { sender: 'zen', html: 'Stonks! Your salary just came in. Invest in the future!<br><br>How about saving 30% in a CDB that yields <strong>110% of CDI</strong>? In 12 months that becomes <strong>R\$ 1,800</strong> doing nothing.', time: '10:45' },
+        { sender: 'user', text: 'Great idea Zen. Can you help me?', time: '10:46' },
+        { sender: 'zen', text: 'Of course.', time: '10:46' },
+      ]},
+    ];
+
+    // Store originals
+    const ptOriginals = new Map();
+    let currentLang = localStorage.getItem('zenLang') || 'pt';
+    let chatDataPT = null;
+
+    function initI18n() {
+      // Save PT chat data
+      chatDataPT = JSON.parse(JSON.stringify(chatData));
+
+      // Save originals for selector-based elements
+      enSelectors.forEach(([sel, prop]) => {
+        const el = document.querySelector(sel);
+        if (el) ptOriginals.set(sel, prop === 'html' ? el.innerHTML : el.textContent);
+      });
+
+      // Save nav text originals
+      Object.keys(enText).forEach(sel => {
+        const el = document.querySelector(sel);
+        if (el) ptOriginals.set(sel, el.textContent);
+      });
+
+      // Save nav CTA
+      const ctaEl = document.querySelector(navCtaSelector);
+      if (ctaEl) ptOriginals.set(navCtaSelector, ctaEl.textContent);
+
+      // Save card originals
+      document.querySelectorAll('.sobre-card').forEach(card => {
+        const idx = card.dataset.card;
+        const label = card.querySelector('.tracking-widest');
+        const title = card.querySelector('h4');
+        const body = card.querySelector('p:not(.tracking-widest)');
+        if (label) ptOriginals.set('card.' + idx + '.label', label.textContent);
+        if (title) ptOriginals.set('card.' + idx + '.title', title.textContent);
+        if (body) ptOriginals.set('card.' + idx + '.body', body.textContent);
+        // Save tags
+        const tags = card.querySelectorAll('.flex-wrap span');
+        ptOriginals.set('tags.' + idx, Array.from(tags).map(t => t.textContent));
+      });
+
+      // Save tab originals
+      document.querySelectorAll('.sobre-tab').forEach(tab => {
+        ptOriginals.set('tab.' + tab.dataset.tab, tab.textContent);
+      });
+
+      // Save FAQ originals
+      const faqItems = document.querySelectorAll('#faq .faq-item');
+      faqItems.forEach((item, i) => {
+        const q = item.querySelector('span');
+        const a = item.querySelector('.faq-answer > div, .faq-answer > p');
+        if (q) ptOriginals.set('faq.q.' + i, q.textContent);
+        if (a) ptOriginals.set('faq.a.' + i, a.textContent);
+      });
+
+      // Save FAQ subtitle
+      const faqSub = document.querySelector('#faq h2 + p, #faq h2 ~ p');
+      if (faqSub) ptOriginals.set('faq.sub', faqSub.innerHTML);
+
+      // Save how-it-works steps
+      const steps = document.querySelectorAll('#como-funciona .grid > div, #como-funciona .space-y-12 > div');
+      steps.forEach((step, i) => {
+        const badge = step.querySelector('.tracking-widest');
+        const title = step.querySelector('h3');
+        const body = step.querySelector('p');
+        if (badge) ptOriginals.set('step.' + i + '.badge', badge.textContent);
+        if (title) ptOriginals.set('step.' + i + '.title', title.textContent);
+        if (body) ptOriginals.set('step.' + i + '.body', body.textContent);
+      });
+
+      // Save positioning stats
+      const statLabels = document.querySelectorAll('section:has(img[alt="Zen Panda"]) .tracking-wide, section:has(img[alt="Zen Panda"]) .uppercase.text-aizen-charcoal\\/60');
+      ptOriginals.set('stats', Array.from(statLabels).map(el => el.textContent));
+
+      // Save CTA section
+      const ctaSections = document.querySelectorAll('section');
+      ctaSections.forEach(sec => {
+        const h2 = sec.querySelector('h2');
+        if (h2 && h2.textContent.includes('zen?')) {
+          ptOriginals.set('cta.h2', h2.textContent);
+          const body = h2.nextElementSibling;
+          if (body && body.tagName === 'P') ptOriginals.set('cta.body', body.textContent);
+        }
+      });
+
+      // Save footer
+      const footer = document.querySelector('footer');
+      if (footer) {
+        const tagline = footer.querySelector('p');
+        if (tagline) ptOriginals.set('footer.tagline', tagline.textContent);
+        const spans = footer.querySelectorAll('span');
+        ptOriginals.set('footer.spans', Array.from(spans).map(s => s.textContent));
+        const links = footer.querySelectorAll('a:not([href^="http"])');
+        ptOriginals.set('footer.links', Array.from(links).map(a => a.textContent));
+        const copy = footer.querySelector('.text-white\\/40, .tracking-widest:last-of-type');
+        if (copy && copy.textContent.includes('2026')) ptOriginals.set('footer.copy', copy.textContent);
+      }
+
+      // Apply saved language preference
+      if (currentLang === 'en') switchLang('en');
+    }
+
+    function switchLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('zenLang', lang);
+
+      if (lang === 'en') {
+        // Selector-based elements
+        enSelectors.forEach(([sel, prop, val]) => {
+          const el = document.querySelector(sel);
+          if (el) {
+            if (prop === 'html') el.innerHTML = val;
+            else el.textContent = val;
+          }
+        });
+
+        // Nav links
+        Object.entries(enText).forEach(([sel, val]) => {
+          const el = document.querySelector(sel);
+          if (el) el.textContent = val;
+        });
+
+        // Nav CTA
+        const ctaEl = document.querySelector(navCtaSelector);
+        if (ctaEl) ctaEl.textContent = 'Get started';
+
+        // Cards
+        document.querySelectorAll('.sobre-card').forEach(card => {
+          const idx = card.dataset.card;
+          const data = enCards[idx];
+          if (!data) return;
+          const label = card.querySelector('.tracking-widest');
+          const title = card.querySelector('h4');
+          const body = card.querySelector('p:not(.tracking-widest)');
+          if (label) label.textContent = data.label;
+          if (title) title.textContent = data.title;
+          if (body) body.textContent = data.body;
+          // Tags
+          if (enTags[idx]) {
+            const tags = card.querySelectorAll('.flex-wrap span');
+            enTags[idx].forEach((text, i) => { if (tags[i]) tags[i].textContent = text; });
+          }
+        });
+
+        // Tabs
+        document.querySelectorAll('.sobre-tab').forEach((tab, i) => {
+          if (enTabs[i]) tab.textContent = enTabs[i];
+        });
+
+        // FAQ
+        const faqItems = document.querySelectorAll('#faq .faq-item');
+        faqItems.forEach((item, i) => {
+          if (!enFaq[i]) return;
+          const q = item.querySelector('span');
+          const a = item.querySelector('.faq-answer > div, .faq-answer > p');
+          if (q) q.textContent = enFaq[i].q;
+          if (a) a.textContent = enFaq[i].a;
+        });
+
+        // FAQ subtitle
+        const faqSub = document.querySelector('#faq h2 + p, #faq h2 ~ p');
+        if (faqSub) faqSub.innerHTML = "Everything you need to know about Zen.<br>Didn't find your answer? <a href=\"mailto:oi@aizen.io\" class=\"text-aizen-blue hover:underline\">Talk to us.</a>";
+
+        // How it works steps
+        const steps = document.querySelectorAll('#como-funciona .grid > div, #como-funciona .space-y-12 > div');
+        steps.forEach((step, i) => {
+          if (!enSteps[i]) return;
+          const badge = step.querySelector('.tracking-widest');
+          const title = step.querySelector('h3');
+          const body = step.querySelector('p');
+          if (badge) badge.textContent = enSteps[i].badge;
+          if (title) title.textContent = enSteps[i].title;
+          if (body) body.textContent = enSteps[i].body;
+        });
+
+        // Stats
+        const statLabels = document.querySelectorAll('section:has(img[alt="Zen Panda"]) .tracking-wide');
+        const enStats = ['Avg. savings/year', 'Monitoring', 'Free'];
+        statLabels.forEach((el, i) => { if (enStats[i]) el.textContent = enStats[i]; });
+
+        // Bottom CTA
+        document.querySelectorAll('section').forEach(sec => {
+          const h2 = sec.querySelector('h2');
+          if (h2 && ptOriginals.get('cta.h2') && h2.textContent === ptOriginals.get('cta.h2') || (h2 && h2.textContent === enCta.h2)) {
+            h2.textContent = enCta.h2;
+            const body = h2.nextElementSibling;
+            if (body && body.tagName === 'P') body.textContent = enCta.body;
+          }
+        });
+
+        // Form buttons
+        document.querySelectorAll('form span').forEach(span => {
+          if (span.textContent.includes('WhatsApp')) span.textContent = 'Start on WhatsApp';
+        });
+
+        // Trust badges
+        document.querySelectorAll('span').forEach(span => {
+          if (span.textContent.trim() === 'Grátis e seguro') span.textContent = 'Free & secure';
+          if (span.textContent.trim() === 'pessoas na fila') span.textContent = 'people in line';
+        });
+
+        // Footer
+        const footer = document.querySelector('footer');
+        if (footer) {
+          const tagline = footer.querySelector('p');
+          if (tagline && tagline.textContent.includes('assistente')) tagline.textContent = enFooter.tagline;
+          footer.querySelectorAll('a:not([href^="http"]):not([href^="mailto"])').forEach(a => {
+            if (enFooter.links[a.textContent.trim()]) a.textContent = enFooter.links[a.textContent.trim()];
+          });
+          footer.querySelectorAll('span').forEach(span => {
+            const t = span.textContent.trim();
+            if (t === 'Zen' && span.classList.contains('uppercase')) span.textContent = 'Zen';
+            if (t === 'Legal' && span.classList.contains('uppercase')) span.textContent = 'Legal';
+            if (t === 'Contato') span.textContent = 'Contact';
+            if (t.includes('2026') && t.includes('Aizen')) span.textContent = enFooter.copy;
+          });
+        }
+
+        // Chat data
+        chatData.length = 0;
+        chatDataEN.forEach(c => chatData.push(JSON.parse(JSON.stringify(c))));
+
+        // Meta
+        document.title = 'Zen by Aizen - Your financial life, now zen.';
+        document.documentElement.lang = 'en';
+
+      } else {
+        // === RESTORE PORTUGUESE ===
+
+        // Selector-based
+        enSelectors.forEach(([sel, prop]) => {
+          const el = document.querySelector(sel);
+          const orig = ptOriginals.get(sel);
+          if (el && orig) {
+            if (prop === 'html') el.innerHTML = orig;
+            else el.textContent = orig;
+          }
+        });
+
+        // Nav links
+        Object.keys(enText).forEach(sel => {
+          const el = document.querySelector(sel);
+          const orig = ptOriginals.get(sel);
+          if (el && orig) el.textContent = orig;
+        });
+
+        // Nav CTA
+        const ctaEl = document.querySelector(navCtaSelector);
+        const ctaOrig = ptOriginals.get(navCtaSelector);
+        if (ctaEl && ctaOrig) ctaEl.textContent = ctaOrig;
+
+        // Cards
+        document.querySelectorAll('.sobre-card').forEach(card => {
+          const idx = card.dataset.card;
+          const label = card.querySelector('.tracking-widest');
+          const title = card.querySelector('h4');
+          const body = card.querySelector('p:not(.tracking-widest)');
+          if (label) label.textContent = ptOriginals.get('card.' + idx + '.label') || label.textContent;
+          if (title) title.textContent = ptOriginals.get('card.' + idx + '.title') || title.textContent;
+          if (body) body.textContent = ptOriginals.get('card.' + idx + '.body') || body.textContent;
+          const ptTags = ptOriginals.get('tags.' + idx);
+          if (ptTags) {
+            const tags = card.querySelectorAll('.flex-wrap span');
+            ptTags.forEach((text, i) => { if (tags[i]) tags[i].textContent = text; });
+          }
+        });
+
+        // Tabs
+        document.querySelectorAll('.sobre-tab').forEach(tab => {
+          const orig = ptOriginals.get('tab.' + tab.dataset.tab);
+          if (orig) tab.textContent = orig;
+        });
+
+        // FAQ
+        const faqItems = document.querySelectorAll('#faq .faq-item');
+        faqItems.forEach((item, i) => {
+          const q = item.querySelector('span');
+          const a = item.querySelector('.faq-answer > div, .faq-answer > p');
+          if (q) q.textContent = ptOriginals.get('faq.q.' + i) || q.textContent;
+          if (a) a.textContent = ptOriginals.get('faq.a.' + i) || a.textContent;
+        });
+        const faqSub = document.querySelector('#faq h2 + p, #faq h2 ~ p');
+        if (faqSub && ptOriginals.get('faq.sub')) faqSub.innerHTML = ptOriginals.get('faq.sub');
+
+        // Steps
+        const steps = document.querySelectorAll('#como-funciona .grid > div, #como-funciona .space-y-12 > div');
+        steps.forEach((step, i) => {
+          const badge = step.querySelector('.tracking-widest');
+          const title = step.querySelector('h3');
+          const body = step.querySelector('p');
+          if (badge) badge.textContent = ptOriginals.get('step.' + i + '.badge') || badge.textContent;
+          if (title) title.textContent = ptOriginals.get('step.' + i + '.title') || title.textContent;
+          if (body) body.textContent = ptOriginals.get('step.' + i + '.body') || body.textContent;
+        });
+
+        // Stats
+        const ptStats = ptOriginals.get('stats');
+        if (ptStats) {
+          const statLabels = document.querySelectorAll('section:has(img[alt="Zen Panda"]) .tracking-wide');
+          statLabels.forEach((el, i) => { if (ptStats[i]) el.textContent = ptStats[i]; });
+        }
+
+        // CTA
+        document.querySelectorAll('section').forEach(sec => {
+          const h2 = sec.querySelector('h2');
+          if (h2 && h2.textContent === enCta.h2) {
+            h2.textContent = ptOriginals.get('cta.h2') || h2.textContent;
+            const body = h2.nextElementSibling;
+            if (body && body.tagName === 'P') body.textContent = ptOriginals.get('cta.body') || body.textContent;
+          }
+        });
+
+        // Form buttons
+        document.querySelectorAll('form span').forEach(span => {
+          if (span.textContent.includes('WhatsApp')) span.textContent = 'Começar no WhatsApp';
+        });
+
+        // Trust badges
+        document.querySelectorAll('span').forEach(span => {
+          if (span.textContent.trim() === 'Free & secure') span.textContent = 'Grátis e seguro';
+          if (span.textContent.trim() === 'people in line') span.textContent = 'pessoas na fila';
+        });
+
+        // Footer
+        const footer = document.querySelector('footer');
+        if (footer) {
+          const tagline = footer.querySelector('p');
+          if (tagline && ptOriginals.get('footer.tagline')) tagline.textContent = ptOriginals.get('footer.tagline');
+          const ptLinks = ptOriginals.get('footer.links');
+          if (ptLinks) {
+            footer.querySelectorAll('a:not([href^="http"]):not([href^="mailto"])').forEach((a, i) => {
+              if (ptLinks[i]) a.textContent = ptLinks[i];
+            });
+          }
+          footer.querySelectorAll('span').forEach(span => {
+            if (span.textContent === 'Contact') span.textContent = 'Contato';
+          });
+          const ptCopy = ptOriginals.get('footer.copy');
+          if (ptCopy) {
+            footer.querySelectorAll('span').forEach(span => {
+              if (span.textContent.includes('2026')) span.textContent = ptCopy;
+            });
+          }
+        }
+
+        // Chat data
+        if (chatDataPT) {
+          chatData.length = 0;
+          chatDataPT.forEach(c => chatData.push(JSON.parse(JSON.stringify(c))));
+        }
+
+        // Meta
+        document.title = 'Zen by Aizen - Sua vida financeira, agora zen.';
+        document.documentElement.lang = 'pt-BR';
+      }
+
+      // Update flag buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active-lang', btn.dataset.lang === lang);
+      });
+    }
+
+    // Initialize
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => setTimeout(initI18n, 200));
+    } else {
+      setTimeout(initI18n, 200);
+    }
+  </script>
 </body>
 </html>
