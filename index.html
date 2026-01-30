@@ -224,6 +224,8 @@
             </button>
           </form>
 
+          <p class="hero-text opacity-0 text-[11px] text-slate-400 -mt-3 mb-4 pl-1">Ao enviar, você concorda em receber mensagens do Zen via WhatsApp.</p>
+
           <div class="hero-text opacity-0 flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-slate-500">
             <div class="flex items-center gap-2">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="shrink-0"><circle cx="12" cy="12" r="10" fill="#10B981"/><path d="M9 12l2 2 4-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -254,8 +256,9 @@
         <!-- Subtle grid overlay -->
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
 
-        <!-- Phone -->
-        <div class="hero-card opacity-0 translate-y-10 relative z-10 phone-frame w-[190px] sm:w-[250px] md:w-[340px] lg:w-[380px] h-[380px] sm:h-[500px] md:h-[680px] lg:h-[760px] rounded-[28px] sm:rounded-[38px] md:rounded-[52px] lg:rounded-[56px] p-1 sm:p-1.5 md:p-2">
+        <!-- Phone + Disclaimer -->
+        <div class="relative z-10 flex flex-col items-center">
+        <div class="hero-card opacity-0 translate-y-10 phone-frame w-[190px] sm:w-[250px] md:w-[340px] lg:w-[380px] h-[380px] sm:h-[500px] md:h-[680px] lg:h-[760px] rounded-[28px] sm:rounded-[38px] md:rounded-[52px] lg:rounded-[56px] p-1 sm:p-1.5 md:p-2">
           <div class="w-full h-full bg-[#ECE5DD] rounded-[30px] sm:rounded-[38px] md:rounded-[46px] lg:rounded-[50px] overflow-hidden flex flex-col relative">
             <!-- iPhone Status Bar -->
             <div class="bg-[#F0F2F5] pt-3 pb-1 px-5 flex justify-between items-center text-black text-[10px] font-semibold z-10 relative">
@@ -281,7 +284,7 @@
               </div>
               <!-- Name -->
               <div class="flex-1 min-w-0">
-                <div class="text-black font-medium text-sm flex items-center gap-1">Aizen <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#00A884"/><path d="M9 12l2 2 4-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="text-black font-medium text-sm flex items-center gap-1">Aizen</div>
                 <div class="text-black/40 text-[10px]">online</div>
               </div>
               <!-- Video call -->
@@ -316,6 +319,8 @@
               <div class="w-24 h-1 bg-black/20 rounded-full"></div>
             </div>
           </div>
+        </div>
+        <p class="text-[10px] text-slate-400 mt-2 text-center">Simulação ilustrativa</p>
         </div>
 
       </div>
@@ -945,8 +950,8 @@
 
         <div class="flex flex-col gap-3">
           <span class="text-xs font-bold uppercase tracking-widest text-white mb-2" data-i18n="footer.sec2">Legal</span>
-          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link3">Termos de uso</a>
-          <a href="#" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link4">Privacidade</a>
+          <a href="legal/politica-retencao-dados.pdf" target="_blank" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link3">Termos de uso</a>
+          <a href="legal/politica-privacidade.pdf" target="_blank" class="text-white/50 hover:text-white text-sm transition-colors" data-i18n="footer.link4">Privacidade</a>
         </div>
 
         <div class="flex flex-col gap-3">
