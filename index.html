@@ -1461,6 +1461,50 @@
     // Form success
     const enForm = { title: '\u2713 Done!', body: "You'll receive a message on WhatsApp soon." };
 
+    // How it works badge + heading (actual HTML text)
+    const enHow = {
+      badge: 'Get started',
+      h2: 'Activate in 2 minutes.',
+      sub: 'No app. No sign-up. No bureaucracy.',
+    };
+
+    // Step illustrations (hardcoded PT text inside mockups)
+    const enStepIllustrations = {
+      // Step 1: WhatsApp chat
+      s1_user: 'Hey! \uD83D\uDC4B',
+      s1_zen: "Hey! I'm Zen \uD83E\uDDD8 Let's take care of your finances?",
+      // Step 2: Bank connection
+      s2_addBank: 'add bank',
+      s2_trust: 'Read-only. Regulated by the Central Bank.',
+      // Step 3: Notifications
+      s3_n1_title: 'Savings found!',
+      s3_n1_body: 'Payroll loan portability could save R$ 234/month',
+      s3_n2_title: 'Suspicious charge',
+      s3_n2_body: "Insurance of R$ 47/month you didn't sign up for",
+      s3_n3_title: 'Lower rate available',
+      s3_n3_body: 'Card charges 14% p.m. Found an option at 3.9%',
+      s3_summary: '+ R$ 1,200/year in your pocket',
+    };
+
+    // Phone mockup disclaimer
+    const enDisclaimer = 'Illustrative simulation';
+
+    // WhatsApp input placeholder
+    const enMsgPlaceholder = 'Message';
+
+    // Form consent text
+    const enConsent = 'By submitting, you agree to receive messages from Zen via WhatsApp. You can opt out anytime by sending STOP.';
+
+    // Footer legal links
+    const enLegalLinks = {
+      'Pol\u00edtica de Privacidade': 'Privacy Policy',
+      'Reten\u00e7\u00e3o e Descarte de Dados': 'Data Retention & Disposal',
+      'Reporte de Incidentes': 'Incident Reporting',
+    };
+
+    // Footer legal disclaimer
+    const enLegalDisclaimer = 'www.aizen.io belongs to AIZEN TECNOLOGIA LTDA. CNPJ 63.740.359/0001-15, located at Rua Henri Dunant, 792, Santo Amaro, S\u00e3o Paulo, SP, CEP 04709-110. Aizen operates as a Banking Correspondent, following the guidelines of Resolution No. 3,954 of the Central Bank of Brazil. Aizen does not carry out credit operations, being responsible only for the intermediation between the user and partner financial institutions.';
+
     // Chat data EN
     const chatDataEN = [
       { messages: [
@@ -1705,6 +1749,94 @@
           });
         }
 
+        // How it works badge + heading
+        const howSection = document.querySelector('#como-funciona');
+        if (howSection) {
+          const howBadge = howSection.querySelector('.inline-block');
+          const howH2 = howSection.querySelector('h2');
+          const howSub = howSection.querySelector('h2 + p');
+          if (howBadge) { if (!ptOriginals.has('how.badge')) ptOriginals.set('how.badge', howBadge.textContent); howBadge.textContent = enHow.badge; }
+          if (howH2) { if (!ptOriginals.has('how.h2')) ptOriginals.set('how.h2', howH2.textContent); howH2.textContent = enHow.h2; }
+          if (howSub) { if (!ptOriginals.has('how.sub')) ptOriginals.set('how.sub', howSub.textContent); howSub.textContent = enHow.sub; }
+        }
+
+        // Step 1 illustration chat
+        const stepCards = document.querySelectorAll('#como-funciona .grid > div');
+        if (stepCards[0]) {
+          const msgs = stepCards[0].querySelectorAll('.text-\\[11px\\].text-slate-800');
+          if (msgs[0]) { if (!ptOriginals.has('s1.user')) ptOriginals.set('s1.user', msgs[0].textContent); msgs[0].textContent = enStepIllustrations.s1_user; }
+          if (msgs[1]) { if (!ptOriginals.has('s1.zen')) ptOriginals.set('s1.zen', msgs[1].textContent); msgs[1].textContent = enStepIllustrations.s1_zen; }
+        }
+        // Step 2 illustration
+        if (stepCards[1]) {
+          const addBank = stepCards[1].querySelector('.text-sm.text-slate-400.font-medium');
+          if (addBank) { if (!ptOriginals.has('s2.addBank')) ptOriginals.set('s2.addBank', addBank.textContent); addBank.textContent = enStepIllustrations.s2_addBank; }
+          const trust = stepCards[1].querySelector('.text-emerald-600');
+          if (trust) { if (!ptOriginals.has('s2.trust')) ptOriginals.set('s2.trust', trust.textContent); trust.textContent = enStepIllustrations.s2_trust; }
+        }
+        // Step 3 illustration
+        if (stepCards[2]) {
+          const notifTitles = stepCards[2].querySelectorAll('.text-\\[11px\\].text-slate-800.font-semibold');
+          const notifBodies = stepCards[2].querySelectorAll('.text-\\[10px\\].text-slate-400');
+          if (notifTitles[0]) { if (!ptOriginals.has('s3.n1.title')) ptOriginals.set('s3.n1.title', notifTitles[0].textContent); notifTitles[0].textContent = enStepIllustrations.s3_n1_title; }
+          if (notifBodies[0]) { if (!ptOriginals.has('s3.n1.body')) ptOriginals.set('s3.n1.body', notifBodies[0].textContent); notifBodies[0].textContent = enStepIllustrations.s3_n1_body; }
+          if (notifTitles[1]) { if (!ptOriginals.has('s3.n2.title')) ptOriginals.set('s3.n2.title', notifTitles[1].textContent); notifTitles[1].textContent = enStepIllustrations.s3_n2_title; }
+          if (notifBodies[1]) { if (!ptOriginals.has('s3.n2.body')) ptOriginals.set('s3.n2.body', notifBodies[1].textContent); notifBodies[1].textContent = enStepIllustrations.s3_n2_body; }
+          if (notifTitles[2]) { if (!ptOriginals.has('s3.n3.title')) ptOriginals.set('s3.n3.title', notifTitles[2].textContent); notifTitles[2].textContent = enStepIllustrations.s3_n3_title; }
+          if (notifBodies[2]) { if (!ptOriginals.has('s3.n3.body')) ptOriginals.set('s3.n3.body', notifBodies[2].textContent); notifBodies[2].textContent = enStepIllustrations.s3_n3_body; }
+          const summary = stepCards[2].querySelector('.text-emerald-700');
+          if (summary) { if (!ptOriginals.has('s3.summary')) ptOriginals.set('s3.summary', summary.textContent); summary.textContent = enStepIllustrations.s3_summary; }
+        }
+
+        // Phone mockup disclaimer
+        document.querySelectorAll('p').forEach(p => {
+          if (p.textContent.trim() === 'Simulação ilustrativa') {
+            if (!ptOriginals.has('disclaimer')) ptOriginals.set('disclaimer', p.textContent);
+            p.textContent = enDisclaimer;
+          }
+        });
+
+        // WhatsApp input placeholder
+        document.querySelectorAll('span').forEach(span => {
+          if (span.textContent.trim() === 'Mensagem') {
+            if (!ptOriginals.has('msgPlaceholder')) ptOriginals.set('msgPlaceholder', span.textContent);
+            span.textContent = enMsgPlaceholder;
+          }
+        });
+
+        // Form consent text
+        document.querySelectorAll('p').forEach(p => {
+          if (p.textContent.includes('Ao enviar, você concorda')) {
+            if (!ptOriginals.has('consent.' + p.closest('section')?.id)) ptOriginals.set('consent.' + p.closest('section')?.id, p.textContent);
+            p.textContent = enConsent;
+          }
+        });
+
+        // Footer legal links
+        const footerEl = document.querySelector('footer');
+        if (footerEl) {
+          footerEl.querySelectorAll('a[href^="legal/"]').forEach(a => {
+            const t = a.textContent.trim();
+            if (enLegalLinks[t]) {
+              if (!ptOriginals.has('legalLink.' + t)) ptOriginals.set('legalLink.' + t, a.textContent);
+              a.textContent = enLegalLinks[t];
+            }
+          });
+          // Legal disclaimer
+          const discP = footerEl.querySelector('.border-t + .border-t p, .mt-8 p');
+          if (!discP) {
+            footerEl.querySelectorAll('p').forEach(p => {
+              if (p.textContent.includes('AIZEN TECNOLOGIA')) {
+                if (!ptOriginals.has('legalDisclaimer')) ptOriginals.set('legalDisclaimer', p.textContent);
+                p.textContent = enLegalDisclaimer;
+              }
+            });
+          } else if (discP.textContent.includes('AIZEN TECNOLOGIA')) {
+            if (!ptOriginals.has('legalDisclaimer')) ptOriginals.set('legalDisclaimer', discP.textContent);
+            discP.textContent = enLegalDisclaimer;
+          }
+        }
+
         // Chat data
         chatData.length = 0;
         chatDataEN.forEach(c => chatData.push(JSON.parse(JSON.stringify(c))));
@@ -1830,6 +1962,77 @@
               if (span.textContent.includes('2026')) span.textContent = ptCopy;
             });
           }
+        }
+
+        // How it works badge + heading
+        const howSection = document.querySelector('#como-funciona');
+        if (howSection) {
+          const howBadge = howSection.querySelector('.inline-block');
+          const howH2 = howSection.querySelector('h2');
+          const howSub = howSection.querySelector('h2 + p');
+          if (howBadge && ptOriginals.has('how.badge')) howBadge.textContent = ptOriginals.get('how.badge');
+          if (howH2 && ptOriginals.has('how.h2')) howH2.textContent = ptOriginals.get('how.h2');
+          if (howSub && ptOriginals.has('how.sub')) howSub.textContent = ptOriginals.get('how.sub');
+        }
+
+        // Step 1 illustration chat
+        const stepCards = document.querySelectorAll('#como-funciona .grid > div');
+        if (stepCards[0]) {
+          const msgs = stepCards[0].querySelectorAll('.text-\\[11px\\].text-slate-800');
+          if (msgs[0] && ptOriginals.has('s1.user')) msgs[0].textContent = ptOriginals.get('s1.user');
+          if (msgs[1] && ptOriginals.has('s1.zen')) msgs[1].textContent = ptOriginals.get('s1.zen');
+        }
+        if (stepCards[1]) {
+          const addBank = stepCards[1].querySelector('.text-sm.text-slate-400.font-medium');
+          if (addBank && ptOriginals.has('s2.addBank')) addBank.textContent = ptOriginals.get('s2.addBank');
+          const trust = stepCards[1].querySelector('.text-emerald-600');
+          if (trust && ptOriginals.has('s2.trust')) trust.textContent = ptOriginals.get('s2.trust');
+        }
+        if (stepCards[2]) {
+          const notifTitles = stepCards[2].querySelectorAll('.text-\\[11px\\].text-slate-800.font-semibold');
+          const notifBodies = stepCards[2].querySelectorAll('.text-\\[10px\\].text-slate-400');
+          if (notifTitles[0] && ptOriginals.has('s3.n1.title')) notifTitles[0].textContent = ptOriginals.get('s3.n1.title');
+          if (notifBodies[0] && ptOriginals.has('s3.n1.body')) notifBodies[0].textContent = ptOriginals.get('s3.n1.body');
+          if (notifTitles[1] && ptOriginals.has('s3.n2.title')) notifTitles[1].textContent = ptOriginals.get('s3.n2.title');
+          if (notifBodies[1] && ptOriginals.has('s3.n2.body')) notifBodies[1].textContent = ptOriginals.get('s3.n2.body');
+          if (notifTitles[2] && ptOriginals.has('s3.n3.title')) notifTitles[2].textContent = ptOriginals.get('s3.n3.title');
+          if (notifBodies[2] && ptOriginals.has('s3.n3.body')) notifBodies[2].textContent = ptOriginals.get('s3.n3.body');
+          const summary = stepCards[2].querySelector('.text-emerald-700');
+          if (summary && ptOriginals.has('s3.summary')) summary.textContent = ptOriginals.get('s3.summary');
+        }
+
+        // Phone mockup disclaimer
+        document.querySelectorAll('p').forEach(p => {
+          if (p.textContent.trim() === enDisclaimer && ptOriginals.has('disclaimer')) p.textContent = ptOriginals.get('disclaimer');
+        });
+
+        // WhatsApp input placeholder
+        document.querySelectorAll('span').forEach(span => {
+          if (span.textContent.trim() === enMsgPlaceholder && ptOriginals.has('msgPlaceholder')) span.textContent = ptOriginals.get('msgPlaceholder');
+        });
+
+        // Form consent text
+        document.querySelectorAll('p').forEach(p => {
+          if (p.textContent.includes('By submitting, you agree')) {
+            const key = 'consent.' + p.closest('section')?.id;
+            if (ptOriginals.has(key)) p.textContent = ptOriginals.get(key);
+          }
+        });
+
+        // Footer legal links
+        const footerEl = document.querySelector('footer');
+        if (footerEl) {
+          footerEl.querySelectorAll('a[href^="legal/"]').forEach(a => {
+            const t = a.textContent.trim();
+            Object.entries(enLegalLinks).forEach(([pt, en]) => {
+              if (t === en && ptOriginals.has('legalLink.' + pt)) a.textContent = ptOriginals.get('legalLink.' + pt);
+            });
+          });
+          footerEl.querySelectorAll('p').forEach(p => {
+            if (p.textContent.includes('AIZEN TECNOLOGIA') && ptOriginals.has('legalDisclaimer')) {
+              p.textContent = ptOriginals.get('legalDisclaimer');
+            }
+          });
         }
 
         // Chat data
