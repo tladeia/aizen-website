@@ -1450,9 +1450,9 @@
 
     // How it works steps
     const enSteps = [
-      { badge: 'Step 1', title: 'Say Hi', body: 'Add Zen on WhatsApp and send the first message.' },
-      { badge: 'Step 2', title: 'Connect your banks', body: 'Authorize data reading via Open Finance. Secure and fast.' },
-      { badge: 'Step 3', title: 'Save every month', body: 'Receive savings alerts and pay less automatically.' },
+      { badge: 'Step 1', title: 'Say Hi', body: 'Add Zen on WhatsApp and send a message. No downloading apps, no creating accounts, no filling out forms. Like you do with any friend.' },
+      { badge: 'Step 2', title: 'Connect your banks', body: 'Authorize data reading via Open Finance, regulated by the Central Bank. Zen never moves your money. Read-only. As secure as your banking app.' },
+      { badge: 'Step 3', title: 'Save every month', body: "Done. From now on, your agents work 24/7 finding where you're losing money and how to pay less. Everything arrives right on your WhatsApp." },
     ];
 
     // Bottom CTA
@@ -1741,7 +1741,7 @@
           if (!enSteps[i]) return;
           const badge = step.querySelector('.tracking-widest');
           const title = step.querySelector('h3');
-          const body = step.querySelector('p');
+          const body = step.querySelector(':scope > p');
           if (badge) badge.textContent = enSteps[i].badge;
           if (title) title.textContent = enSteps[i].title;
           if (body) body.textContent = enSteps[i].body;
@@ -1909,7 +1909,7 @@
         steps.forEach((step, i) => {
           const badge = step.querySelector('.tracking-widest');
           const title = step.querySelector('h3');
-          const body = step.querySelector('p');
+          const body = step.querySelector(':scope > p');
           if (badge) badge.textContent = ptOriginals.get('step.' + i + '.badge') || badge.textContent;
           if (title) title.textContent = ptOriginals.get('step.' + i + '.title') || title.textContent;
           if (body) body.textContent = ptOriginals.get('step.' + i + '.body') || body.textContent;
