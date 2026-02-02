@@ -930,7 +930,7 @@
 
         <div class="flex flex-col gap-3">
           <span class="text-xs font-bold uppercase tracking-widest text-white mb-2" data-i18n="footer.sec2">Legal</span>
-          <a href="legal/politica-privacidade.pdf" target="_blank" class="text-white/50 hover:text-white text-sm transition-colors">Política de Privacidade</a>
+          <a href="legal/politica-privacidade.html" target="_blank" class="text-white/50 hover:text-white text-sm transition-colors">Política de Privacidade</a>
           <a href="legal/politica-retencao-dados.pdf" target="_blank" class="text-white/50 hover:text-white text-sm transition-colors">Retenção e Descarte de Dados</a>
           <a href="legal/politica-reporte-incidentes.pdf" target="_blank" class="text-white/50 hover:text-white text-sm transition-colors">Reporte de Incidentes</a>
         </div>
@@ -1357,11 +1357,6 @@
       ['section:has(img[alt="Zen Panda"]) h2', 'html', 'Zen works for you.<br><span class="text-aizen-charcoal/50">(Not for the banks.)</span>'],
       ['section:has(img[alt="Zen Panda"]) h2 + p', 'text', "Banks profit from your confusion. The less you understand, the more you pay in interest, fees, and products you don't need. Zen is on your side. Always finding ways for you to pay less and save more."],
 
-      // How it works
-      ['#como-funciona .inline-block', 'text', 'How it works'],
-      ['#como-funciona h2', 'html', "That's it:"],
-      ['#como-funciona h2 + p', 'text', '2 minutes to activate. Savings for life.'],
-
       // FAQ
       ['#faq .inline-block', 'text', 'FAQ'],
       ['#faq h2', 'html', 'Frequently<br>asked questions'],
@@ -1546,11 +1541,22 @@
       steps.forEach((step, i) => {
         const badge = step.querySelector('.tracking-widest');
         const title = step.querySelector('h3');
-        const body = step.querySelector('p');
+        const body = step.querySelector(':scope > p');
         if (badge) ptOriginals.set('step.' + i + '.badge', badge.textContent);
         if (title) ptOriginals.set('step.' + i + '.title', title.textContent);
         if (body) ptOriginals.set('step.' + i + '.body', body.textContent);
       });
+
+      // Save how-it-works heading originals
+      const howSection = document.querySelector('#como-funciona');
+      if (howSection) {
+        const howBadge = howSection.querySelector('.inline-block');
+        const howH2 = howSection.querySelector('h2');
+        const howSub = howSection.querySelector('h2 + p');
+        if (howBadge) ptOriginals.set('how.badge', howBadge.textContent);
+        if (howH2) ptOriginals.set('how.h2', howH2.textContent);
+        if (howSub) ptOriginals.set('how.sub', howSub.textContent);
+      }
 
       // Save positioning stats
       const statLabels = document.querySelectorAll('section:has(img[alt="Zen Panda"]) .tracking-wide, section:has(img[alt="Zen Panda"]) .uppercase.text-aizen-charcoal\\/60');
@@ -1763,9 +1769,9 @@
           const howBadge = howSection.querySelector('.inline-block');
           const howH2 = howSection.querySelector('h2');
           const howSub = howSection.querySelector('h2 + p');
-          if (howBadge) { if (!ptOriginals.has('how.badge')) ptOriginals.set('how.badge', howBadge.textContent); howBadge.textContent = enHow.badge; }
-          if (howH2) { if (!ptOriginals.has('how.h2')) ptOriginals.set('how.h2', howH2.textContent); howH2.textContent = enHow.h2; }
-          if (howSub) { if (!ptOriginals.has('how.sub')) ptOriginals.set('how.sub', howSub.textContent); howSub.textContent = enHow.sub; }
+          if (howBadge) howBadge.textContent = enHow.badge;
+          if (howH2) howH2.textContent = enHow.h2;
+          if (howSub) howSub.textContent = enHow.sub;
         }
 
         // Step illustrations - translate all hardcoded PT text inside mockups
