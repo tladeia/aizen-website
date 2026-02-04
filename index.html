@@ -175,7 +175,7 @@
   <section class="min-h-screen overflow-hidden w-full relative" id="hero">
     <div class="grid lg:grid-cols-2 min-h-screen w-full h-full">
       <!-- Left: Typography -->
-      <div class="flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-20 order-1 lg:order-1 z-10">
+      <div class="flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-8 lg:pb-20 order-1 lg:order-1 z-10">
         <div class="max-w-xl">
           <h1 class="font-semibold text-[12vw] sm:text-[11vw] md:text-[8vw] lg:text-[6vw] leading-[0.85] tracking-tighter text-slate-900 mb-8 md:mb-10">
             <div class="overflow-hidden pb-2">
@@ -223,8 +223,8 @@
         </div>
       </div>
 
-      <!-- Right: Phone Mockup (hidden on mobile, visible from lg up) -->
-      <div class="hidden lg:flex relative lg:h-full w-full order-2 lg:order-2 overflow-hidden items-center justify-center">
+      <!-- Right: Phone Mockup -->
+      <div class="flex relative lg:h-full w-full order-2 lg:order-2 overflow-hidden items-center justify-center pb-12 lg:pb-0">
         <!-- Animated Gradient Blobs -->
         <div class="absolute inset-0">
           <div class="absolute w-[500px] h-[500px] rounded-full opacity-50 blur-[80px] animate-blob-1" style="background: radial-gradient(circle, #E0E0E0 0%, transparent 70%); top: -10%; right: -10%;"></div>
@@ -236,7 +236,7 @@
 
         <!-- Phone + Disclaimer -->
         <div class="relative z-10 flex flex-col items-center">
-        <div class="hero-card opacity-0 translate-y-10 phone-frame w-[190px] sm:w-[250px] md:w-[340px] lg:w-[380px] h-[380px] sm:h-[500px] md:h-[680px] lg:h-[760px] rounded-[28px] sm:rounded-[38px] md:rounded-[52px] lg:rounded-[56px] p-1 sm:p-1.5 md:p-2">
+        <div class="hero-card opacity-0 translate-y-10 phone-frame w-[190px] sm:w-[250px] md:w-[340px] lg:w-[360px] h-[380px] sm:h-[500px] md:h-[680px] lg:h-[720px] rounded-[28px] sm:rounded-[38px] md:rounded-[52px] lg:rounded-[56px] p-1 sm:p-1.5 md:p-2">
           <div class="w-full h-full bg-[#ECE5DD] rounded-[30px] sm:rounded-[38px] md:rounded-[46px] lg:rounded-[50px] overflow-hidden flex flex-col relative">
             <!-- iPhone Status Bar -->
             <div class="bg-[#F0F2F5] pt-3 pb-1 px-5 flex justify-between items-center text-black text-[10px] font-semibold z-10 relative">
@@ -1224,6 +1224,7 @@
 
     const chatContainer = document.getElementById('chat-messages');
     let currentChat = 0;
+    var chatAnimationTimeouts = [];
 
     function createBubble(msg) {
       if (msg.sender === 'user') {
@@ -1252,6 +1253,12 @@
       return div;
     }
 
+    function trackTimeout(fn, ms) {
+      const id = setTimeout(fn, ms);
+      chatAnimationTimeouts.push(id);
+      return id;
+    }
+
     function animateChat() {
       const conv = chatData[currentChat];
       chatContainer.innerHTML = '';
@@ -1265,7 +1272,7 @@
         if (isZen && isSticker) {
           const stickerDelay = delay;
           delay += 1200;
-          setTimeout(() => {
+          trackTimeout(() => {
             const bubble = createBubble(msg);
             chatContainer.appendChild(bubble);
             chatContainer.parentElement.scrollTop = chatContainer.parentElement.scrollHeight;
@@ -1278,11 +1285,11 @@
         } else if (isZen) {
           const typingDelay = delay;
           delay += 2800;
-          setTimeout(() => {
+          trackTimeout(() => {
             const typing = createTypingIndicator();
             chatContainer.appendChild(typing);
             chatContainer.parentElement.scrollTop = chatContainer.parentElement.scrollHeight;
-            setTimeout(() => {
+            trackTimeout(() => {
               typing.remove();
               const bubble = createBubble(msg);
               chatContainer.appendChild(bubble);
@@ -1297,7 +1304,7 @@
         } else {
           const msgDelay = delay;
           delay += 1400;
-          setTimeout(() => {
+          trackTimeout(() => {
             const bubble = createBubble(msg);
             chatContainer.appendChild(bubble);
             chatContainer.parentElement.scrollTop = chatContainer.parentElement.scrollHeight;
@@ -1312,13 +1319,15 @@
       // Calculate total animation time and schedule next conversation
       const totalTime = delay + 4000;
       currentChat = (currentChat + 1) % chatData.length;
-      chatTimeoutId = setTimeout(animateChat, totalTime);
+      chatTimeoutId = trackTimeout(animateChat, totalTime);
     }
 
     var chatTimeoutId = null;
 
     function restartChat() {
-      if (chatTimeoutId) clearTimeout(chatTimeoutId);
+      chatAnimationTimeouts.forEach(id => clearTimeout(id));
+      chatAnimationTimeouts.length = 0;
+      chatTimeoutId = null;
       currentChat = 0;
       animateChat();
     }
@@ -1481,7 +1490,7 @@
 
     // Store originals
     const ptOriginals = new Map();
-    let currentLang = localStorage.getItem('zenLang') || 'pt';
+    let currentLang = 'pt';
     let chatDataPT = null;
 
     function initI18n() {
@@ -1586,8 +1595,6 @@
         if (copy && copy.textContent.includes('2026')) ptOriginals.set('footer.copy', copy.textContent);
       }
 
-      // Apply saved language preference
-      if (currentLang === 'en') switchLang('en');
     }
 
     // PT originals for illustration text (keyed by identifier)
@@ -1649,7 +1656,6 @@
 
     function switchLang(lang) {
       currentLang = lang;
-      localStorage.setItem('zenLang', lang);
 
       if (lang === 'en') {
         // Selector-based elements
