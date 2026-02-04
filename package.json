@@ -1,0 +1,29 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "validate": "node validate.mjs",
+    "qa:browser": "node qa-browser.mjs",
+    "qa": "node validate.mjs && node qa-browser.mjs",
+    "serve": "python -m http.server 8765"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tladeia/aizen-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tladeia/aizen-website/issues"
+  },
+  "homepage": "https://github.com/tladeia/aizen-website#readme",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "playwright": "^1.58.1",
+    "zod": "^4.3.6"
+  }
+}

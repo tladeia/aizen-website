@@ -1047,7 +1047,7 @@
 
     // Forms (i18n-aware)
     function getFormSuccessHTML() {
-      if (localStorage.getItem('zenLang') === 'en') {
+      if (currentLang === 'en') {
         return `
           <div class="text-center py-4">
             <p class="text-lg font-semibold text-aizen-blue mb-2">✓ Done!</p>
