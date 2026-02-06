@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte de Incidentes - Aizen</title>
+  <meta name="description" content="Política de Reporte e Gestão de Incidentes de Segurança da Aizen Tecnologia Ltda. Procedimentos para identificação e resposta a incidentes.">
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/logomark-blue.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F4F4F4;
+      color: #374151;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: #191919;
+      padding: 1.25rem 0;
+    }
+
+    header .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    header a:hover { opacity: 1; }
+
+    .logo {
+      height: 28px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    article {
+      background: #fff;
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    @media (max-width: 640px) {
+      article { padding: 1.5rem; border-radius: 8px; }
+      main { padding: 1.5rem 1rem 2rem; }
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #191919;
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .last-updated {
+      font-size: 0.875rem;
+      color: #9CA3AF;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #191919;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #F3F4F6;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 0.9375rem;
+    }
+
+    strong {
+      color: #191919;
+      font-weight: 600;
+    }
+
+    a {
+      color: #2678FF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.8125rem;
+      color: #9CA3AF;
+    }
+
+    footer a {
+      color: #6B7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="../assets/logos/logo-white.svg" alt="Aizen" class="logo">
+      <a href="/">&larr; Voltar ao site</a>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <h1>Pol&iacute;tica de Reporte e Gest&atilde;o de Incidentes de Seguran&ccedil;a da Informa&ccedil;&atilde;o</h1>
+      <p class="last-updated">&Uacute;ltima atualiza&ccedil;&atilde;o: fevereiro de 2026</p>
+      <h2>Objetivo e Escopo</h2>
+      <p>A presente Pol&iacute;tica de Reporte e Gest&atilde;o de Incidentes de Seguran&ccedil;a da Informa&ccedil;&atilde;o estabelece diretrizes, procedimentos e responsabilidades para identifica&ccedil;&atilde;o, comunica&ccedil;&atilde;o, investiga&ccedil;&atilde;o, conten&ccedil;&atilde;o e resposta a incidentes de seguran&ccedil;a que possam afetar a confidencialidade, integridade, disponibilidade ou privacidade de dados pessoais tratados pela Aizen Tecnologia Ltda., sociedade empres&aacute;ria limitada, inscrita no CNPJ sob o n&ordm; 63.740.359/0001-15, com sede na Rua Henri Dunant, 792, Santo Amaro, S&atilde;o Paulo/SP, CEP 04709-110 (&quot;Aizen&quot;), em cumprimento ao disposto no artigo 48 da Lei n&ordm; 13.709/2018 (Lei Geral de Prote&ccedil;&atilde;o de Dados Pessoais), na Resolu&ccedil;&atilde;o CD/ANPD n&ordm; 15/2024, nas melhores pr&aacute;ticas de seguran&ccedil;a da informa&ccedil;&atilde;o e em observ&acirc;ncia aos requisitos de seguran&ccedil;a cibern&eacute;tica aplic&aacute;veis por for&ccedil;a de suas parcerias com institui&ccedil;&otilde;es reguladas pelo Banco Central do Brasil, nos termos da Resolu&ccedil;&atilde;o BCB n&ordm; 85/2021.</p>
+      <p>Esta pol&iacute;tica aplica-se a todos os colaboradores, prestadores de servi&ccedil;o, parceiros e terceiros que, em raz&atilde;o de suas atividades, tenham acesso a sistemas, dados ou informa&ccedil;&otilde;es da Aizen, estabelecendo procedimentos uniformes para tratamento de eventos que comprometam ou possam comprometer a seguran&ccedil;a da informa&ccedil;&atilde;o e a prote&ccedil;&atilde;o de dados pessoais de usu&aacute;rios da plataforma.</p>
+      <h2>Defini&ccedil;&otilde;es</h2>
+      <p>Para fins desta pol&iacute;tica, considera-se incidente de seguran&ccedil;a da informa&ccedil;&atilde;o qualquer evento confirmado ou suspeito que resulte em acesso n&atilde;o autorizado, altera&ccedil;&atilde;o indevida, destrui&ccedil;&atilde;o, perda, vazamento, divulga&ccedil;&atilde;o n&atilde;o autorizada ou qualquer outra forma de tratamento inadequado de dados pessoais ou informa&ccedil;&otilde;es sens&iacute;veis da Aizen, incluindo comprometimento de sistemas, infraestrutura tecnol&oacute;gica, redes ou processos que possam afetar a seguran&ccedil;a de dados.</p>
+      <p>Incidente de seguran&ccedil;a envolvendo dados pessoais, para efeitos da LGPD, caracteriza-se quando h&aacute; comprometimento da seguran&ccedil;a que possa acarretar risco ou dano relevante aos titulares de dados, especialmente situa&ccedil;&otilde;es que envolvam acesso n&atilde;o autorizado a dados financeiros, credenciais de acesso, informa&ccedil;&otilde;es banc&aacute;rias ou qualquer dado que, se exposto, possa resultar em preju&iacute;zos financeiros, discrimina&ccedil;&atilde;o, danos &agrave; reputa&ccedil;&atilde;o ou outros impactos adversos significativos.</p>
+      <p>Vulnerabilidade consiste em fragilidade ou falha em sistema, processo, controle de seguran&ccedil;a ou infraestrutura que possa ser explorada para causar incidente de seguran&ccedil;a, mesmo que ainda n&atilde;o tenha resultado em comprometimento efetivo de dados.</p>
+      <p>Alta Administra&ccedil;&atilde;o, para fins desta pol&iacute;tica, compreende os s&oacute;cios-administradores da Aizen, conforme designados no Contrato Social vigente.</p>
+      <h2>Classifica&ccedil;&atilde;o de Incidentes</h2>
+      <p>Os incidentes de seguran&ccedil;a s&atilde;o classificados em n&iacute;veis de severidade conforme o impacto potencial ou confirmado sobre dados pessoais, sistemas, opera&ccedil;&otilde;es e titulares de dados, determinando os procedimentos de resposta e o n&iacute;vel de escala&ccedil;&atilde;o apropriados.</p>
+      <p><strong>Severidade Cr&iacute;tica.</strong> Incidentes que envolvem acesso n&atilde;o autorizado, vazamento, perda ou exposi&ccedil;&atilde;o de grande volume de dados pessoais, especialmente dados financeiros ou banc&aacute;rios de usu&aacute;rios, comprometimento de sistemas essenciais da plataforma que impe&ccedil;am ou limitem significativamente a presta&ccedil;&atilde;o de servi&ccedil;os, ou qualquer situa&ccedil;&atilde;o que apresente alto risco de dano relevante aos titulares. No contexto da Aizen, incluem-se: exposi&ccedil;&atilde;o de dados obtidos via Open Finance, comprometimento de credenciais banc&aacute;rias de usu&aacute;rios, vazamento de conversas do assistente WhatsApp contendo dados financeiros, ou comprometimento de chaves de API de institui&ccedil;&otilde;es financeiras parceiras. Esses incidentes exigem resposta sem demora injustificada, comunica&ccedil;&atilde;o &agrave; Alta Administra&ccedil;&atilde;o e poss&iacute;vel notifica&ccedil;&atilde;o &agrave; ANPD, ao BACEN e aos titulares afetados.</p>
+      <p><strong>Severidade Alta.</strong> Incidentes que envolvem acesso n&atilde;o autorizado a dados pessoais de n&uacute;mero limitado de usu&aacute;rios, comprometimento de sistemas n&atilde;o essenciais, tentativas confirmadas de invas&atilde;o ou ataque que tenham sido parcialmente bem-sucedidas, ou vulnerabilidades cr&iacute;ticas descobertas que apresentem risco iminente mas ainda n&atilde;o explorado. No contexto da Aizen, incluem-se: acesso indevido a dados de Open Finance de n&uacute;mero limitado de usu&aacute;rios, comprometimento de credenciais internas de acesso a plataformas de parceiros, ou identifica&ccedil;&atilde;o de vulnerabilidade em endpoints da API que permita extra&ccedil;&atilde;o de dados. Requerem investiga&ccedil;&atilde;o priorit&aacute;ria e comunica&ccedil;&atilde;o &agrave; Alta Administra&ccedil;&atilde;o e ao Encarregado de Prote&ccedil;&atilde;o de Dados.</p>
+      <p><strong>Severidade M&eacute;dia.</strong> Incidentes que incluem tentativas fracassadas de acesso n&atilde;o autorizado, identifica&ccedil;&atilde;o de vulnerabilidades moderadas, comprometimento de dados n&atilde;o sens&iacute;veis ou internos que n&atilde;o afetem diretamente usu&aacute;rios, indisponibilidade tempor&aacute;ria de funcionalidades n&atilde;o cr&iacute;ticas ou eventos que n&atilde;o apresentem risco relevante aos titulares mas demandem corre&ccedil;&atilde;o. Devem ser documentados, investigados e tratados conforme cronograma definido pela equipe de seguran&ccedil;a.</p>
+      <p><strong>Severidade Baixa.</strong> Eventos de seguran&ccedil;a com impacto m&iacute;nimo ou inexistente, como tentativas de phishing bloqueadas automaticamente, varreduras de porta ou tentativas de acesso claramente automatizadas e sem sucesso, ou identifica&ccedil;&atilde;o de vulnerabilidades menores sem explora&ccedil;&atilde;o conhecida. S&atilde;o registrados para fins estat&iacute;sticos e monitoramento de tend&ecirc;ncias.</p>
+      <h2>Identifica&ccedil;&atilde;o e Reporte Interno</h2>
+      <p>Qualquer pessoa que identifique ou suspeite de incidente de seguran&ccedil;a da informa&ccedil;&atilde;o possui o dever de report&aacute;-lo imediatamente, independentemente de sua posi&ccedil;&atilde;o hier&aacute;rquica, fun&ccedil;&atilde;o ou v&iacute;nculo com a Aizen. O reporte tempestivo constitui responsabilidade fundamental de todos que acessam sistemas ou dados da empresa, sendo a demora na comunica&ccedil;&atilde;o considerada infra&ccedil;&atilde;o disciplinar grave quando resultar em agravamento do incidente ou impedimento de medidas de conten&ccedil;&atilde;o eficazes.</p>
+      <p>O reporte de incidentes deve ser realizado por meio dos seguintes canais:</p>
+      <p>Canal prim&aacute;rio: endere&ccedil;o eletr&ocirc;nico <a href="mailto:dpo@aizen.io">dpo@aizen.io</a>, dispon&iacute;vel permanentemente para recebimento de comunica&ccedil;&otilde;es relacionadas a incidentes de qualquer severidade.</p>
+      <p>Canal complementar: endere&ccedil;o eletr&ocirc;nico <a href="mailto:suporte@aizen.io">suporte@aizen.io</a>, monitorado pela equipe t&eacute;cnica, para reporte simult&acirc;neo que garanta redund&acirc;ncia na recep&ccedil;&atilde;o de comunica&ccedil;&otilde;es.</p>
+      <p>Canal de emerg&ecirc;ncia (severidade cr&iacute;tica e alta): contato telef&ocirc;nico direto com a Alta Administra&ccedil;&atilde;o pelos n&uacute;meros informados no onboarding de cada colaborador ou prestador de servi&ccedil;o, para acionamento fora do hor&aacute;rio comercial.</p>
+      <p>Todos os reportes devem ser enviados simultaneamente ao canal prim&aacute;rio (<a href="mailto:dpo@aizen.io">dpo@aizen.io</a>) e ao canal complementar (<a href="mailto:suporte@aizen.io">suporte@aizen.io</a>). Para incidentes de severidade cr&iacute;tica ou alta identificados fora do hor&aacute;rio comercial, o canal de emerg&ecirc;ncia deve ser utilizado adicionalmente, sem preju&iacute;zo do envio por correio eletr&ocirc;nico.</p>
+      <p>A comunica&ccedil;&atilde;o de incidente deve conter, sempre que poss&iacute;vel e conforme informa&ccedil;&otilde;es dispon&iacute;veis no momento do reporte, descri&ccedil;&atilde;o detalhada do evento observado ou suspeito, data e hor&aacute;rio aproximados de ocorr&ecirc;ncia ou identifica&ccedil;&atilde;o, sistemas, dados ou informa&ccedil;&otilde;es potencialmente afetados, evid&ecirc;ncias dispon&iacute;veis (logs, capturas de tela, mensagens suspeitas) e quaisquer medidas preliminares j&aacute; adotadas para conten&ccedil;&atilde;o ou preserva&ccedil;&atilde;o de evid&ecirc;ncias.</p>
+      <p>A Aizen garante prote&ccedil;&atilde;o contra retalia&ccedil;&atilde;o a qualquer pessoa que, de boa-f&eacute;, reporte incidente de seguran&ccedil;a, mesmo que a investiga&ccedil;&atilde;o posterior conclua pela inexist&ecirc;ncia de incidente real ou que o evento tenha decorrido de erro n&atilde;o intencional do pr&oacute;prio reportante.</p>
+      <p>Terceiros, prestadores de servi&ccedil;o e parceiros que tratem dados pessoais em nome da Aizen ou que tenham acesso a sistemas ou informa&ccedil;&otilde;es da empresa devem comunicar &agrave; Aizen qualquer incidente de seguran&ccedil;a ou suspeita de incidente sem demora injustificada, por meio dos endere&ccedil;os eletr&ocirc;nicos <a href="mailto:dpo@aizen.io">dpo@aizen.io</a> e <a href="mailto:suporte@aizen.io">suporte@aizen.io</a>. As obriga&ccedil;&otilde;es de reporte por terceiros devem constar expressamente nos contratos e termos de presta&ccedil;&atilde;o de servi&ccedil;o celebrados com a Aizen.</p>
+      <h2>Resposta e Investiga&ccedil;&atilde;o de Incidentes</h2>
+      <p>Ao receber comunica&ccedil;&atilde;o de incidente, o Encarregado de Prote&ccedil;&atilde;o de Dados realiza avalia&ccedil;&atilde;o preliminar para classificar a severidade, determinar a necessidade de acionamento da equipe de resposta a incidentes e definir o n&iacute;vel de escala&ccedil;&atilde;o apropriado. A resposta deve ser iniciada sem demora injustificada, priorizando a conten&ccedil;&atilde;o do incidente e a preserva&ccedil;&atilde;o de evid&ecirc;ncias.</p>
+      <p>A equipe de resposta a incidentes &eacute; coordenada pelo Encarregado de Prote&ccedil;&atilde;o de Dados e composta pelos membros da Alta Administra&ccedil;&atilde;o e pelos profissionais de tecnologia da informa&ccedil;&atilde;o dispon&iacute;veis, podendo ser complementada por consultores externos especializados conforme a complexidade do incidente. A equipe conduz investiga&ccedil;&atilde;o t&eacute;cnica para determinar a extens&atilde;o do comprometimento, identificar dados ou sistemas afetados, compreender o vetor de ataque ou causa raiz, identificar vulnerabilidades exploradas e avaliar riscos aos titulares de dados. A investiga&ccedil;&atilde;o segue metodologia estruturada que preserva evid&ecirc;ncias, documenta todas as descobertas e mant&eacute;m cadeia de cust&oacute;dia adequada para eventual utiliza&ccedil;&atilde;o em processos administrativos ou judiciais.</p>
+      <p>Simultaneamente &agrave; investiga&ccedil;&atilde;o, s&atilde;o implementadas medidas imediatas de conten&ccedil;&atilde;o destinadas a interromper o incidente em curso, prevenir propaga&ccedil;&atilde;o para outros sistemas ou dados, proteger evid&ecirc;ncias contra destrui&ccedil;&atilde;o ou adultera&ccedil;&atilde;o e mitigar riscos aos titulares. Medidas de conten&ccedil;&atilde;o podem incluir isolamento de sistemas comprometidos, bloqueio de contas de usu&aacute;rio suspeitas, revoga&ccedil;&atilde;o de credenciais de acesso, revoga&ccedil;&atilde;o de tokens e chaves de API comprometidas, desativa&ccedil;&atilde;o tempor&aacute;ria de funcionalidades ou servi&ccedil;os afetados e outras a&ccedil;&otilde;es tecnicamente apropriadas conforme natureza do incidente.</p>
+      <p>Ap&oacute;s conten&ccedil;&atilde;o do incidente, procede-se &agrave; erradica&ccedil;&atilde;o da causa raiz, eliminando malware, fechando vulnerabilidades exploradas, revogando acessos indevidos e implementando corre&ccedil;&otilde;es necess&aacute;rias para prevenir recorr&ecirc;ncia. A fase de recupera&ccedil;&atilde;o restabelece sistemas e servi&ccedil;os ao estado normal de opera&ccedil;&atilde;o, restaura dados de backups quando necess&aacute;rio, valida integridade de sistemas recuperados e monitora atividades para garantir que o incidente foi completamente eliminado.</p>
+      <h2>Comunica&ccedil;&atilde;o Externa e Notifica&ccedil;&otilde;es</h2>
+      <p><strong>Notifica&ccedil;&atilde;o &agrave; ANPD.</strong> Incidentes de seguran&ccedil;a que acarretem risco ou dano relevante aos titulares de dados pessoais exigem comunica&ccedil;&atilde;o &agrave; Autoridade Nacional de Prote&ccedil;&atilde;o de Dados no prazo de 3 (tr&ecirc;s) dias &uacute;teis contados do conhecimento pelo controlador de que o incidente afetou dados pessoais, conforme o artigo 48 da LGPD e a Resolu&ccedil;&atilde;o CD/ANPD n&ordm; 15/2024. A decis&atilde;o sobre necessidade de comunica&ccedil;&atilde;o &agrave; ANPD compete ao Encarregado de Prote&ccedil;&atilde;o de Dados, com suporte jur&iacute;dico e t&eacute;cnico, baseando-se em avalia&ccedil;&atilde;o criteriosa do risco ou dano potencial aos titulares, considerando volume de dados afetados, sensibilidade das informa&ccedil;&otilde;es comprometidas, probabilidade de uso indevido dos dados, efic&aacute;cia de medidas de seguran&ccedil;a implementadas (como criptografia forte) e outros fatores relevantes.</p>
+      <p>A comunica&ccedil;&atilde;o &agrave; ANPD cont&eacute;m, no m&iacute;nimo, descri&ccedil;&atilde;o da natureza dos dados pessoais afetados, informa&ccedil;&otilde;es sobre os titulares envolvidos (quantidade e categorias de titulares, sem identifica&ccedil;&atilde;o individual), indica&ccedil;&atilde;o das medidas t&eacute;cnicas e de seguran&ccedil;a utilizadas para prote&ccedil;&atilde;o dos dados, descri&ccedil;&atilde;o dos riscos relacionados ao incidente, motiva&ccedil;&atilde;o da eventual demora na comunica&ccedil;&atilde;o caso n&atilde;o tenha sido poss&iacute;vel comunicar imediatamente, e descri&ccedil;&atilde;o detalhada das medidas adotadas para reverter ou mitigar efeitos do preju&iacute;zo.</p>
+      <p><strong>Notifica&ccedil;&atilde;o ao BACEN.</strong> Para incidentes que afetem dados ou opera&ccedil;&otilde;es vinculadas a servi&ccedil;os regulados pelo Banco Central do Brasil, incluindo opera&ccedil;&otilde;es realizadas no &acirc;mbito de correspondente banc&aacute;rio ou de participante do ecossistema de Open Finance, a Aizen observar&aacute; adicionalmente os prazos e requisitos de comunica&ccedil;&atilde;o estabelecidos pela Resolu&ccedil;&atilde;o BCB n&ordm; 85/2021 e demais normas aplic&aacute;veis, notificando a institui&ccedil;&atilde;o financeira parceira e, quando cab&iacute;vel, o pr&oacute;prio BACEN, nos prazos regulamentares.</p>
+      <p><strong>Notifica&ccedil;&atilde;o ao COAF.</strong> Incidentes que envolvam ind&iacute;cios de lavagem de dinheiro, financiamento do terrorismo ou outras atividades il&iacute;citas que configurem obriga&ccedil;&atilde;o de comunica&ccedil;&atilde;o ao Conselho de Controle de Atividades Financeiras devem ser reportados nos prazos e formas previstos na legisla&ccedil;&atilde;o de preven&ccedil;&atilde;o &agrave; lavagem de dinheiro, independentemente das notifica&ccedil;&otilde;es &agrave; ANPD e ao BACEN.</p>
+      <p><strong>Comunica&ccedil;&atilde;o aos titulares.</strong> Paralelamente &agrave; comunica&ccedil;&atilde;o &agrave; ANPD, quando aplic&aacute;vel, a Aizen comunica diretamente os titulares afetados pelo incidente, no prazo de 3 (tr&ecirc;s) dias &uacute;teis contados do conhecimento do incidente, informando-os em linguagem clara e acess&iacute;vel sobre a natureza do incidente, os dados potencialmente comprometidos, as medidas que a Aizen est&aacute; adotando para remediar a situa&ccedil;&atilde;o, as recomenda&ccedil;&otilde;es sobre a&ccedil;&otilde;es que os titulares podem tomar para se proteger contra eventuais consequ&ecirc;ncias adversas (como altera&ccedil;&atilde;o de senhas, monitoramento de extratos banc&aacute;rios, ativa&ccedil;&atilde;o de alertas de cr&eacute;dito) e os canais de contato dispon&iacute;veis para esclarecimentos adicionais.</p>
+      <p>A comunica&ccedil;&atilde;o aos titulares &eacute; realizada por meio dos canais de contato cadastrados (preferencialmente correio eletr&ocirc;nico e notifica&ccedil;&atilde;o dentro da plataforma), sendo priorizadas formas diretas e pessoais de comunica&ccedil;&atilde;o. Em situa&ccedil;&otilde;es excepcionais onde comunica&ccedil;&atilde;o individual seja imposs&iacute;vel ou exija esfor&ccedil;os desproporcionais, a comunica&ccedil;&atilde;o pode ser realizada por meio p&uacute;blico de informa&ccedil;&atilde;o equivalente, como publica&ccedil;&atilde;o em website com ampla divulga&ccedil;&atilde;o.</p>
+      <p><strong>Notifica&ccedil;&atilde;o a parceiros comerciais.</strong> Quando o incidente afetar dados, sistemas ou integra&ccedil;&otilde;es vinculados a institui&ccedil;&otilde;es financeiras parceiras, correspondentes banc&aacute;rios, provedores de Open Finance ou outros parceiros comerciais que tratem dados em conjunto com a Aizen, a empresa notificar&aacute; o parceiro afetado sem demora injustificada. A notifica&ccedil;&atilde;o ao parceiro deve conter informa&ccedil;&otilde;es suficientes para que este avalie seus pr&oacute;prios riscos e cumpra suas obriga&ccedil;&otilde;es regulat&oacute;rias perante o BACEN, a ANPD e demais autoridades competentes. As obriga&ccedil;&otilde;es rec&iacute;procas de notifica&ccedil;&atilde;o entre Aizen e seus parceiros devem constar nos respectivos contratos de parceria e acordos de tratamento de dados.</p>
+      <h2>Documenta&ccedil;&atilde;o e Registro</h2>
+      <p>Todos os incidentes de seguran&ccedil;a, independentemente de severidade, s&atilde;o registrados em sistema mantido pela Aizen que preserva hist&oacute;rico completo e rastre&aacute;vel de eventos, investiga&ccedil;&otilde;es, medidas adotadas e li&ccedil;&otilde;es aprendidas. O registro pode ser realizado por meio de ferramenta de gest&atilde;o de projetos, planilha estruturada ou outro sistema que garanta integridade, rastreabilidade e controle de acesso adequados.</p>
+      <p>Para cada incidente, a documenta&ccedil;&atilde;o inclui identifica&ccedil;&atilde;o &uacute;nica do incidente, data e hor&aacute;rio de ocorr&ecirc;ncia e de identifica&ccedil;&atilde;o, classifica&ccedil;&atilde;o de severidade, descri&ccedil;&atilde;o detalhada do evento, sistemas e dados afetados, cronologia de a&ccedil;&otilde;es tomadas desde a identifica&ccedil;&atilde;o at&eacute; a resolu&ccedil;&atilde;o completa, evid&ecirc;ncias coletadas e preservadas, an&aacute;lise de causa raiz, impacto estimado aos titulares e &agrave; organiza&ccedil;&atilde;o, comunica&ccedil;&otilde;es realizadas (internas e externas), medidas corretivas implementadas e recomenda&ccedil;&otilde;es para preven&ccedil;&atilde;o de incidentes similares.</p>
+      <p>Os registros de incidentes s&atilde;o preservados pelo prazo m&iacute;nimo de 5 (cinco) anos, podendo ser mantidos por per&iacute;odo superior quando necess&aacute;rio para cumprimento de obriga&ccedil;&otilde;es regulat&oacute;rias espec&iacute;ficas ou defesa de direitos em processos judiciais ou administrativos. O acesso aos registros &eacute; restrito ao Encarregado de Prote&ccedil;&atilde;o de Dados, Alta Administra&ccedil;&atilde;o e auditores devidamente autorizados.</p>
+      <h2>An&aacute;lise P&oacute;s-Incidente e Melhoria Cont&iacute;nua</h2>
+      <p>Ap&oacute;s resolu&ccedil;&atilde;o de cada incidente classificado como m&eacute;dio, alto ou cr&iacute;tico, a equipe de resposta conduz an&aacute;lise p&oacute;s-incidente destinada a revisar a efic&aacute;cia da resposta, identificar falhas ou lacunas em processos, controles ou treinamentos, documentar li&ccedil;&otilde;es aprendidas e propor melhorias nos procedimentos de seguran&ccedil;a, preven&ccedil;&atilde;o ou resposta a incidentes.</p>
+      <p>As recomenda&ccedil;&otilde;es resultantes da an&aacute;lise p&oacute;s-incidente s&atilde;o formalizadas em plano de a&ccedil;&atilde;o com respons&aacute;veis designados e prazos definidos. A implementa&ccedil;&atilde;o de melhorias identificadas possui prioridade elevada no planejamento de seguran&ccedil;a da informa&ccedil;&atilde;o, sendo monitorada pelo Encarregado de Prote&ccedil;&atilde;o de Dados e pela Alta Administra&ccedil;&atilde;o.</p>
+      <p>Periodicamente, o Encarregado de Prote&ccedil;&atilde;o de Dados apresenta &agrave; Alta Administra&ccedil;&atilde;o relat&oacute;rio consolidado de incidentes de seguran&ccedil;a, incluindo estat&iacute;sticas por severidade, an&aacute;lise de tend&ecirc;ncias e recomenda&ccedil;&otilde;es para fortalecimento da postura de seguran&ccedil;a organizacional.</p>
+      <p>Incidentes classificados como de severidade cr&iacute;tica ou alta ensejam revis&atilde;o e atualiza&ccedil;&atilde;o do Relat&oacute;rio de Impacto &agrave; Prote&ccedil;&atilde;o de Dados Pessoais (RIPD) da Aizen, conforme previsto no artigo 38 da LGPD. O RIPD atualizado ficar&aacute; &agrave; disposi&ccedil;&atilde;o da ANPD em caso de solicita&ccedil;&atilde;o.</p>
+      <h2>Treinamento e Conscientiza&ccedil;&atilde;o</h2>
+      <p>A Aizen conduz programa de treinamento e conscientiza&ccedil;&atilde;o sobre seguran&ccedil;a da informa&ccedil;&atilde;o e prote&ccedil;&atilde;o de dados dirigido a todos os colaboradores, incluindo m&oacute;dulo espec&iacute;fico sobre identifica&ccedil;&atilde;o e reporte de incidentes de seguran&ccedil;a. O treinamento cobre tipologia de incidentes mais comuns (phishing, malware, acesso n&atilde;o autorizado, vazamentos acidentais), sinais de alerta que podem indicar comprometimento de seguran&ccedil;a, procedimentos corretos de reporte e responsabilidades individuais na prote&ccedil;&atilde;o de dados.</p>
+      <p>Novos colaboradores recebem treinamento sobre esta pol&iacute;tica como parte do processo de integra&ccedil;&atilde;o, antes de receberem acessos a sistemas ou dados sens&iacute;veis. Reciclagens peri&oacute;dicas s&atilde;o realizadas para toda a organiza&ccedil;&atilde;o, sendo atualizadas conforme evolu&ccedil;&atilde;o de amea&ccedil;as, ocorr&ecirc;ncia de incidentes relevantes ou altera&ccedil;&otilde;es nos procedimentos de resposta.</p>
+      <h2>Responsabilidades</h2>
+      <p><strong>Encarregado de Prote&ccedil;&atilde;o de Dados.</strong> Respons&aacute;vel pela coordena&ccedil;&atilde;o geral do processo de gest&atilde;o de incidentes, incluindo classifica&ccedil;&atilde;o de severidade, acionamento da equipe de resposta, supervis&atilde;o de investiga&ccedil;&otilde;es, decis&atilde;o sobre comunica&ccedil;&otilde;es externas &agrave; ANPD e titulares, manuten&ccedil;&atilde;o de registros de incidentes e reporte &agrave; Alta Administra&ccedil;&atilde;o. Atua como ponto focal para comunica&ccedil;&otilde;es relacionadas a incidentes.</p>
+      <p><strong>Equipe de tecnologia da informa&ccedil;&atilde;o e seguran&ccedil;a da informa&ccedil;&atilde;o.</strong> Respons&aacute;vel pela resposta t&eacute;cnica a incidentes, incluindo investiga&ccedil;&atilde;o forense, implementa&ccedil;&atilde;o de medidas de conten&ccedil;&atilde;o e erradica&ccedil;&atilde;o, recupera&ccedil;&atilde;o de sistemas, corre&ccedil;&atilde;o de vulnerabilidades e implementa&ccedil;&atilde;o de melhorias t&eacute;cnicas recomendadas.</p>
+      <p><strong>Alta Administra&ccedil;&atilde;o.</strong> Respons&aacute;vel por prover recursos adequados para implementa&ccedil;&atilde;o desta pol&iacute;tica, aprovar decis&otilde;es estrat&eacute;gicas relacionadas a incidentes de alto impacto e garantir cultura organizacional que valorize seguran&ccedil;a da informa&ccedil;&atilde;o e reporte transparente de incidentes.</p>
+      <p>Todos os colaboradores e prestadores de servi&ccedil;o s&atilde;o respons&aacute;veis por conhecer esta pol&iacute;tica, reportar prontamente incidentes identificados e cooperar com investiga&ccedil;&otilde;es quando solicitados.</p>
+      <h2>Encarregado de Prote&ccedil;&atilde;o de Dados</h2>
+      <p>As fun&ccedil;&otilde;es de Encarregado de Prote&ccedil;&atilde;o de Dados previstas nesta pol&iacute;tica s&atilde;o exercidas por Bonuz Advogados, na qualidade de prestador de servi&ccedil;os jur&iacute;dicos especializados em prote&ccedil;&atilde;o de dados e privacidade, contratado pela Aizen para atuar como Encarregado externo nos termos do artigo 41 da LGPD.</p>
+      <p>A equipe de resposta a incidentes descrita nesta pol&iacute;tica ser&aacute; composta pelos membros dispon&iacute;veis da organiza&ccedil;&atilde;o, com suporte do Encarregado externo, podendo ser complementada por consultores especializados conforme a complexidade do incidente. A Aizen compromete-se a estruturar equipe dedicada de seguran&ccedil;a da informa&ccedil;&atilde;o conforme o crescimento de suas opera&ccedil;&otilde;es.</p>
+      <h2>Disposi&ccedil;&otilde;es Finais</h2>
+      <p>Esta pol&iacute;tica &eacute; revisada anualmente ou sempre que mudan&ccedil;as significativas na regulamenta&ccedil;&atilde;o, infraestrutura tecnol&oacute;gica, modelo de neg&oacute;cio ou ambiente de amea&ccedil;as justifiquem atualiza&ccedil;&atilde;o. Altera&ccedil;&otilde;es substanciais s&atilde;o comunicadas a todos os colaboradores e terceiros relevantes.</p>
+      <p>O descumprimento desta pol&iacute;tica constitui infra&ccedil;&atilde;o disciplinar sujeita a medidas que podem incluir advert&ecirc;ncia, suspens&atilde;o, rescis&atilde;o contratual ou revoga&ccedil;&atilde;o de acessos, conforme gravidade da infra&ccedil;&atilde;o, sem preju&iacute;zo a eventuais responsabilidades civis e criminais decorrentes de condutas il&iacute;citas. A recusa intencional em reportar incidente ou a tentativa de oculta&ccedil;&atilde;o s&atilde;o consideradas infra&ccedil;&otilde;es de m&aacute;xima gravidade.</p>
+      <p>Esta pol&iacute;tica deve ser interpretada em conjunto com a Pol&iacute;tica de Privacidade e Prote&ccedil;&atilde;o de Dados Pessoais, a Pol&iacute;tica de Seguran&ccedil;a da Informa&ccedil;&atilde;o e a Pol&iacute;tica de Reten&ccedil;&atilde;o e Descarte de Dados da Aizen, prevalecendo as disposi&ccedil;&otilde;es mais restritivas em caso de diverg&ecirc;ncia.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Aizen Tecnologia Ltda. Todos os direitos reservados.</p>
+    <p style="margin-top: 0.5rem;"><a href="/">aizen.io</a></p>
+  </footer>
+</body>
+</html>
